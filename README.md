@@ -1,108 +1,212 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Foodie Favourites
 
-Welcome USER_NAME,
+[Click here to view the live site.]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Am I Responsive Image]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Contents
 
-## Gitpod Reminders
+- [Overview](#overview)
+- [User Experience (UX)](#user-experience)
+    - [Strategy Plane](#strategy-plane)
+    - [Scope Plane](#scope-plane)
+    - [Structure Plane](#structure-plane)
+    - [Skeleton Plane](#skeleton-plane)
+    - [Surface Plane](#surface-plane)
+- [Features](#features)
+    - [Existing Features](#existing-features)
+- [Testing](#testing)
+    - [User Stories Testing](#user-stories-testing)
+    - [Validator Testing](#validator-testing)
+    - [Performance Testing](#performance-testing)
+    - [Device and Browser Compatibility Testing](#device-and-browser-compatibility-testing)
+    - [Bugs](#bugs)
+- [Deployment](#deployment)
+- [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Online Resources](#online-resources)
+- [Credits](#credits)
+    - [Code](#code)
+    - [Media](#media)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Overview
 
-`python3 -m http.server`
+## User Experience
 
-A blue button should appear to click: _Make Public_,
+### Strategy Plane
 
-Another blue button should appear to click: _Open Browser_.
+#### Epics and User Stories
+  - __Epic 1: Admin Setup__
+      - As a Site Admin I can create, read, update and delete restaurant posts so that I can manage the site's content
+      - As a Site Admin I can approve or disapprove restaurant posts so that I can filter out any questionable posts
+      - As a Site Admin I can approve or disapprove comments on restaurant posts so that I can filter out any questionable comments
+      - As a Site Admin I can approve or disapprove suggested new locations so that I can filter out any questionable locations
+      - As a Site Admin I can approve or disapprove suggested new cuisines so that I can filter out any questionable cuisines
+      - As a Site Admin I can be notified when a post, location, cuisine or comment needs to be approved so that I do not need to keep checking the admin site for anything to be approved
+      - As a Site Admin I can be notified when a user has submitted the contact form so that I do not need to keep checking the admin site for any form submissions to read
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+  - __Epic 2: All User Functionality__
+      - As a Site User I can view a list of restaurant posts so that I can select one to view
+      - As a Site User I can view a paginated list of restaurant posts so that I can easily select a post to view
+      - As a Site User I can filter the available restaurant posts so that I can see posts which are more specified to my needs
+      - As a Site User I can search through the available restaurant posts using keywords so that I can see posts which are more specified to my needs
+      - As a Site User I can click on a restaurant post so that I can view the post in its entirety
+      - As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular
+      - As a Site User I can view comments on an individual restaurant post so that I can I can see what people have had to say about it
+      - As a Site User I can view registered users' profiles so that I can learn more about them
+      - As a Site User I can fill in a contact form so that I can get in contact with the site owners to ask any questions I might have
+      - As a Site User I can register for an account so that I can contibute to the site
 
-A blue button should appear to click: _Make Public_,
+  - __Epic 3: Registered User Functionality__
+      - As a Registered Site User I can leave comments on restaurant posts so that I can give my opinion on posts
+      - As a Registered Site User I can Favourite or Unfavourite restaurant posts so that I can keep track of restautant posts that I like
+      - As a Registered Site User I can request a new location to be added so that I can use it on future restaurant posts I make
+      - As a Registered Site User I can request a new cuisine to be added so that I can use it on future restaurant posts I make
+      - As a Registered Site User I can view my own profile so that I can see what restaurant posts I've posted or favourited
+      - As a Registered Site User I can edit my own profile so that I can choose what to share about myself with other users
 
-Another blue button should appear to click: _Open Browser_.
+### Scope Plane
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Structure Plane
 
-To log into the Heroku toolbelt CLI:
+### Skeleton Plane
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Wireframes
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+Wireframes were created for mobiles, tablets, and desktops using [Balsamiq](https://balsamiq.com/).
 
-------
+Here are links to each of them:
 
-## Release History
+- [Desktop - Home]()
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Surface Plane
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### Imagery
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+#### Colour Scheme
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![Website's Colours 1]()
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### Typography
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### Iconography
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+[Font Awesome](https://fontawesome.com/)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Features
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Existing Features
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Testing
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### User Stories Testing
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Validator Testing
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- __HTML__
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+  - [W3C Markup Validation Service.](https://validator.w3.org/)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- __CSS__
 
-------
+  - [W3C CSS Validation Service - Jigsaw.](https://jigsaw.w3.org/css-validator/)
 
-## FAQ about the uptime script
+- __JavaScript__
 
-**Why have you added this script?**
+  -  [JSHint.](https://jshint.com/)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- __Python__
 
-**How will this affect me?**
+  - [PEP8 linter](http://pep8online.com/)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Performance Testing
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+I audited the website for mobile and desktop using Google Chrome's lighthouse feature. All scores were high. It might only be examing the landing page and not the in-game page.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+The final lighthouse scores are as follows:
 
-**So….?**
+  - Mobile
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+  ![Mobile Lighthouse]()
 
-**Can I opt out?**
+  - Desktop
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+  ![Desktop Lighthouse]()
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+[WAVE Evaluation Tool](https://wave.webaim.org/)
 
-**Anything more?**
+### Device and Browser Compatibility Testing
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+To test the site's compatibility across a range of devices I used [Responsinator](https://www.responsinator.com/) and went through all of the user and owner goals on each device it includes in both portrait and landscape modes. The devices included are as follows:
 
----
+  - iPhone X
+  - Pixel 2
+  - iPhone 6-8
+  - iPhone 6-8 Large Version
+  - iPad
 
-Happy coding!
+Chrome Dev Tools was also used to check the site's compatibility across a range of other devices also in both portrait and landscape modes. These devices include:
+
+  - Ipad Pro
+  - Galaxy Fold (which has a very narrow viewport of only 280px in portrait mode)
+
+Actual mobile devices belonging to family and friends were also used for testing which includes the following:
+
+  - iPhone 7
+  - Pixel 4
+  - S10 Plus
+
+A desktop monitor was also used for testing with a couple of different resolutions to check that the site remains to look and act as expected on larger screens. The resolutions were: 1366 x 768 and 1920 x 1080.
+
+Google Chrome was the browser used for the majority of testing during the development process, but once development had neared an end some other browsers were used for testing to make sure the site had cross-browser compatibility. The full list of browsers used for testing are as follows:
+
+  - Chrome
+  - Internet Explorer 11
+  - Edge
+  - Firefox
+
+### Bugs
+
+#### Fixed Bugs
+
+#### Unfixed Bugs
+
+## Deployment
+
+[Here's a link to the live site.]()
+
+## Technologies Used
+
+### Languages
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Frameworks
+
+- [Django](https://www.djangoproject.com/)
+- [Bootstrap 5](https://getbootstrap.com/)
+
+### Online Resources
+
+- [Git](https://en.wikipedia.org/wiki/Git) - for version control.
+- [GitPod](https://www.gitpod.io/) - the online IDE (Integrated Development Environment) used for development.
+- [GitHub](https://github.com/) - used as an online code repository and for deployment.
+- [Google Fonts](https://fonts.google.com/) - for the fonts used throughout the site.
+- [Font Awesome](https://fontawesome.com/) - for the icons used throughout the site.
+- [Online Image Resizer](https://resizeimage.net/) - for resizing images to improve the site's performance.
+- [Eye Dropper](https://eyedropper.org/) - to find the hex code for the game images colour.
+- [Adobe's Colour Wheel](https://color.adobe.com/create/color-wheel) - to find the contrasting colours throughout the site.
+- [Colormind](http://colormind.io/) - used to obtain colour palette images.
+
+## Credits
+
+### Code
+
+- [YouTube](https://www.youtube.com/)
+- [Code Institute's Full Stack Developer Course](https://codeinstitute.net/)
+  - Course material and essentials walkthrough projects provided some ideas.
+
+### Media
