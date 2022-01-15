@@ -31,6 +31,8 @@
 
 ## Overview
 
+Foodie Favourites is a free to use website where food lovers - especially those who enjoy eating out - can share and discover their favourite restaurants and dishes. Once registered, users can create posts of their own favourite restaurants, and can comment, rate and favourite other peoples' restaurant posts.
+
 ## User Experience
 
 ### Strategy Plane
