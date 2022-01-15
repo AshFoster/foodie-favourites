@@ -40,7 +40,7 @@
       - As a Site Admin I can create, read, update and delete restaurant posts so that I can manage the site's content
       - As a Site Admin I can approve or disapprove restaurant posts so that I can filter out any questionable posts
       - As a Site Admin I can approve or disapprove comments on restaurant posts so that I can filter out any questionable comments
-      - As a Site Admin I can approve or disapprove suggested new locations so that I can filter out any questionable locations
+      - As a Site User I can start typing in a location which will have autocomplete suggestions so that I can more easily fill in the restaurants location field
       - As a Site Admin I can approve or disapprove suggested new cuisines so that I can filter out any questionable cuisines
       - As a Site Admin I can be notified when a post, location, cuisine or comment needs to be approved so that I do not need to keep checking the admin site for anything to be approved
       - As a Site Admin I can be notified when a user has submitted the contact form so that I do not need to keep checking the admin site for any form submissions to read
@@ -60,7 +60,7 @@
   - __Epic 3: Registered User Functionality__
       - As a Registered Site User I can leave comments on restaurant posts so that I can give my opinion on posts
       - As a Registered Site User I can Favourite or Unfavourite restaurant posts so that I can keep track of restautant posts that I like
-      - As a Registered Site User I can request a new location to be added so that I can use it on future restaurant posts I make
+      - As a Registered Site User I can reset my password so that I can still gain access to my account if I've forgotten the current one
       - As a Registered Site User I can request a new cuisine to be added so that I can use it on future restaurant posts I make
       - As a Registered Site User I can view my own profile so that I can see what restaurant posts I've posted or favourited
       - As a Registered Site User I can edit my own profile so that I can choose what to share about myself with other users
