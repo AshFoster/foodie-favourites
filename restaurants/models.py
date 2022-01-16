@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -53,7 +53,7 @@ class Restaurant(models.Model):
 class Comment(models.Model):
     restaurant = models.ForeignKey(
         Restaurant, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     email = models.EmailField()
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -67,8 +67,12 @@ class Comment(models.Model):
 
 
 class Dish(models.Model):
-    name = models.CharField(max_length=50)
-    cuisine = models.ForeignKey(
-        Cuisine, on_delete=models.CASCADE, related_name='cuisine_dish')
-    restaurant = models.ManyToManyField(
-        Restaurant, related_name='restaurant_dishes', blank=False)
+    restaurant = models.ForeignKey(
+        Restaurant, on_delete=models.CASCADE, related_name='dishes')
+    name = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
