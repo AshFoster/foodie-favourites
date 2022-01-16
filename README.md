@@ -42,7 +42,7 @@ Foodie Favourites is a free to use website where food lovers - especially those 
       - As a Site Admin I can create, read, update and delete restaurant posts so that I can manage the site's content
       - As a Site Admin I can approve or disapprove restaurant posts so that I can filter out any questionable posts
       - As a Site Admin I can approve or disapprove comments on restaurant posts so that I can filter out any questionable comments
-      - As a Site User I can start typing in a location which will have autocomplete suggestions so that I can more easily fill in the restaurants location field
+      - As a Site User I can start typing a location which will have autocomplete suggestions so that I can more easily fill in the restaurants location field
       - As a Site Admin I can approve or disapprove suggested new cuisines so that I can filter out any questionable cuisines
       - As a Site Admin I can be notified when a post, location, cuisine or comment needs to be approved so that I do not need to keep checking the admin site for anything to be approved
       - As a Site Admin I can be notified when a user has submitted the contact form so that I do not need to keep checking the admin site for any form submissions to read
