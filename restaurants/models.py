@@ -4,9 +4,6 @@ from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
-
 class Cuisine(models.Model):
     name = models.CharField(max_length=50)
     approved = models.BooleanField(default=False)
@@ -27,7 +24,6 @@ class Restaurant(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
-    status = models.IntegerField(choices=STATUS, default=0)
     rating = models.IntegerField(default=0)
     favourited = models.ManyToManyField(
         User, related_name='restaurant_favourited', blank=True)
