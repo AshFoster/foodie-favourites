@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Oswald:wght@300;500&display=swap');
+
+/* Variables for colours used throughout site*/
+:root {
+    --nav-bg-color: #212529;
+    --nav-text-color: #CACFD4;
+    --nav-text-hover-color: #FFFFFF;
+    --nav-side-bg-color: #464B4F;
+  }
+
+
+  /* Navbar */
+.navbar-custom .navbar-brand {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.navbar-custom .nav-link {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+    color: var(--nav-text-color) !important;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--nav-text-hover-color) !important;
+    font-weight: 500;
+}
+
+.navbar-custom-side {
+    background-color: var(--nav-side-bg-color);
+}
+
+
+/* Media queries */
+@media screen and (min-width: 368px) {
+    .navbar-custom .navbar-brand {
+        font-size: 3em !important;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
+    .navbar-custom {
+        line-height: 1;
+    }
+}
