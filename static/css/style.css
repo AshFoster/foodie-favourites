@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Oswald:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Oswald:wght@300;500&family=Lato:wght@300;400&display=swap');
 
 /* Variables for colours used throughout site*/
 :root {
@@ -22,11 +22,39 @@
 }
 
 .navbar-custom .nav-link:hover {
-    color: var(--nav-text-hover-color) !important;
     font-weight: 500;
+    color: var(--nav-text-hover-color) !important;
 }
 
 .navbar-custom-side {
+    background-color: var(--nav-side-bg-color);
+}
+
+
+/* Footer */
+footer {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: var(--nav-text-color) !important;
+}
+
+footer h3 {
+    font-weight: 400;
+}
+
+footer .vr {
+    padding: 0 !important;
+    border-left: 1.5px solid var(--nav-text-color);
+    width: 1.5px;
+}
+
+.social-links i {
+    font-size: 180%;
+    color: var(--nav-text-color) !important;
+    padding-right: 2vw;
+}
+
+.copyright {
     background-color: var(--nav-side-bg-color);
 }
 
