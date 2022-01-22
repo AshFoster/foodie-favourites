@@ -71,3 +71,13 @@ footer .vr {
         line-height: 1;
     }
 }
+
+@media screen and (min-width: 576px) {
+    #main-nav li {
+        border-right: 1px solid var(--nav-text-color);
+    }
+    
+    #main-nav li:nth-last-child(2) {
+        border-right: none;
+    }
+}
