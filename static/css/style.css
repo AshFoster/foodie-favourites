@@ -12,7 +12,7 @@
   /* General styles */
 body {
     background: url("../images//restaurant-1.jpg") no-repeat center center;
-    width: 100%;
+    max-width: 100%;
     background-size: cover;
 }
 
@@ -46,16 +46,30 @@ main {
     background-color: var(--nav-side-bg-color);
 }
 
+
+/* Home/Index page */
 .bg-home {
     background-color: none;
     color: var(--nav-text-color);
 }
 
-
-/* Home/Index page */
 .bg-home-join-in,
 .bg-home-welcome {
     background-color: var(--nav-bg-color);
+}
+
+.card-custom {
+    background-color: var(--nav-side-bg-color);
+    columns: var(--nav-text-color);
+    box-shadow: 0 6px 10px rgba(0,0,0,.8), 0 0 6px rgba(0,0,0,.5);
+}
+
+.link-custom {
+    color: var(--nav-text-color);
+}
+
+.link-custom:hover {
+    color: var(--nav-text-hover-color);
 }
 
 
@@ -107,6 +121,13 @@ footer .vr {
     
     #main-nav li:nth-last-child(2) {
         border-right: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .card-image {
+        height: 100%;
+        object-fit: cover;
     }
 }
 

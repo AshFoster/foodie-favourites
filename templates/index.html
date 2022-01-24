@@ -3,18 +3,60 @@
 {% block content %}
 
 <div class="container-fluid px-lg-5 mw-1400px">
-    <div class="row my-lg-4 mx-lg-5 py-lg-4 justify-content-evenly align-items-center rounded-3 bg-home">
+    <!-- Welcome message -->
+    <div class="row my-lg-5 mx-lg-5 py-lg-4 justify-content-evenly align-items-center rounded-3 bg-home">
         <div class="order-lg-2 col-7 col-sm-5 col-md-4 col-lg-3 my-3 mx-2 text-center rounded-3 bg-home-join-in">
             <p class="m-2">
                 <small>If you'd like to join in, please </small>
-                <a href="#">sign in</a>
+                <a href="#" class="link-custom">sign in</a>
                 <small> or </small>
-                <a href="#">register</a>.
+                <a href="#" class="link-custom">register</a>.
             </p>
         </div>
         <div class="order-lg-1 col-10 col-sm-8 col-lg-7 col-xl-6 col-xxl-5 mb-3 mb-lg-0 mx-2 py-4 text-center rounded-3 bg-home-welcome">
             <h2><strong>Welcome to Foodie Favourites!</strong></h2>
             <p class="w-75 m-auto">A place to share and discover your favourite restaurants and dishes.</p>
+        </div>
+    </div>
+    <!-- Recently added restaurants -->
+    <div class="row my-lg-4 mx-lg-5 py-lg-4 justify-content-evenly align-items-center rounded-3 bg-home">
+        <div class="col-10 mb-3 mb-lg-0 mx-2 py-4 text-center rounded-3 bg-home-welcome">
+            <h3>Recently added restaurants</h3>
+            <div class="row justify-content-evenly">
+                <div class="col-11 col-md-8 col-lg-6">
+                    <div class="card my-4 card-custom">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="../static/images/restaurant-2.jpg" class="img-fluid rounded card-image" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title">Restaurant Name</h4>
+                                    <p class="card-text">Author | Date</p>
+                                    <p class="card-text">Cuisine</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 col-md-8 col-lg-6">
+                    <div class="card my-4 card-custom">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="../static/images/restaurant-2.jpg" class="img-fluid rounded card-image" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title">Restaurant Name</h4>
+                                    <p class="card-text">Author | Date</p>
+                                    <p class="card-text">Cuisine</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="link-custom">Click here to see the full list of restaurants.</a>
         </div>
     </div>
 </div>
