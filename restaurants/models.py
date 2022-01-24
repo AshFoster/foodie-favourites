@@ -45,6 +45,13 @@ class Restaurant(models.Model):
     def number_of_favourites(self):
         return self.favourited.count()
 
+    def list_cuisines(self):
+        cuisine_list = ""
+        for cuisine in self.cuisine.all():
+            cuisine_list += str(cuisine) + ", "
+
+        return cuisine_list[:len(cuisine_list)-2]
+
 
 class Comment(models.Model):
     restaurant = models.ForeignKey(
