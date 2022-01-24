@@ -9,6 +9,22 @@
   }
 
 
+  /* General styles */
+body {
+    background: url("../images//restaurant-1.jpg") no-repeat center center;
+    width: 100%;
+    background-size: cover;
+}
+
+main {
+    font-family: 'Lato', sans-serif;
+}
+
+.mw-1400px {
+    max-width: 1400px;
+}
+
+
   /* Navbar */
 .navbar-custom .navbar-brand {
     font-family: 'Open Sans Condensed', sans-serif;
@@ -28,6 +44,18 @@
 
 .navbar-custom-side {
     background-color: var(--nav-side-bg-color);
+}
+
+.bg-home {
+    background-color: none;
+    color: var(--nav-text-color);
+}
+
+
+/* Home/Index page */
+.bg-home-join-in,
+.bg-home-welcome {
+    background-color: var(--nav-bg-color);
 }
 
 
@@ -79,5 +107,21 @@ footer .vr {
     
     #main-nav li:nth-last-child(2) {
         border-right: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .bg-home {
+        background-color: var(--nav-bg-color);
+    }
+
+    .bg-home-join-in {
+        background-color: var(--nav-side-bg-color);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .navbar-custom .navbar-brand {
+        font-size: 4em !important;
     }
 }
