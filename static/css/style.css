@@ -2,10 +2,9 @@
 
 /* Variables for colours used throughout site*/
 :root {
-    --nav-bg-color: #212529;
-    --nav-text-color: #CACFD4;
-    --nav-text-hover-color: #FFFFFF;
-    --nav-side-bg-color: #464B4F;
+    --custom-bg-color1: #464B4F;
+    --custom-text-color1: #CACFD4;
+    --custom-text-color2: #FFFFFF;
   }
 
 
@@ -44,50 +43,46 @@ main {
 
 
   /* Navbar */
+
 .navbar-custom .navbar-brand {
     font-family: 'Open Sans Condensed', sans-serif;
+    color: var(--custom-text-color2) !important;
 }
 
 .navbar-custom .nav-link {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 1.2em;
-    color: var(--nav-text-color) !important;
+    color: var(--custom-text-color1) !important;
 }
 
 .navbar-custom .nav-link:hover {
     font-weight: 500;
-    color: var(--nav-text-hover-color) !important;
+    color: var(--custom-text-color2) !important;
 }
 
 .navbar-custom-side {
-    background-color: var(--nav-side-bg-color);
+    background-color: var(--custom-bg-color1);
 }
 
 
 /* Home/Index page */
-.bg-home {
-    background-color: none;
-    color: var(--nav-text-color);
-}
-
-.bg-home-join-in,
-.bg-home-welcome {
-    background-color: var(--nav-bg-color);
+.home-bg-change {
+    color: var(--custom-text-color1);
 }
 
 .card-custom {
-    background-color: var(--nav-side-bg-color);
-    columns: var(--nav-text-color);
+    background-color: var(--custom-bg-color1);
+    columns: var(--custom-text-color1);
     box-shadow: 0 6px 10px rgba(0,0,0,.8), 0 0 6px rgba(0,0,0,.5);
 }
 
 .link-custom {
-    color: var(--nav-text-color);
+    color: var(--custom-text-color1);
 }
 
 .link-custom:hover {
-    color: var(--nav-text-hover-color);
+    color: var(--custom-text-color2);
 }
 
 
@@ -95,7 +90,7 @@ main {
 footer {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: var(--nav-text-color) !important;
+    color: var(--custom-text-color1) !important;
 }
 
 footer h3 {
@@ -104,18 +99,18 @@ footer h3 {
 
 footer .vr {
     padding: 0 !important;
-    border-left: 1.5px solid var(--nav-text-color);
+    border-left: 1.5px solid var(--custom-text-color1);
     width: 1.5px;
 }
 
 .social-links i {
     font-size: 180%;
-    color: var(--nav-text-color) !important;
+    color: var(--custom-text-color1) !important;
     padding-right: 2vw;
 }
 
 .copyright {
-    background-color: var(--nav-side-bg-color);
+    background-color: var(--custom-bg-color1);
 }
 
 
@@ -134,7 +129,7 @@ footer .vr {
 
 @media screen and (min-width: 576px) {
     #main-nav li {
-        border-right: 1px solid var(--nav-text-color);
+        border-right: 1px solid var(--custom-text-color1);
     }
     
     #main-nav li:nth-last-child(2) {
@@ -149,13 +144,15 @@ footer .vr {
     }
 }
 
-@media screen and (min-width: 992px) {
-    .bg-home {
-        background-color: var(--nav-bg-color);
+@media screen and (max-width: 992px) {
+    .home-bg-change {
+        background-color: transparent !important;
     }
+}
 
-    .bg-home-join-in {
-        background-color: var(--nav-side-bg-color);
+@media screen and (min-width: 992px) {
+    .home-join-in {
+        background-color: var(--custom-bg-color1) !important;
     }
 }
 
