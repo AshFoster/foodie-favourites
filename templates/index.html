@@ -30,11 +30,11 @@
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <a href="#">
-                                    {% if "placeholder" in restaurant.featured_image.url %}
+                                    {% if "default" in restaurant.image.url %}
                                     <img src="../static/images/default-restaurant.jpg" class="img-fluid rounded card-image"
                                         alt="Default image for restaurants posts">
                                     {% else %}
-                                    <img class="img-fluid rounded card-image" src="{{ restaurant.featured_image.url }}"
+                                    <img class="img-fluid rounded card-image" src="{{ restaurant.image.url }}"
                                         alt="Uploaded image for restaurant's post">
                                     {% endif %}
                                 </a>

@@ -23,7 +23,7 @@ class Restaurant(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
-    featured_image = CloudinaryField('image', default='placeholder')
+    image = CloudinaryField('image', default='default')
     rating = models.IntegerField(default=0)
     favourited = models.ManyToManyField(
         User, related_name='restaurant_favourited', blank=True)
