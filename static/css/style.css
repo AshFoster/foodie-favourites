@@ -11,13 +11,31 @@
 
   /* General styles */
 body {
-    background: url("../images//restaurant-1.jpg") no-repeat center center;
-    max-width: 100%;
-    background-size: cover;
+    position: relative;
 }
 
 main {
     font-family: 'Lato', sans-serif;
+}
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    max-width: 100%;
+}
+
+.bg-img-home {
+    background: url("../images//restaurant-1.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.bg-img-restaurant {
+    background: url("../images//restaurant-2.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .mw-1400px {
