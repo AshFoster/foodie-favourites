@@ -2,9 +2,10 @@
 
 /* Variables for colours used throughout site*/
 :root {
-    --custom-bg-color1: #464B4F;
-    --custom-text-color1: #CACFD4;
-    --custom-text-color2: #FFFFFF;
+    --bs-dark: #212529;
+    --custom-color-lighter-dark: #464B4F;
+    --custom-color-light: #CACFD4;
+    --custom-color-white: #FFFFFF;
   }
 
 
@@ -41,48 +42,48 @@ main {
     max-width: 1400px;
 }
 
+.text-light-custom {
+    color: var(--custom-color-light);
+}
+
 
   /* Navbar */
-
 .navbar-custom .navbar-brand {
     font-family: 'Open Sans Condensed', sans-serif;
-    color: var(--custom-text-color2) !important;
+    color: var(--custom-color-white) !important;
 }
 
 .navbar-custom .nav-link {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 1.2em;
-    color: var(--custom-text-color1) !important;
+    color: var(--custom-color-light) !important;
+
 }
 
 .navbar-custom .nav-link:hover {
     font-weight: 500;
-    color: var(--custom-text-color2) !important;
+    color: var(--custom-color-white) !important;
 }
 
 .navbar-custom-side {
-    background-color: var(--custom-bg-color1);
+    background-color: var(--custom-color-lighter-dark);
 }
 
 
 /* Home/Index page */
-.home-bg-change {
-    color: var(--custom-text-color1);
-}
-
 .card-custom {
-    background-color: var(--custom-bg-color1);
-    columns: var(--custom-text-color1);
+    background-color: var(--custom-color-lighter-dark);
+    columns: var(--custom-color-light);
     box-shadow: 0 6px 10px rgba(0,0,0,.8), 0 0 6px rgba(0,0,0,.5);
 }
 
 .link-custom {
-    color: var(--custom-text-color1);
+    color: var(--custom-color-light);
 }
 
 .link-custom:hover {
-    color: var(--custom-text-color2);
+    color: var(--custom-color-white);
 }
 
 
@@ -90,7 +91,7 @@ main {
 footer {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: var(--custom-text-color1) !important;
+    color: var(--custom-color-light) !important;
 }
 
 footer h3 {
@@ -99,18 +100,18 @@ footer h3 {
 
 footer .vr {
     padding: 0 !important;
-    border-left: 1.5px solid var(--custom-text-color1);
+    border-left: 1.5px solid var(--custom-color-light);
     width: 1.5px;
 }
 
 .social-links i {
     font-size: 180%;
-    color: var(--custom-text-color1) !important;
+    color: var(--custom-color-light) !important;
     padding-right: 2vw;
 }
 
 .copyright {
-    background-color: var(--custom-bg-color1);
+    background-color: var(--custom-color-lighter-dark);
 }
 
 
@@ -129,7 +130,7 @@ footer .vr {
 
 @media screen and (min-width: 576px) {
     #main-nav li {
-        border-right: 1px solid var(--custom-text-color1);
+        border-right: 1px solid var(--custom-color-light);
     }
     
     #main-nav li:nth-last-child(2) {
@@ -144,15 +145,12 @@ footer .vr {
     }
 }
 
-@media screen and (max-width: 992px) {
-    .home-bg-change {
-        background-color: transparent !important;
-    }
-}
-
 @media screen and (min-width: 992px) {
-    .home-join-in {
-        background-color: var(--custom-bg-color1) !important;
+    .bg-lg-dark-custom {
+        background-color: var(--bs-dark);
+    }
+    .bg-lg-lighter-dark-custom {
+        background-color: var(--custom-color-lighter-dark) !important;
     }
 }
 
