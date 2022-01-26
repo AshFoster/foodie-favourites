@@ -4,37 +4,50 @@
 
 <div class="bg-img bg-img-restaurant"></div>
 
-{% for restaurant in restaurant_list %}
-<div class="col-11 col-md-8 col-lg-6">
-    <div class="card my-4 card-custom">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <a href="#">
-                    {% if "default" in restaurant.image.url %}
-                    <img src="../static/images/default-restaurant.jpg" class="img-fluid rounded card-image"
-                        alt="Default image for restaurants posts">
-                    {% else %}
-                    <img class="img-fluid rounded card-image" src="{{ restaurant.image.url }}"
-                        alt="Uploaded image for restaurant's post">
-                    {% endif %}
-                </a>
+<div class="d-flex justify-content-center">
+    <div class="containter-fluid col-10 col-lg-8 col-xl-6 col-xxl-5 my-5 py-4 bg-dark rounded-3 box-shadow-custom">
+        <div class="row justify-content-center page-title">
+            <div class="col-8 col-sm-5 col-md-4 mb-1 p-2 text-light">
+                <h2 class="text-center m-1">Restaurants</h2>
+                <hr class="m-1">
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <a href="#" class="link-custom">
-                        <h4 class="card-title">{{ restaurant.name }}</h4>
-                    </a>
-                    <p class="card-text">
-                        Added by
-                        <a href="#" class="link-custom">{{ restaurant.author }}</a>
-                        on {{ restaurant.created_on }}
-                    </p>
-                    <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
+        </div>
+
+        {% for restaurant in restaurant_list %}
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="card my-4 card-custom box-shadow-custom text-center">
+                    <div class="row g-0">
+                        <div class="col-md-4 h-md-25vh">
+                            <a href="#">
+                                {% if "default" in restaurant.image.url %}
+                                <img src="../static/images/default-restaurant.jpg" class="img-fluid rounded card-image"
+                                    alt="Default image for restaurants posts">
+                                {% else %}
+                                <img class="img-fluid rounded card-image" src="{{ restaurant.image.url }}"
+                                    alt="Uploaded image for restaurant's post">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="card-body">
+                                <a href="#" class="link-custom">
+                                    <h4 class="card-title">{{ restaurant.name }}</h4>
+                                </a>
+                                <p class="card-text">
+                                    Added by
+                                    <a href="#" class="link-custom">{{ restaurant.author }}</a>
+                                    on {{ restaurant.created_on }}
+                                </p>
+                                <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
-{% endfor %}
 
 {% endblock %}

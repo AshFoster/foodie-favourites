@@ -6,10 +6,10 @@
     --custom-color-lighter-dark: #464B4F;
     --custom-color-light: #CACFD4;
     --custom-color-white: #FFFFFF;
-  }
+}
 
 
-  /* General styles */
+/* Element selectors */
 body {
     position: relative;
 }
@@ -18,6 +18,8 @@ main {
     font-family: 'Lato', sans-serif;
 }
 
+
+/* Background images for all pages*/
 .bg-img {
     position: absolute;
     top: 0;
@@ -38,16 +40,77 @@ main {
     background-size: cover;
 }
 
-.mw-1400px {
-    max-width: 1400px;
+
+/* Background colours and opacity */
+.bg-lighter-dark-custom {
+    background-color: var(--custom-color-lighter-dark);
 }
 
+.opacity-25-custom {
+    background-color: rgba(0, 0, 0, .25);
+}
+
+.opacity-50-custom {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.opacity-75-custom {
+    background-color: rgba(0, 0, 0, .75);
+}
+
+
+/* Text colours */
 .text-light-custom {
     color: var(--custom-color-light);
 }
 
 
-  /* Navbar */
+/* Widths */
+.mw-1400px {
+    max-width: 1400px;
+}
+
+
+/* Box shadows */
+.box-shadow-custom {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
+}
+
+/* Links */
+.link-custom {
+    color: var(--custom-color-light);
+}
+
+.link-custom:hover {
+    color: var(--custom-color-white);
+}
+
+
+/* ---------------------------------------------------- SPECIFIC PAGE STYLES */
+
+/* Home page and restaurant page */
+.card-custom {
+    background-color: var(--custom-color-lighter-dark);
+    color: var(--custom-color-light);
+}
+
+.page-title hr {
+    border: none;
+    height: 1px;
+    background-color: var(--custom-color-white);
+    opacity: 1;
+}
+
+.card-image {
+    width: 100%;
+    max-height: 25vh;
+    object-fit: cover;
+}
+
+
+/* ---------------------------------------------------- BASE.HTML styles */
+
+/* Navbar */
 .navbar-custom .navbar-brand {
     font-family: 'Open Sans Condensed', sans-serif;
     color: var(--custom-color-white) !important;
@@ -68,22 +131,6 @@ main {
 
 .navbar-custom-side {
     background-color: var(--custom-color-lighter-dark);
-}
-
-
-/* Home/Index page */
-.card-custom {
-    background-color: var(--custom-color-lighter-dark);
-    columns: var(--custom-color-light);
-    box-shadow: 0 6px 10px rgba(0,0,0,.8), 0 0 6px rgba(0,0,0,.5);
-}
-
-.link-custom {
-    color: var(--custom-color-light);
-}
-
-.link-custom:hover {
-    color: var(--custom-color-white);
 }
 
 
@@ -115,7 +162,7 @@ footer .vr {
 }
 
 
-/* Media queries */
+/* ---------------------------------------------------- MEDIA QUERIES */
 @media screen and (min-width: 368px) {
     .navbar-custom .navbar-brand {
         font-size: 3em !important;
@@ -132,16 +179,19 @@ footer .vr {
     #main-nav li {
         border-right: 1px solid var(--custom-color-light);
     }
-    
+
     #main-nav li:nth-last-child(2) {
         border-right: none;
     }
 }
 
 @media screen and (min-width: 768px) {
+    .h-md-25vh {
+        height: 25vh;
+    }
+
     .card-image {
         height: 100%;
-        object-fit: cover;
     }
 }
 
@@ -149,6 +199,7 @@ footer .vr {
     .bg-lg-dark-custom {
         background-color: var(--bs-dark);
     }
+
     .bg-lg-lighter-dark-custom {
         background-color: var(--custom-color-lighter-dark) !important;
     }

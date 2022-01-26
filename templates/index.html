@@ -22,13 +22,13 @@
         </div>
     </div>
     <!-- Recently added restaurants -->
-    <div class="row my-lg-4 mx-lg-5 py-lg-4 justify-content-evenly align-items-center rounded-3 bg-lg-dark-custom text-light-custom">
+    <div class="row my-lg-5 mx-lg-5 py-lg-4 justify-content-evenly align-items-center rounded-3 bg-lg-dark-custom text-light-custom">
         <div class="col-10 mb-3 mb-lg-0 mx-2 py-4 text-center rounded-3 bg-dark">
             <h3>Recently added restaurants</h3>
             <div class="row justify-content-evenly">
                 {% for restaurant in restaurant_list %}
                 <div class="col-11 col-md-8 col-lg-6">
-                    <div class="card my-4 card-custom">
+                    <div class="card my-4 card-custom box-shadow-custom">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <a href="#">
@@ -59,7 +59,7 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href="#" class="link-custom">Click here to see the full list of restaurants.</a>
+            <a href="{% url 'restaurants' %}" class="link-custom">Click here to see the full list of restaurants.</a>
         </div>
     </div>
 </div>
