@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, View
 from django.db.models import Count
 from .models import Cuisine, Restaurant, Comment, Dish
 
@@ -29,3 +29,18 @@ class RestaurantList(generic.ListView):
         context['cuisine_list'] = cuisine_with_restaurant_count
         context['range'] = range(5)
         return context
+
+
+class RestaurantDetail(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Restaurant.objects.filter(approved=True)
+        restaurant = get_object_or_404(queryset, slug=slug)
+        
+        return render(
+            request,
+            "restaurant_detail.html",
+            {
+                "restaurant": restaurant,
+            },
+        )
