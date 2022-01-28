@@ -132,6 +132,11 @@ main {
     right: 10px;
 }
 
+.favourites-rating {
+    position: absolute;
+    bottom: 0;
+}
+
 
 /* ---------------------------------------------------- BASE.HTML styles */
 
@@ -192,6 +197,14 @@ footer .vr {
     .fs-small-custom button {
         font-size: .8em !important;
     }
+
+    .favourties-rating,
+    .favourties-span,
+    .rating-span {
+        display: block !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    } 
 }
 
 @media screen and (min-width: 368px) {

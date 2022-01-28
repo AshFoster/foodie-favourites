@@ -47,12 +47,19 @@
                                     <a href="#" class="link-custom">
                                         <h4 class="card-title">{{ restaurant.name }}</h4>
                                     </a>
-                                    <p class="card-text">
+                                    <p class="card-text my-">
                                         Added by
                                         <a href="#" class="link-custom">{{ restaurant.author }}</a>
                                         on {{ restaurant.created_on }}
                                     </p>
                                     <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
+                                    <p class="text-muted d-flex justify-content-between mt-3 mb-0 favourties-rating">
+                                        <span class="favourties-span ms-3 ms-sm-5"><i class="far fa-heart"></i>
+                                            {{ restaurant.number_of_favourites }}</span>
+                                        <span class="rating-span me-3 me-sm-5"><i class="fas fa-star"></i><i
+                                                class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                class="fas fa-star"></i><i class="fas fa-star"></i> </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -64,10 +71,14 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center my-2">
                     {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom">&laquo; PREV </a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}"
+                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom">&laquo; PREV </a>
+                    </li>
                     {% endif %}
                     {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom"> NEXT &raquo;</a></li>
+                    <li><a href="?page={{ page_obj.next_page_number }}"
+                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom"> NEXT &raquo;</a>
+                    </li>
                     {% endif %}
                 </ul>
             </nav>
