@@ -27,4 +27,5 @@ class RestaurantList(generic.ListView):
 
         context['cuisine_count'] = cuisine_counter
         context['cuisine_list'] = cuisine_with_restaurant_count
+        context['range'] = range(5)
         return context
