@@ -250,7 +250,7 @@ footer .vr {
         border-right: 1px solid var(--custom-color-light);
     }
 
-    #main-nav li:nth-last-child(2) {
+    #main-nav li:nth-last-child(3) {
         border-right: none;
     }
 

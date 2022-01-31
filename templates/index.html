@@ -9,15 +9,25 @@
     <div class="row my-lg-5 mx-lg-5 py-lg-4 justify-content-evenly align-items-center rounded-3 bg-lg-dark-custom text-light-custom">
         <div class="order-lg-2 col-7 col-sm-5 col-md-4 col-lg-3 my-3 mx-2 text-center rounded-3 bg-dark bg-lg-lighter-dark-custom">
             <p class="m-2">
+                {% if user.is_authenticated %}
+                <small>Click </small>
+                <a href="{% url 'restaurants' %}" class="link-custom">here</a>
+                <small> to see the current list of restaurants. </small>
+                {% else %}
                 <small>If you'd like to join in, please </small>
                 <a href="#" class="link-custom">sign in</a>
                 <small> or </small>
                 <a href="#" class="link-custom">register</a>.
+                {% endif %}
             </p>
         </div>
         <div
             class="order-lg-1 col-10 col-sm-8 col-lg-7 col-xl-6 col-xxl-5 mb-3 mb-lg-0 mx-2 py-4 text-center rounded-3 bg-dark">
+            {% if user.is_authenticated %}
+            <h2><strong>Welcome, </strong>{{ request.user.username }}</h2>
+            {% else %}
             <h2><strong>Welcome to Foodie Favourites!</strong></h2>
+            {% endif %}
             <p class="w-75 m-auto">A place to share and discover your favourite restaurants and dishes.</p>
         </div>
     </div>

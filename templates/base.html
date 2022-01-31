@@ -40,15 +40,36 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Contact</a>
                             </li>
+                            {% if user.is_authenticated %}
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="#">Sign in / Register</a>
+                                <a class="nav-link" href="#">Profile</a>
                             </li>
+                            <li class="nav-item d-sm-none">
+                                <a class="nav-link" href="#">Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item d-sm-none">
+                                <a class="nav-link" href="#">Sign in</a>
+                            </li>
+                            <li class="nav-item d-sm-none">
+                                <a class="nav-link" href="#">Register</a>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </nav>
             </div>
             <div class="col-sm-2 col-lg-1 p-lg-0 d-none d-sm-flex justify-content-center align-items-center navbar-custom navbar-custom-side">
                 <ul class="navbar-nav text-center">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link lh-1" href="#">Profile</a>
+                    </li>
+                    <hr class="m-1 text-light">
+                    <li class="nav-item">
+                        <a class="nav-link lh-1" href="#">Logout</a>
+                    </li>
+                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link lh-1" href="#">Sign in</a>
                     </li>
@@ -56,6 +77,7 @@
                     <li class="nav-item">
                         <a class="nav-link lh-1" href="#">Register</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -64,7 +86,6 @@
     <!-- Main section for all inheriting templates -->
     <main>
         {% block content %}
-        <!-- Content Goes here -->
         {% endblock content %}
     </main>
 
