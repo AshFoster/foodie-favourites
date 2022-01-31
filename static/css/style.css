@@ -141,8 +141,12 @@ main {
     right: 10px;
 }
 
+.favourite-dishes ul {
+    list-style-type: none;
+}
+
 .comments-border {
-    border-top: 1px solid rgba(255,255,255,.25);
+    border-top: 1px solid rgba(255, 255, 255, .25);
 }
 
 
@@ -205,19 +209,17 @@ footer .vr {
     .fs-small-custom button {
         font-size: .8em !important;
     }
-
-    .favourties-rating,
-    .favourties-span,
-    .rating-span {
-        display: block !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    } 
 }
 
 @media screen and (min-width: 368px) {
     .navbar-custom .navbar-brand {
         font-size: 3em !important;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .favourites-rating {
+        max-width: 132px !important;
     }
 }
 
@@ -230,6 +232,10 @@ footer .vr {
         top: 4px !important;
         right: 0;
         left: 0;
+    }
+
+    #comment-submit {
+        width: 70%;
     }
 }
 
@@ -261,7 +267,18 @@ footer .vr {
 
     .comments-border {
         border-top: none;
-        border-left: 1px solid rgba(255,255,255,.25);
+        border-left: 1px solid rgba(255, 255, 255, .25);
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .favourites-rating,
+    .favourites-span,
+    .rating-span {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
 

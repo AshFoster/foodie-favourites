@@ -33,11 +33,11 @@
                                 <p class="card-text lead mt-2">{{ restaurant.description }}</p>
                             </div>
                             <hr>
-                            <div class="row justify-content-evenly">
+                            <div class="row justify-content-evenly favourite-dishes">
                                 <div
                                     class="col-10 col-sm-5 mb-3 mb-sm-0 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-                                    <h5>Favourite Dishes</h5>
-                                    <ul class="">
+                                    <h5 class="my-2">Favourite Dishes:</h5>
+                                    <ul class="p-0">
                                         <li>Monkey</li>
                                         <li>Treasure lengs</li>
                                         <li>Boss bootles</li>
@@ -45,20 +45,22 @@
                                 </div>
                                 <div
                                     class="col-10 col-sm-5 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-                                    <h5>Other User's Favourties</h5>
-                                    <ul class="">
+                                    <h5 class="my-2">Other User's Favourites:</h5>
+                                    <ul class="p-0">
                                         <li>Monkey</li>
                                         <li>Treasure lengs</li>
                                         <li>Boss bootles</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="text-muted d-flex justify-content-between mt-3 mb-0 favourties-rating">
-                                <span class="favourties-span ms-3 ms-sm-5">
-                                    <i class="far fa-heart"></i>
+                            <div class="d-flex text-light-custom justify-content-lg-between mt-3 mb-0 favourites-rating">
+                                <span class="favourites-span my-2 ms-3 ms-sm-5">
+                                    Times Favourited:
+                                    <i class="far fa-heart text-muted"></i>
                                     {{ restaurant.number_of_favourites }}
                                 </span>
-                                <span class="rating-span me-3 me-sm-5">
+                                <span class="rating-span my-2 me-3 me-sm-5">
+                                    Author's Rating:
                                     {% for i in range %}
                                     {% if restaurant.rating > i %}
                                     <i class="fas fa-star"></i>
@@ -81,9 +83,11 @@
                                 <div class="row g-0">
                                     <div class="col-10 mx-auto py-2 px-4 bg-lighter-dark rounded-3 box-shadow-custom">
                                         <form class="row justify-content-center" action="post">
-                                            <input type="text" name="" id="" class="col-12 col-xl-9 my-1 me-xl-3 rounded-3"
+                                            <input type="input" name="" id=""
+                                                class="col-12 col-xl-9 my-1 me-xl-3 rounded-3"
                                                 placeholder="Leave a comment...">
-                                            <input type="submit" value="Submit" class="col-4 col-lg-3 col-xl-2 my-1 rounded-3">
+                                            <input type="submit" id="comment-submit" value="Submit"
+                                                class="col-4 col-lg-3 col-xl-2 my-1 rounded-3">
                                         </form>
                                     </div>
                                 </div>
@@ -99,7 +103,8 @@
                                 </p>
                             </div>
                             <div class="col-md-8 p-2 comments-border">
-                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem
+                                    ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
                                     sed.</p>
                             </div>
                         </div>
@@ -112,7 +117,8 @@
                                 </p>
                             </div>
                             <div class="col-md-8 p-2 comments-border">
-                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem
+                                    ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
                                     sed.</p>
                             </div>
                         </div>
@@ -125,7 +131,8 @@
                                 </p>
                             </div>
                             <div class="col-md-8 p-2 comments-border">
-                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem
+                                    ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
                                     sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio..</p>
                             </div>
                         </div>
@@ -138,7 +145,8 @@
                                 </p>
                             </div>
                             <div class="col-md-8 p-2 comments-border">
-                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem
+                                    ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
                                     sed.</p>
                             </div>
                         </div>
