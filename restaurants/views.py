@@ -36,12 +36,18 @@ class RestaurantDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Restaurant.objects.filter(approved=True)
         restaurant = get_object_or_404(queryset, slug=slug)
+        dishes = restaurant.dishes.order_by('name')
+        comments = restaurant.comments.filter(approved=True).order_by('created_on')
+        comment_count = restaurant.comments.filter(approved=True).count()
         
         return render(
             request,
             'restaurant_detail.html',
             {
                 'restaurant': restaurant,
-                'range': range(5)
+                'range': range(5),
+                'dishes': dishes,
+                'comments': comments,
+                'comment_count': comment_count,
             },
         )
