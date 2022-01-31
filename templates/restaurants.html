@@ -4,7 +4,7 @@
 
 <div class="bg-img bg-img-restaurant"></div>
 
-<div class="containter-fluid">
+<div class="container-fluid">
     <div class="row w-sm-75 w-xl-100 mt-4 mb-3 my-xl-4 mx-auto mw-1600px justify-content-evenly fs-small-custom">
         <button class="d-xl-none col-4 col-lg-3 btn bg-lighter-dark-custom text-white box-shadow-custom"
             data-bs-toggle="modal" data-bs-target="#filtersModal">Fliters</button>
@@ -31,7 +31,7 @@
                 <div class="col-10">
                     <div class="card my-4 card-custom box-shadow-custom text-center">
                         <div class="row g-0">
-                            <div class="col-md-4 h-md-25vh">
+                            <div class="col-md-4">
                                 <a href="{% url 'restaurant_detail' restaurant.slug  %}">
                                     {% if "default" in restaurant.image.url %}
                                     <img src="../static/images/default-restaurant.jpg"
@@ -47,13 +47,13 @@
                                     <a href="{% url 'restaurant_detail' restaurant.slug  %}" class="link-custom">
                                         <h4 class="card-title">{{ restaurant.name }}</h4>
                                     </a>
-                                    <p class="card-text my-">
+                                    <p class="card-text">
                                         Added by
                                         <a href="#" class="link-custom">{{ restaurant.author }}</a>
                                         on {{ restaurant.created_on }}
                                     </p>
                                     <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
-                                    <p class="text-muted d-flex justify-content-between mt-3 mb-0 favourties-rating">
+                                    <div class="text-muted d-flex justify-content-between mt-3 mb-0 favourties-rating">
                                         <span class="favourties-span ms-3 ms-sm-5">
                                             <i class="far fa-heart"></i>
                                             {{ restaurant.number_of_favourites }}
@@ -67,7 +67,7 @@
                                             {% endif %}
                                             {% endfor %}
                                         </span>
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

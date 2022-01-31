@@ -39,8 +39,9 @@ class RestaurantDetail(View):
         
         return render(
             request,
-            "restaurant_detail.html",
+            'restaurant_detail.html',
             {
-                "restaurant": restaurant,
+                'restaurant': restaurant,
+                'range': range(5)
             },
         )

@@ -2,6 +2,151 @@
 
 {% block content %}
 
+<div class="bg-img bg-img-restaurant-detail"></div>
 
+<div class="container-fluid my-5">
+    <div class="row justify-content-center mw-1600px mx-auto">
+        <div class="col-10">
+            <div class="card bg-dark text-white box-shadow-custom text-center">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if "default" in restaurant.image.url %}
+                        <img src="../static/images/default-restaurant.jpg" class="img-fluid rounded card-image"
+                            alt="Default image for restaurants posts">
+                        {% else %}
+                        <img class="img-fluid rounded card-image" src="{{ restaurant.image.url }}"
+                            alt="Uploaded image for restaurant's post">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="card-body h-100">
+                            <h4 class="card-title text-decoration-underline mb-3">{{ restaurant.name }}</h4>
+                            <p class="card-text">
+                                Added by
+                                <a href="#" class="link-custom">{{ restaurant.author }}</a>
+                                on {{ restaurant.created_on }}
+                            </p>
+                            <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
+                            <hr class="mb-0">
+                            <div class="position-relative pt-4 pb-3 restaurant-description">
+                                <h5 class="position-absolute top-0 left-0">Description:</h5>
+                                <p class="card-text lead mt-2">{{ restaurant.description }}</p>
+                            </div>
+                            <hr>
+                            <div class="row justify-content-evenly">
+                                <div
+                                    class="col-10 col-sm-5 mb-3 mb-sm-0 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+                                    <h5>Favourite Dishes</h5>
+                                    <ul class="">
+                                        <li>Monkey</li>
+                                        <li>Treasure lengs</li>
+                                        <li>Boss bootles</li>
+                                    </ul>
+                                </div>
+                                <div
+                                    class="col-10 col-sm-5 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+                                    <h5>Other User's Favourties</h5>
+                                    <ul class="">
+                                        <li>Monkey</li>
+                                        <li>Treasure lengs</li>
+                                        <li>Boss bootles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-muted d-flex justify-content-between mt-3 mb-0 favourties-rating">
+                                <span class="favourties-span ms-3 ms-sm-5">
+                                    <i class="far fa-heart"></i>
+                                    {{ restaurant.number_of_favourites }}
+                                </span>
+                                <span class="rating-span me-3 me-sm-5">
+                                    {% for i in range %}
+                                    {% if restaurant.rating > i %}
+                                    <i class="fas fa-star"></i>
+                                    {% else %}
+                                    <i class="far fa-star"></i>
+                                    {% endif %}
+                                    {% endfor %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-0 bg-lighter-dark-custom rounded-bottom">
+                    <div class="col">
+                        <div class="row g-0 my-3 align-items-center">
+                            <div class="col-md-4">
+                                <h4 class="fs-3 mb-2 m-md-0 py-2 text-decoration-underline">Comments</h4>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row g-0">
+                                    <div class="col-10 mx-auto py-2 px-4 bg-lighter-dark rounded-3 box-shadow-custom">
+                                        <form class="row justify-content-center" action="post">
+                                            <input type="text" name="" id="" class="col-12 col-xl-9 my-1 me-xl-3 rounded-3"
+                                                placeholder="Leave a comment...">
+                                            <input type="submit" value="Submit" class="col-4 col-lg-3 col-xl-2 my-1 rounded-3">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="d-md-none mb-0">
+                        <div class="row g-0 my-3 my-md-2 mx-2 align-items-center bg-dark rounded-3">
+                            <div class="col-md-4 p-2">
+                                <p class="m-0">
+                                    <a href="#" class="link-custom">{{ restaurant.author }}</a>
+                                    <br>
+                                    on {{ restaurant.created_on }}
+                                </p>
+                            </div>
+                            <div class="col-md-8 p-2 comments-border">
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                    sed.</p>
+                            </div>
+                        </div>
+                        <div class="row g-0 my-3 my-md-2 mx-2 align-items-center bg-dark rounded-3">
+                            <div class="col-md-4 p-2">
+                                <p class="m-0">
+                                    <a href="#" class="link-custom">{{ restaurant.author }}</a>
+                                    <br>
+                                    on {{ restaurant.created_on }}
+                                </p>
+                            </div>
+                            <div class="col-md-8 p-2 comments-border">
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                    sed.</p>
+                            </div>
+                        </div>
+                        <div class="row g-0 my-3 my-md-2 mx-2 align-items-center bg-dark rounded-3">
+                            <div class="col-md-4 p-2">
+                                <p class="m-0">
+                                    <a href="#" class="link-custom">{{ restaurant.author }}</a>
+                                    <br>
+                                    on {{ restaurant.created_on }}
+                                </p>
+                            </div>
+                            <div class="col-md-8 p-2 comments-border">
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                    sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio..</p>
+                            </div>
+                        </div>
+                        <div class="row g-0 my-3 my-md-2 mx-2 align-items-center bg-dark rounded-3">
+                            <div class="col-md-4 p-2">
+                                <p class="m-0">
+                                    <a href="#" class="link-custom">{{ restaurant.author }}</a>
+                                    <br>
+                                    on {{ restaurant.created_on }}
+                                </p>
+                            </div>
+                            <div class="col-md-8 p-2 comments-border">
+                                <p class="lead m-0 d-flex justify-content-center align-items-center minh-48px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+                                    sed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

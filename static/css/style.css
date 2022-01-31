@@ -40,6 +40,11 @@ main {
     background-size: cover;
 }
 
+.bg-img-restaurant-detail {
+    background: url("../images//restaurant-3.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 
 /* Background colours and opacity */
 .bg-lighter-dark-custom {
@@ -65,13 +70,17 @@ main {
 }
 
 
-/* Widths */
+/* Widths & Heights */
 .mw-1400px {
     max-width: 1400px;
 }
 
 .mw-1600px {
     max-width: 1600px;
+}
+
+.minh-48px {
+    min-height: 48px !important;
 }
 
 
@@ -132,9 +141,8 @@ main {
     right: 10px;
 }
 
-.favourites-rating {
-    position: absolute;
-    bottom: 0;
+.comments-border {
+    border-top: 1px solid rgba(255,255,255,.25);
 }
 
 
@@ -213,6 +221,18 @@ footer .vr {
     }
 }
 
+@media screen and (max-width: 425px) {
+    .restaurant-description {
+        padding-bottom: 0 !important;
+    }
+
+    .restaurant-description h5 {
+        top: 4px !important;
+        right: 0;
+        left: 0;
+    }
+}
+
 @media screen and (min-width: 576px) and (max-width: 991px) {
     .navbar-custom {
         line-height: 1;
@@ -234,12 +254,14 @@ footer .vr {
 }
 
 @media screen and (min-width: 768px) {
-    .h-md-25vh {
-        height: 25vh;
+    .card-image {
+        max-height: 100%;
+        height: 100%;
     }
 
-    .card-image {
-        height: 100%;
+    .comments-border {
+        border-top: none;
+        border-left: 1px solid rgba(255,255,255,.25);
     }
 }
 
