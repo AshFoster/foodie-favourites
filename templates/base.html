@@ -45,14 +45,14 @@
                                 <a class="nav-link" href="#">Profile</a>
                             </li>
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="#">Logout</a>
+                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                             </li>
                             {% else %}
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="#">Sign in</a>
+                                <a class="nav-link" href="{% url 'account_login' %}">Sign in</a>
                             </li>
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="#">Register</a>
+                                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                             </li>
                             {% endif %}
                         </ul>
@@ -67,15 +67,15 @@
                     </li>
                     <hr class="m-1 text-light">
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="#">Logout</a>
+                        <a class="nav-link lh-1" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="#">Sign in</a>
+                        <a class="nav-link lh-1" href="{% url 'account_login' %}">Sign in</a>
                     </li>
                     <hr class="m-1 text-light">
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="#">Register</a>
+                        <a class="nav-link lh-1" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     {% endif %}
                 </ul>

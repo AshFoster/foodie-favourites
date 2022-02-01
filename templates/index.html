@@ -15,9 +15,9 @@
                 <small> to see the current list of restaurants. </small>
                 {% else %}
                 <small>If you'd like to join in, please </small>
-                <a href="#" class="link-custom">sign in</a>
+                <a href="{% url 'account_login' %}" class="link-custom">sign in</a>
                 <small> or </small>
-                <a href="#" class="link-custom">register</a>.
+                <a href="{% url 'account_signup' %}" class="link-custom">register</a>.
                 {% endif %}
             </p>
         </div>
