@@ -15,9 +15,9 @@
     <title>Foodie Favourites</title>
 </head>
 
-<body class="d-flex flex-column justify-content-between min-vh-100">
+<body class="d-flex flex-column min-vh-100">
     <!-- Header / Navbar -->
-    <header class="container-fluid">
+    <header class="container-fluid mb-auto">
         <div class="row bg-dark navbar-dark">
             <div class="col-sm-10 col-lg-11 p-lg-0">
                 <nav class="mainNav navbar navbar-expand-sm flex-column flex-lg-row mx-3 navbar-custom">
@@ -45,7 +45,7 @@
                                 <a class="nav-link" href="#">Profile</a>
                             </li>
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                                <a class="nav-link" href="{% url 'account_logout' %}">Sign Out</a>
                             </li>
                             {% else %}
                             <li class="nav-item d-sm-none">
@@ -67,7 +67,7 @@
                     </li>
                     <hr class="m-1 text-light">
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link lh-1" href="{% url 'account_logout' %}">Sign Out</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -84,7 +84,7 @@
     </header>
 
     <!-- Main section for all inheriting templates -->
-    <main>
+    <main class="my-auto">
         {% block content %}
         {% endblock content %}
     </main>

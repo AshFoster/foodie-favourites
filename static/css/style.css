@@ -45,6 +45,11 @@ main {
     background-size: cover;
 }
 
+.bg-img-login-register {
+    background: url("../images//restaurant-5.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 
 /* Background colours and opacity */
 .bg-lighter-dark-custom {
@@ -149,6 +154,11 @@ main {
     border-top: 1px solid rgba(255, 255, 255, .25);
 }
 
+#id_login,
+#id_password {
+    display: block;
+}
+
 
 /* ---------------------------------------------------- BASE.HTML styles */
 
@@ -209,6 +219,10 @@ footer .vr {
     .fs-small-custom button {
         font-size: .8em !important;
     }
+
+    .login-register-container {
+        font-size: 60%;
+    }
 }
 
 @media screen and (min-width: 368px) {
@@ -259,6 +273,21 @@ footer .vr {
     }
 }
 
+@media screen and (max-width: 767px) {
+    .login-register-container {
+        text-align: center;
+    }
+
+    .login-register-container .border-end {
+        border: none !important;
+    }
+
+    .login-register-container form input {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .card-image {
         max-height: 100%;
@@ -268,6 +297,10 @@ footer .vr {
     .comments-border {
         border-top: none;
         border-left: 1px solid rgba(255, 255, 255, .25);
+    }
+
+    .login-register-container .border-top {
+        border: none !important;
     }
 }
 
