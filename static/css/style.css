@@ -260,6 +260,15 @@ footer .vr {
     #comment-submit {
         width: 70%;
     }
+
+    #id_login,
+    #id_password,
+    #id_username,
+    #id_email,
+    #id_password1,
+    #id_password2 {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
@@ -310,6 +319,15 @@ footer .vr {
 
     .login-register-container .border-top {
         border: none !important;
+    }
+
+    #id_login,
+    #id_password,
+    #id_username,
+    #id_email,
+    #id_password1,
+    #id_password2 {
+        width: 80%;
     }
 }
 
