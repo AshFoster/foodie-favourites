@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load i18n %}
+
+<div class="bg-img bg-img-login-register"></div>
+
+<div class="container-fluid mw-1600px login-register-container">
+    <div class="row justify-content-center my-5">
+        <div class="col-10 col-md-8 p-5 bg-dark text-light-custom rounded-3">
+
+            <h3 class="text-center text-uppercase pb-4 border-bottom border-light border-1">
+                {% trans "Sign In Or Register A New Account" %}</h3>
+
+            <div class="row g-0 mt-4 py-2">
+                <div class="col-12 col-md-6 mb-3 mb-md-0 border-end border-light border-1">
+                    <div class="row justify-content-center mx-auto">
+                        <div class="col-12 col-lg-9">
+                            <h4>{% trans "Already have an account?" %}</h4>
+                            {% block login %}
+                            {% endblock login %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 pt-3 pt-md-0 border-top border-light border-1">
+                    <div class="row justify-content-center mx-auto ps-md-3">
+                        <div class="col-12 col-lg-9">
+                            <h4>{% trans "No account yet?" %}</h4>
+                            {% block register %}
+                            {% endblock register %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

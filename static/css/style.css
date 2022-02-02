@@ -155,7 +155,11 @@ main {
 }
 
 #id_login,
-#id_password {
+#id_password,
+#id_username,
+#id_email,
+#id_password1,
+#id_password2 {
     display: block;
 }
 

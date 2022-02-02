@@ -1,53 +1,27 @@
-{% extends "base.html" %}
+{% extends "login-register-base.html" %}
 
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-{% block content %}
+{% block login %}
 
-<div class="bg-img bg-img-login-register"></div>
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="link-custom secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <br>
+  <button class="primaryAction btn btn-light mt-2" type="submit">{% trans "Sign In" %}</button>
+</form>
 
-<div class="container-fluid mw-1600px login-register-container">
-  <div class="row justify-content-center my-5">
-    <div class="col-10 col-md-8 p-5 bg-dark text-light-custom rounded-3">
+{% endblock %}
 
-      <h3 class="text-center text-uppercase pb-4 border-bottom border-light border-1">
-        {% trans "Sign In Or Register A New Account" %}</h3>
+{% block register %}
 
-      <div class="row g-0 mt-4 py-2">
-        <div class="col-12 col-md-6 mb-3 mb-md-0 border-end border-light border-1">
-          <div class="row justify-content-center mx-auto">
-            <div class="col-12 col-lg-9">
-              <h4>{% blocktrans %}Already have an account?{% endblocktrans %}</h4>
-
-              <form class="login" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <a class="link-custom secondaryAction"
-                  href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-                <br>
-                <button class="primaryAction btn btn-light mt-2" type="submit">{% trans "Sign In" %}</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 pt-3 pt-md-0 border-top border-light border-1">
-          <div class="row justify-content-center mx-auto ps-md-3">
-            <div class="col-12 col-lg-9">
-              <h4>{% blocktrans %}No account yet?</h4>
-              <a href="{{ signup_url }}" class="btn btn-light">Register{% endblocktrans %}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<a href="{% url 'account_signup' %}" class="btn btn-light mt-1">{% trans "Register" %}</a>
 
 {% endblock %}
