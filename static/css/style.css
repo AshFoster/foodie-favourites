@@ -46,6 +46,11 @@ main {
 }
 
 .bg-img-login-register {
+    background: url("../images//restaurant-4.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.bg-img-logout {
     background: url("../images//restaurant-5.jpg") no-repeat center center;
     background-size: cover;
 }
