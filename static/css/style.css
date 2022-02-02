@@ -81,6 +81,10 @@ main {
 
 
 /* Widths & Heights */
+.mw-325px {
+    max-width: 325px;
+}
+
 .mw-1400px {
     max-width: 1400px;
 }
@@ -166,6 +170,30 @@ main {
 #id_password1,
 #id_password2 {
     display: block;
+}
+
+#msg-alert {
+    animation-name: msg-zoom;
+    animation-duration: 2.7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes msg-zoom {
+    0% {
+        transform: scale(.9);
+    }
+
+    15% {
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(0);
+    }
 }
 
 
@@ -349,6 +377,11 @@ footer .vr {
 
     .bg-lg-lighter-dark-custom {
         background-color: var(--custom-color-lighter-dark) !important;
+    }
+
+    #msg-alert {
+        position: absolute;
+        top: 2%;
     }
 }
 
