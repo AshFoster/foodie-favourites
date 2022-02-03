@@ -163,13 +163,10 @@ main {
     border-top: 1px solid rgba(255, 255, 255, .25);
 }
 
-#id_login,
-#id_password,
-#id_username,
-#id_email,
-#id_password1,
-#id_password2 {
-    display: block;
+.login .form-group,
+.signup .form-group,
+.add-restaurant-form .form-group {
+    padding-bottom: 1rem;
 }
 
 #msg-alert {
@@ -284,15 +281,6 @@ footer .vr {
     #comment-submit {
         width: 70%;
     }
-
-    #id_login,
-    #id_password,
-    #id_username,
-    #id_email,
-    #id_password1,
-    #id_password2 {
-        width: 100%;
-    }
 }
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
@@ -328,6 +316,10 @@ footer .vr {
         margin-right: auto;
         margin-left: auto;
     }
+
+    #id_remember {
+        float: none;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -343,15 +335,6 @@ footer .vr {
 
     .login-register-container .border-top {
         border: none !important;
-    }
-
-    #id_login,
-    #id_password,
-    #id_username,
-    #id_email,
-    #id_password1,
-    #id_password2 {
-        width: 80%;
     }
 }
 
