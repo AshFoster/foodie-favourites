@@ -1,5 +1,7 @@
 {% extends "base_heading_split.html" %}
 
+{% load crispy_forms_tags %}
+
 {% load i18n %}
 
 {% block bg_image %}
@@ -11,6 +13,12 @@
 {% endblock %}
 
 {% block left %}
+
+<form class="add-restaurant-form" action="{% url 'add_restaurant' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button type="submit" class="btn btn-light">Add</button>
+</form>
 
 {% endblock %}
 

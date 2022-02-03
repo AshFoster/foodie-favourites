@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.db.models import Count
 from .models import Cuisine, Restaurant, Comment, Dish
+from . import forms
 
 
 class RestaurantList(generic.ListView):
@@ -33,7 +34,7 @@ class RestaurantDetail(View):
         dishes = restaurant.dishes.order_by('name')
         comments = restaurant.comments.filter(approved=True).order_by('created_on')
         comment_count = restaurant.comments.filter(approved=True).count()
-        
+
         return render(
             request,
             'restaurant_detail.html',
@@ -44,4 +45,18 @@ class RestaurantDetail(View):
                 'comments': comments,
                 'comment_count': comment_count,
             },
+        )
+
+
+class AddRestaurant(View):
+
+    def get(self, request, *args, **kwargs):
+        form = forms.AddRestaurantForm()
+
+        return render(
+            request,
+            'add_restaurant.html',
+            {
+                'form': form,
+            }
         )
