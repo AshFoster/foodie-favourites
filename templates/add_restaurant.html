@@ -26,22 +26,11 @@
 
     <label for="dishes-input">Add dishes (hit enter after each dish)*</label>
     <input type="text" name="dishes-input" id="dishes-input" class="form-control" required>
+    <input type="hidden" name="dishes-string">
 
     <div class="row justify-content-evenly favourite-dishes">
         <div class="col-8">
-            <ul class="my-4 p-0">
-                <li class="d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-                    <span class="text-start">Screlt and Bang</span>
-                    <span class="text-end">X</span>
-                </li>
-                <li class="d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-                    <span class="text-start">Screlt and Bang</span>
-                    <span class="text-end">X</span>
-                </li>
-                <li class="d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-                    <span class="text-start">Screlt and Bang</span>
-                    <span class="text-end">X</span>
-                </li>
+            <ul class="my-4 p-0" id="dishes-container">
             </ul>
 
         </div>
