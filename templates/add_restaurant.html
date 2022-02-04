@@ -5,7 +5,7 @@
 {% load i18n %}
 
 {% block bg_image %}
-
+<div class="bg-img bg-img-add-restaurant"></div>
 {% endblock %}
 
 {% block heading %}
@@ -17,11 +17,38 @@
 <form class="add-restaurant-form" action="{% url 'add_restaurant' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form | crispy }}
-    <button type="submit" class="btn btn-light">Add</button>
+
+
+    {% endblock %}
+
+    {% block right %}
+    <h4 class="text-center">{% trans "Favourite Dishes" %}</h4>
+
+    <label for="dishes-input">Add dishes (hit enter after each dish)*</label>
+    <input type="text" name="dishes-input" id="dishes-input" class="form-control" required>
+
+    <div class="row justify-content-evenly favourite-dishes">
+        <div class="col-8">
+            <ul class="my-4 p-0">
+                <li class="d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+                    <span class="text-start">Screlt and Bang</span>
+                    <span class="text-end">X</span>
+                </li>
+                <li class="d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+                    <span class="text-start">Screlt and Bang</span>
+                    <span class="text-end">X</span>
+                </li>
+                <li class="d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+                    <span class="text-start">Screlt and Bang</span>
+                    <span class="text-end">X</span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <hr class="hr-custom m-0">
+    <div class="d-flex justify-content-center pt-4">
+        <button type="submit" class="btn btn-light">Submit Restaurant</button>
+    </div>
 </form>
-
-{% endblock %}
-
-{% block right %}
-
 {% endblock %}

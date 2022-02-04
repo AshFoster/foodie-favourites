@@ -55,6 +55,11 @@ main {
     background-size: cover;
 }
 
+.bg-img-add-restaurant {
+    background: url("../images//restaurant-6.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 
 /* Background colours and opacity */
 .bg-lighter-dark-custom {
@@ -169,6 +174,10 @@ main {
     padding-bottom: 1rem;
 }
 
+#id_image {
+    max-width: 200px;
+}
+
 #msg-alert {
     animation-name: msg-fade;
     animation-duration: 2.7s;
@@ -187,6 +196,14 @@ main {
     100% {
         opacity: 1;
     }
+}
+
+.hr-custom {
+    opacity: 1;
+}
+
+.hidden-input {
+    color: transparent !important;
 }
 
 
@@ -248,10 +265,6 @@ footer .vr {
 @media screen and (max-width: 368px) {
     .fs-small-custom button {
         font-size: .8em !important;
-    }
-
-    .login-register-container {
-        font-size: 60%;
     }
 }
 
