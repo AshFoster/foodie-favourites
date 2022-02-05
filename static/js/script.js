@@ -3,7 +3,11 @@
 setTimeout(function () {
     let messages = document.getElementById('msg');
     let alert = new bootstrap.Alert(messages);
-    document.getElementById('msg-alert').classList.remove('mt-2');
+    let messagesAlert = document.getElementById('msg-alert');
+
+    if (messagesAlert != null) {
+        messagesAlert.classList.remove('mt-2');
+    }
     alert.close();
 }, 2500);
 // END CREDIT
@@ -25,15 +29,20 @@ document.addEventListener("DOMContentLoaded", function () {
         addNewDish(dishName);
         updateDishesString();
     })
-
-    function addNewDish(name) {
-        document.querySelector('#dishes-container').insertAdjacentHTML('beforeend',
-            `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-                <span class="name text-start">${name}</span>
-                <span onclick="removeDish(this)" class="btn-remove text-end" role="button">X</span>
-            </li>`)
-    }
 });
+
+function addNewDish(name) {
+    document.querySelector('#dishes-container').insertAdjacentHTML('beforeend',
+        `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+            <span class="name text-start">${name}</span>
+            <span onclick="removeDish(this)" class="btn-remove text-end" role="button">X</span>
+        </li>`)
+}
+
+function updateDishesString() {
+    dishes = fetchDishArray();
+    document.querySelector('#dishes-string').value = dishes.join(',')
+}
 
 function fetchDishArray() {
     let dishes = [];
@@ -49,11 +58,6 @@ function fetchDishArray() {
     })
 
     return dishes;
-}
-
-function updateDishesString() {
-    dishes = fetchDishArray();
-    document.querySelector('input[name="dishes-string"]').value = dishes.join(',')
 }
 
 function removeDish(e) {

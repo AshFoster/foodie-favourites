@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.contrib import messages
 from django.views import generic, View
+from django.views.generic.edit import CreateView
 from django.db.models import Count
 from .models import Cuisine, Restaurant, Comment, Dish
 from . import forms
@@ -48,15 +51,24 @@ class RestaurantDetail(View):
         )
 
 
-class AddRestaurant(View):
+class AddRestaurant(CreateView):
+    model = Restaurant
+    template_name = 'add_restaurant.html'
+    form_class = forms.AddRestaurantForm
 
-    def get(self, request, *args, **kwargs):
-        form = forms.AddRestaurantForm()
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        form.save_m2m()
 
-        return render(
-            request,
-            'add_restaurant.html',
-            {
-                'form': form,
-            }
-        )
+        dishes = self.request.POST['dishes-string'].split(',')
+        for dish in dishes:
+            Dish.objects.create(
+                restaurant=Restaurant.objects.get(id=self.object.id),
+                name=dish
+            ).save()
+
+        messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
+
+        return HttpResponseRedirect('/restaurants/')
