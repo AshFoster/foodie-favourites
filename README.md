@@ -171,7 +171,13 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 #### Fixed Bugs
 
+- When submitting the add restaurant form the Cuisine field wasn't being saved to the database. This was a problem because it is a required field. This was caused due to the use of 'commit-False' when initially saving the form data, and the Cuisine being a many to many relationship with Restaurant. It was fixed by saving the form using Django's save_m2m() function on the form straight after the Restaurant's object data was saved.
+
 #### Unfixed Bugs
+
+- The height of the restaurnt previews vary based on the height of the images uploaded.
+
+- Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens.
 
 ## Deployment
 
