@@ -207,6 +207,12 @@ main {
     opacity: 0;
 }
 
+.edit-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 
 /* ---------------------------------------------------- BASE.HTML styles */
 
@@ -266,6 +272,11 @@ footer .vr {
 @media screen and (max-width: 368px) {
     .fs-small-custom button {
         font-size: .8em !important;
+    }
+
+    .edit-delete {
+        top: -1%;
+        right: -3%;
     }
 }
 

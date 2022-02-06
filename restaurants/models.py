@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
@@ -30,7 +31,7 @@ class Restaurant(models.Model):
     location = models.CharField(max_length=200)
     cuisine = models.ManyToManyField(
         Cuisine, related_name='restaurant_cuisine', blank=False)
-    approved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['-created_on']
@@ -41,6 +42,9 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('restaurant_detail', kwargs={'slug': self.slug})
 
     def number_of_favourites(self):
         return self.favourited.count()

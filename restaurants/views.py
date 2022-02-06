@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic.edit import CreateView
 from django.db.models import Count
@@ -51,7 +52,7 @@ class RestaurantDetail(View):
         )
 
 
-class AddRestaurant(CreateView):
+class AddRestaurant(LoginRequiredMixin, CreateView):
     model = Restaurant
     template_name = 'add_restaurant.html'
     form_class = forms.AddRestaurantForm
@@ -71,4 +72,4 @@ class AddRestaurant(CreateView):
 
         messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
 
-        return HttpResponseRedirect('/restaurants/')
+        return super().form_valid(form)
