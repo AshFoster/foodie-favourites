@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="bg-img bg-img-delete"></div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center my-5">
+        <div class="col-10 col-sm-8 col-lg-6 col-xxl-4 py-4 px-5 bg-dark text-light-custom rounded-3 box-shadow-custom">
+
+            <div class="row">
+                <div class="col ps-xxl-4">
+                    <h1>Delete Restaurant</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>Are you sure you want to delete "{{ object }}"?</p>
+                        {{ form }}
+                        <input type="submit" value="Confirm">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

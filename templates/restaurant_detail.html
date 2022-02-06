@@ -21,8 +21,8 @@
                     <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body h-100 position-relative">
                             {% if restaurant.author == user %}
-                            <div class="mt-3 mb-0 edit-delete">
-                                <a href="{% url 'edit_restaurant' restaurant.slug %}" class="link-custom me-4">Edit</a>
+                            <div class="mt-3 mb-0 edit-link">
+                                <a href="{% url 'edit_restaurant' restaurant.slug %}" class="link-custom me-4">(Edit)</a>
                             </div>
                             {% endif %}
                             <h4 class="card-title text-decoration-underline mb-3">{{ restaurant.name }}</h4>

@@ -31,32 +31,37 @@ main {
 }
 
 .bg-img-home {
-    background: url("../images//restaurant-1.jpg") no-repeat center center;
+    background: url("../images/restaurant-1.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-restaurant {
-    background: url("../images//restaurant-2.jpg") no-repeat center center;
+    background: url("../images/restaurant-2.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-restaurant-detail {
-    background: url("../images//restaurant-3.jpg") no-repeat center center;
+    background: url("../images/restaurant-3.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-login-register {
-    background: url("../images//restaurant-4.jpg") no-repeat center center;
+    background: url("../images/restaurant-4.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-logout {
-    background: url("../images//restaurant-5.jpg") no-repeat center center;
+    background: url("../images/restaurant-5.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-add-restaurant {
-    background: url("../images//restaurant-6.jpg") no-repeat center center;
+    background: url("../images/restaurant-6.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.bg-img-delete {
+    background: url("../images/image-closed.jpg") no-repeat center center;
     background-size: cover;
 }
 
@@ -207,7 +212,14 @@ main {
     opacity: 0;
 }
 
-.edit-delete {
+.edit-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.delete-link {
+    font-size: 1rem;
     position: absolute;
     top: 0;
     right: 0;
@@ -274,9 +286,14 @@ footer .vr {
         font-size: .8em !important;
     }
 
-    .edit-delete {
+    .edit-link {
         top: -1%;
         right: -3%;
+    }
+
+    .delete-link {
+        top: -50% !important;
+        right: -20% !important;
     }
 }
 
@@ -344,6 +361,11 @@ footer .vr {
 
     #id_remember {
         float: none;
+    }
+
+    .delete-link {
+        top: -60%;
+        right: -5%;
     }
 }
 

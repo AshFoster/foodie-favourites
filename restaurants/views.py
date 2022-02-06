@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views import generic, View
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.db.models import Count
 from .models import Cuisine, Restaurant, Comment, Dish
 from . import forms
@@ -71,6 +72,7 @@ class AddRestaurant(LoginRequiredMixin, CreateView):
             ).save()
 
         # messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
+        messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been added.')
 
         return super().form_valid(form)
 
@@ -105,5 +107,16 @@ class EditRestaurant(LoginRequiredMixin, UpdateView):
             ).save()
 
         # messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
+        messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been updated.')
 
         return super().form_valid(form)
+
+
+class DeleteRestaurant(LoginRequiredMixin, DeleteView):
+    model = Restaurant
+    template_name = 'restaurant_confirm_delete.html'
+    success_url = reverse_lazy('restaurants')
+    
+    def delete(self, request, *args, **kwargs):
+        messages.add_message(self.request, messages.SUCCESS, 'Restaurant has been deleted.')
+        return super(DeleteRestaurant, self).delete(request, *args, **kwargs)

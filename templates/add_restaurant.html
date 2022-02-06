@@ -13,6 +13,7 @@
 {% trans "Add Restaurant" %}
 {% else %}
 {% trans "Edit Restaurant" %}
+<a href="{% url 'delete_restaurant' restaurant.slug %}" class="link-custom text-capitalize delete-link">(Delete)</a>
 {% endif %}
 {% endblock %}
 
