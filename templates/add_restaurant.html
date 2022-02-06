@@ -9,12 +9,20 @@
 {% endblock %}
 
 {% block heading %}
+{% if request.get_full_path == '/restaurants/add/' %}
 {% trans "Add Restaurant" %}
+{% else %}
+{% trans "Edit Restaurant" %}
+{% endif %}
 {% endblock %}
 
 {% block left %}
 
+{% if request.get_full_path == '/restaurants/add/' %}
 <form class="add-restaurant-form" action="{% url 'add_restaurant' %}" method="post" enctype="multipart/form-data">
+{% else %}
+<form class="add-restaurant-form" action="{% url 'edit_restaurant' restaurant.slug %}" method="post" enctype="multipart/form-data">
+{% endif %}
     {% csrf_token %}
     {{ form | crispy }}
     {% endblock %}
@@ -29,13 +37,27 @@
     <div class="row justify-content-evenly favourite-dishes">
         <div class="col-8">
             <ul class="my-4 p-0" id="dishes-container">
+                {% if request.get_full_path != '/restaurants/add/' %}
+                {% for dish in dishes %}
+                <li
+                    class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+                    <span class="name text-start">{{ dish.name }}</span>
+                    <span onclick="removeDish(this)" class="btn-remove text-end" role="button">X</span>
+                </li>
+                {% endfor %}
+                {% endif %}
             </ul>
 
         </div>
     </div>
     <hr class="hr-custom m-0">
     <div class="d-flex justify-content-center pt-4">
+        {% if request.get_full_path == '/restaurants/add/' %}
         <button type="submit" class="btn btn-light">Submit Restaurant</button>
+        {% else %}
+        <button type="submit" class="btn btn-light">Update Restaurant</button>
+        {% endif %}
+
     </div>
 </form>
 {% endblock %}

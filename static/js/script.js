@@ -17,6 +17,7 @@ setTimeout(function () {
 // Idea for this section of code came from 'The Dumbfounds' YouTube video:
 // https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
 document.addEventListener("DOMContentLoaded", function () {
+    updateDishesString();
     document.querySelector('#dishes-input').addEventListener('keydown', function (e) {
         if (e.keyCode !== 13) {
             return;

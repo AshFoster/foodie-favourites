@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.db.models import Count
 from .models import Cuisine, Restaurant, Comment, Dish
 from . import forms
@@ -70,6 +70,40 @@ class AddRestaurant(LoginRequiredMixin, CreateView):
                 name=dish
             ).save()
 
-        messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
+        # messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
+
+        return super().form_valid(form)
+
+
+class EditRestaurant(LoginRequiredMixin, UpdateView):
+    model = Restaurant
+    template_name = 'add_restaurant.html'
+    form_class = forms.AddRestaurantForm
+
+    def get_context_data(self, **kwargs):
+        context = super(EditRestaurant, self).get_context_data(**kwargs)
+        dishes = self.object.dishes.order_by('name')
+        context['dishes'] = dishes
+
+        return context
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        form.save_m2m()
+
+        original_dishes = Dish.objects.filter(restaurant=self.object.id)
+        for dish in original_dishes:
+            dish.delete()
+
+        dishes = self.request.POST['dishes-string'].split(',')
+        for dish in dishes:
+            Dish.objects.create(
+                restaurant=Restaurant.objects.get(id=self.object.id),
+                name=dish
+            ).save()
+
+        # messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
 
         return super().form_valid(form)
