@@ -1,23 +1,21 @@
 {% extends "base_heading_split.html" %}
 
-{% load i18n %}
-
 {% block bg_image %}
 <div class="bg-img bg-img-login-register"></div>
 {% endblock %}
 
 {% block heading %}
-{% trans "Sign In Or Register A New Account" %}
+Sign In Or Register A New Account
 {% endblock %}
 
 {% block left %}
-<h4>{% trans "Already have an account?" %}</h4>
+<h4>Already have an account?</h4>
 {% block login %}
 {% endblock login %}
 {% endblock %}
 
 {% block right %}
-<h4>{% trans "No account yet?" %}</h4>
+<h4>No account yet?</h4>
 {% block register %}
 {% endblock register %}
 {% endblock %}

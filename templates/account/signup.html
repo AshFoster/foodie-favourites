@@ -2,13 +2,9 @@
 
 {% load crispy_forms_tags %}
 
-{% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock %}
-
 {% block login %}
 
-<a href="{% url 'account_login' %}" class="btn btn-light mt-1">{% trans "Sign In" %}</a>
+<a href="{% url 'account_login' %}" class="btn btn-light mt-1">Sign In</a>
 
 {% endblock %}
 
@@ -20,7 +16,7 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button class="btn btn-light mt-2" type="submit">{% trans "Register" %} &raquo;</button>
+  <button class="btn btn-light mt-2" type="submit">Register &raquo;</button>
 </form>
 
 {% endblock %}

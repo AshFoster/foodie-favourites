@@ -2,10 +2,7 @@
 
 {% load crispy_forms_tags %}
 
-{% load i18n %}
 {% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block login %}
 
@@ -15,15 +12,15 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="link-custom secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <a class="link-custom secondaryAction" href="{% url 'account_reset_password' %}">Forgot Password?</a>
   <br>
-  <button class="primaryAction btn btn-light mt-2" type="submit">{% trans "Sign In" %}</button>
+  <button class="primaryAction btn btn-light mt-2" type="submit">Sign In</button>
 </form>
 
 {% endblock %}
 
 {% block register %}
 
-<a href="{% url 'account_signup' %}" class="btn btn-light mt-1">{% trans "Register" %}</a>
+<a href="{% url 'account_signup' %}" class="btn btn-light mt-1">Register</a>
 
 {% endblock %}
