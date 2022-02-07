@@ -7,7 +7,7 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.db.models import Count
 from .models import Cuisine, Restaurant, Comment, Dish
-from . import forms
+from .forms import AddRestaurantForm, CommentForm
 
 
 class RestaurantList(generic.ListView):
@@ -48,7 +48,41 @@ class RestaurantDetail(View):
                 'range': range(5),
                 'dishes': dishes,
                 'comments': comments,
+                'commented': False,
                 'comment_count': comment_count,
+                'comment_form': CommentForm(),
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Restaurant.objects.filter(approved=True)
+        restaurant = get_object_or_404(queryset, slug=slug)
+        dishes = restaurant.dishes.order_by('name')
+        comments = restaurant.comments.filter(approved=True).order_by('created_on')
+        comment_count = restaurant.comments.filter(approved=True).count()
+
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.restaurant = restaurant
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            'restaurant_detail.html',
+            {
+                'restaurant': restaurant,
+                'range': range(5),
+                'dishes': dishes,
+                'comments': comments,
+                'commented': True,
+                'comment_count': comment_count,
+                'comment_form': CommentForm(),
             },
         )
 
@@ -56,7 +90,7 @@ class RestaurantDetail(View):
 class AddRestaurant(LoginRequiredMixin, CreateView):
     model = Restaurant
     template_name = 'add_restaurant.html'
-    form_class = forms.AddRestaurantForm
+    form_class = AddRestaurantForm
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -80,7 +114,7 @@ class AddRestaurant(LoginRequiredMixin, CreateView):
 class EditRestaurant(LoginRequiredMixin, UpdateView):
     model = Restaurant
     template_name = 'add_restaurant.html'
-    form_class = forms.AddRestaurantForm
+    form_class = AddRestaurantForm
 
     def get_context_data(self, **kwargs):
         context = super(EditRestaurant, self).get_context_data(**kwargs)
