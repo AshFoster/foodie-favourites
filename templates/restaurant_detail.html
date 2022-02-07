@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body h-100 position-relative">
-                            {% if restaurant.author == user %}
+                            {% if user == restaurant.author %}
                             <div class="mt-3 mb-0 edit-link">
                                 <a href="{% url 'edit_restaurant' restaurant.slug %}"
                                     class="link-custom me-4">(Edit)</a>
@@ -65,7 +65,26 @@
                                 class="d-flex text-light-custom justify-content-lg-between mt-3 mb-0 favourites-rating">
                                 <span class="favourites-span my-2 ms-3 ms-sm-5">
                                     Times Favourited:
+                                    {% if user.is_authenticated and user != restaurant.author %}
+                                    <form class="d-inline" action="{% url 'restaurant_favourited' restaurant.slug %}" method="POST">
+                                        {% csrf_token %}
+                                        {% if liked %}
+
+                                        <button type="submit" name="restaurantpost_id" value="{{restaurant.slug}}"
+                                            class="btn-favourite-custom"><i class="fas fa-heart"></i></button>
+
+                                        {% else %}
+
+                                        <button type="submit" name="restaurantpost_id" value="{{restaurant.slug}}"
+                                            class="btn-favourite-custom"><i class="far fa-heart"></i></button>
+
+                                        {% endif %}
+
+                                    </form>
+                                    {% else %}
+
                                     <i class="far fa-heart text-muted"></i>
+                                    {% endif %}
                                     {{ restaurant.number_of_favourites }}
                                 </span>
                                 <span class="rating-span my-2 me-3 me-sm-5">

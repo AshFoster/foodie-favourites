@@ -225,6 +225,13 @@ main {
     right: 0;
 }
 
+.btn-favourite-custom {
+    color: var(--custom-color-light);
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
 
 /* ---------------------------------------------------- BASE.HTML styles */
 

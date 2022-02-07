@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -39,6 +39,9 @@ class RestaurantDetail(View):
         dishes = restaurant.dishes.order_by('name')
         comments = restaurant.comments.filter(approved=True).order_by('created_on')
         comment_count = restaurant.comments.filter(approved=True).count()
+        liked = False
+        if restaurant.favourited.filter(id=self.request.user.id).exists():
+            liked = True
 
         return render(
             request,
@@ -51,6 +54,7 @@ class RestaurantDetail(View):
                 'commented': False,
                 'comment_count': comment_count,
                 'comment_form': CommentForm(),
+                'liked': liked,
             },
         )
 
@@ -60,6 +64,9 @@ class RestaurantDetail(View):
         dishes = restaurant.dishes.order_by('name')
         comments = restaurant.comments.filter(approved=True).order_by('created_on')
         comment_count = restaurant.comments.filter(approved=True).count()
+        liked = False
+        if restaurant.favourited.filter(id=self.request.user.id).exists():
+            liked = True
 
         comment_form = CommentForm(data=request.POST)
 
@@ -83,6 +90,7 @@ class RestaurantDetail(View):
                 'commented': True,
                 'comment_count': comment_count,
                 'comment_form': CommentForm(),
+                'liked': liked,
             },
         )
 
@@ -154,3 +162,15 @@ class DeleteRestaurant(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.add_message(self.request, messages.SUCCESS, 'Restaurant has been deleted.')
         return super(DeleteRestaurant, self).delete(request, *args, **kwargs)
+
+
+class RestaurantLike(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        restaurant = get_object_or_404(Restaurant, slug=slug)
+        if restaurant.favourited.filter(id=request.user.id).exists():
+            restaurant.favourited.remove(request.user)
+        else:
+            restaurant.favourited.add(request.user)
+
+        return HttpResponseRedirect(reverse('restaurant_detail', args=[slug]))
