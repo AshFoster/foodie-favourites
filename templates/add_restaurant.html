@@ -2,17 +2,15 @@
 
 {% load crispy_forms_tags %}
 
-{% load i18n %}
-
 {% block bg_image %}
 <div class="bg-img bg-img-add-restaurant"></div>
 {% endblock %}
 
 {% block heading %}
 {% if request.get_full_path == '/restaurants/add/' %}
-{% trans "Add Restaurant" %}
+Add Restaurant
 {% else %}
-{% trans "Edit Restaurant" %}
+Edit Restaurant
 <a href="{% url 'delete_restaurant' restaurant.slug %}" class="link-custom text-capitalize delete-link">(Delete)</a>
 {% endif %}
 {% endblock %}
@@ -29,7 +27,7 @@
     {% endblock %}
 
     {% block right %}
-    <h4 class="text-center">{% trans "Favourite Dishes" %}</h4>
+    <h4 class="text-center">Favourite Dishes</h4>
 
     <label for="dishes-input">Add dishes (hit enter after each dish)*</label>
     <input type="text" name="dishes-input" id="dishes-input" class="form-control">
