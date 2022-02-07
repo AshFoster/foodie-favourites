@@ -346,15 +346,15 @@ footer .vr {
 }
 
 @media screen and (max-width: 767px) {
-    .login-register-container {
+    .base-heading-container {
         text-align: center;
     }
 
-    .login-register-container .border-end {
+    .base-heading-container .border-end {
         border: none !important;
     }
 
-    .login-register-container form input {
+    .base-heading-container form input {
         margin-right: auto;
         margin-left: auto;
     }
@@ -380,7 +380,7 @@ footer .vr {
         border-left: 1px solid rgba(255, 255, 255, .25);
     }
 
-    .login-register-container .border-top {
+    .base-heading-container .border-top {
         border: none !important;
     }
 }

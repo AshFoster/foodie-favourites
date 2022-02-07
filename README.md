@@ -181,7 +181,9 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens.
 
-- When adding a restaurant, if a restaurant with that same name already exists an error is thrown, but the list of dishes disappear. 
+- When adding a restaurant, if a restaurant with that same name already exists an error is thrown, but the list of dishes disappear.
+
+- Any logged in user can access the edit page of any restaurant if the type in the correct url.
 
 
 ## Deployment
