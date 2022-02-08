@@ -81,12 +81,12 @@
                 <ul class="pagination justify-content-center my-2">
                     {% if page_obj.has_previous %}
                     <li><a href="?page={{ page_obj.previous_page_number }}"
-                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom">&laquo; PREV </a>
+                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom mx-2">&laquo; PREV </a>
                     </li>
                     {% endif %}
                     {% if page_obj.has_next %}
                     <li><a href="?page={{ page_obj.next_page_number }}"
-                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom"> NEXT &raquo;</a>
+                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom mx-2"> NEXT &raquo;</a>
                     </li>
                     {% endif %}
                 </ul>
