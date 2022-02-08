@@ -31,37 +31,37 @@ main {
 }
 
 .bg-img-home {
-    background: url("../images/restaurant-1.jpg") no-repeat center center;
+    background: url("../images/bg-img-home.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-restaurant {
-    background: url("../images/restaurant-2.jpg") no-repeat center center;
+    background: url("../images/bg-img-restaurant.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-restaurant-detail {
-    background: url("../images/restaurant-3.jpg") no-repeat center center;
+    background: url("../images/bg-img-restaurant-detail.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-login-register {
-    background: url("../images/restaurant-4.jpg") no-repeat center center;
+    background: url("../images/bg-img-login-register.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-logout {
-    background: url("../images/restaurant-5.jpg") no-repeat center center;
+    background: url("../images/bg-img-logout.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-add-restaurant {
-    background: url("../images/restaurant-6.jpg") no-repeat center center;
+    background: url("../images/bg-add-restaurant.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-delete {
-    background: url("../images/image-closed.jpg") no-repeat center center;
+    background: url("../images/bg-img-delete.jpg") no-repeat center center;
     background-size: cover;
 }
 
