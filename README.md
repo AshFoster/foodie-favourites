@@ -175,9 +175,9 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - When updating a restaurant post the dishes get added again when submitting the form. This was solved by deleting all of the current dishes related to the relevant restaurant and then adding the new list of dishes which may or may not contain the original dishes.
 
-#### Unfixed Bugs
+- The height of the restaurnt previews on the home page and restaurant page varied based on the height of the images uploaded so different restauarant cards weren't always the same height. This was fixed by amending the y margins on the relevant elements and adding some custom height classes at certain screen widths. One of the custom classes forces the element to be 100% height at certain screen widths, and an other forces the height of the elements to be 180px at certain screen widths.
 
-- The height of the restaurnt previews vary based on the height of the images uploaded.
+#### Unfixed Bugs
 
 - Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens.
 

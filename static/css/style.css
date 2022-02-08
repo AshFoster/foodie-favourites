@@ -390,6 +390,10 @@ footer .vr {
     .base-heading-container .border-top {
         border: none !important;
     }
+
+    .h-md-180px {
+        height: 180px;
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -415,6 +419,10 @@ footer .vr {
     #msg-alert {
         position: absolute;
         top: 2%;
+    }
+
+    .h-lg-100 {
+        height: 100%;
     }
 }
 
