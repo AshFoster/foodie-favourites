@@ -183,7 +183,7 @@ main {
     max-width: 200px;
 }
 
-#msg-alert {
+.msg-animation {
     animation-name: msg-fade;
     animation-duration: 2.7s;
     animation-fill-mode: forwards;
