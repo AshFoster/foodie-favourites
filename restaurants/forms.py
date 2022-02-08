@@ -2,7 +2,7 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from . import models
 
-RATING_CHOICES= [tuple([x,x]) for x in range(1, 6)]
+RATING_CHOICES = [tuple([x, x]) for x in range(1, 6)]
 
 class AddRestaurantForm(forms.ModelForm):
     class Meta:
