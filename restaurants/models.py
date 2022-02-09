@@ -29,6 +29,7 @@ class Restaurant(models.Model):
     favourited = models.ManyToManyField(
         User, related_name='restaurant_favourited', blank=True)
     location = models.CharField(max_length=200)
+    county = models.CharField(max_length=200, null=True)
     cuisine = models.ManyToManyField(
         Cuisine, related_name='restaurant_cuisine', blank=False)
     approved = models.BooleanField(default=True)

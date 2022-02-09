@@ -1,18 +1,22 @@
 from django import forms
 from crispy_forms.helper import FormHelper
+from localflavor.gb.gb_regions import GB_REGION_CHOICES
 from . import models
 
 RATING_CHOICES = [tuple([x, x]) for x in range(1, 6)]
+GB_REGION_CHOICES = (('', ''),) + GB_REGION_CHOICES
+
 
 class AddRestaurantForm(forms.ModelForm):
     class Meta:
         model = models.Restaurant
-        fields = ('name', 'description', 'image', 'rating', 'location', 'cuisine')
+        fields = ('name', 'description', 'image', 'rating', 'location', 'county', 'cuisine')
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.fields['rating'].widget = forms.Select(choices=RATING_CHOICES)
+        self.fields['county'].widget = forms.Select(choices=GB_REGION_CHOICES)
 
 
 class CommentForm(forms.ModelForm):
