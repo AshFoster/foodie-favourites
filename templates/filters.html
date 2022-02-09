@@ -16,19 +16,25 @@
                 <div class="ms-2 me-auto">
                     <div>{{ cuisine.name }}</div>
                 </div>
-                <span class="badge bg-dark rounded-pill">{{ cuisine.restaurant_count }}</span>
+                <span class="badge bg-dark rounded-pill">{{ cuisine.cuisine_restaurant_count }}</span>
             </li>
             {% endif %}
             {% endfor %}
         </ul>
         <h5 class="mt-4 ps-2">Location</h5>
         <ul class="list-group list-group-flush rounded-3">
-            {% for restaurant in restaurant_list %}
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
-                    <div>{{ restaurant.location }}</div>
+                    <div>All</div>
                 </div>
-                <span class="badge bg-dark rounded-pill">14</span>
+                <span class="badge bg-dark rounded-pill">{{ location_count }}</span>
+            </li>
+            {% for key, value in location_list.items %}
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div>{{ key }}</div>
+                </div>
+                <span class="badge bg-dark rounded-pill">{{ value }}</span>
             </li>
             {% endfor %}
         </ul>

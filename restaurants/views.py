@@ -11,22 +11,42 @@ from .forms import AddRestaurantForm, CommentForm
 
 
 class RestaurantList(generic.ListView):
+    """
+    Restaurant List class based view to show Restaurant model on
+    restaurants.html
+    """
     model = Restaurant
     queryset = Restaurant.objects.filter(approved=True).order_by('-created_on')
     template_name = 'restaurants.html'
     paginate_by = 3
 
     def get_context_data(self, **kwargs):
+        """
+        The get_context_data function sets the relevant context data
+        to be used in restaurants.html
+        """
         context = super(RestaurantList, self).get_context_data(**kwargs)
 
-        cuisine_with_restaurant_count = Cuisine.objects.filter(approved=True).annotate(restaurant_count=Count('restaurant_cuisine'))
-        cuisine_with_restaurant_count_values = cuisine_with_restaurant_count.values('restaurant_count')
-        cuisine_counter = 0
+        cuisine_with_restaurant_count = Cuisine.objects.filter(approved=True).annotate(cuisine_restaurant_count=Count('restaurant_cuisine'))
+        cuisine_with_restaurant_count_values = cuisine_with_restaurant_count.values('cuisine_restaurant_count')
+        cuisine_count = 0
         for cuisine in cuisine_with_restaurant_count_values:
-            cuisine_counter += cuisine['restaurant_count']
+            cuisine_count += cuisine['cuisine_restaurant_count']
+        
+        restaurants = Restaurant.objects.filter(approved=True)
+        restaurant_locations = {}
+        restaurant_locations_count = 0
+        for location in restaurants:
+            restaurant_locations_count += 1
+            if location.county not in restaurant_locations:
+                restaurant_locations[location.county] = 1
+            else:
+                restaurant_locations[location.county] = restaurant_locations[location.county] + 1
 
-        context['cuisine_count'] = cuisine_counter
+        context['cuisine_count'] = cuisine_count
         context['cuisine_list'] = cuisine_with_restaurant_count
+        context['location_count'] = restaurant_locations_count
+        context['location_list'] = restaurant_locations
         context['range'] = range(5)
         return context
 
