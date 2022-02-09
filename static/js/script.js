@@ -12,11 +12,43 @@ setTimeout(function () {
 }, 2500);
 // END CREDIT
 
+/* 
+Once the DOM has finshed loading add event listeners to some elements
+*/
+document.addEventListener("DOMContentLoaded", function () {
+    let cuisineListItems = document.querySelectorAll('.cuisine-item');
+    let locationListItems = document.querySelectorAll('.location-item');
+
+    for (let item of cuisineListItems) {
+        item.addEventListener('click', function() {
+            if (!item.classList.contains('active')) {
+                item.classList.add('active');
+            }
+            for (let other of cuisineListItems) {
+                if (other != item && other.classList.contains('active')) {
+                    other.classList.remove('active');
+                }
+            };
+        })
+    };
+
+    for (let item of locationListItems) {
+        item.addEventListener('click', function() {
+            if (!item.classList.contains('active')) {
+                item.classList.add('active');
+            }
+            for (let other of locationListItems) {
+                if (other != item && other.classList.contains('active')) {
+                    other.classList.remove('active');
+                }
+            };
+        })
+    };
+
 
 // CREDIT
 // Idea for this section of code came from 'The Dumbfounds' YouTube video:
 // https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
-document.addEventListener("DOMContentLoaded", function () {
     updateDishesString();
     document.querySelector('#dishes-input').addEventListener('keydown', function (e) {
         if (e.keyCode !== 13) {
@@ -30,8 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
         addNewDish(dishName);
         updateDishesString();
     })
+// END CREDIT
 });
 
+// CREDIT
+// Idea for this section of code came from 'The Dumbfounds' YouTube video:
+// https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
 function addNewDish(name) {
     document.querySelector('#dishes-container').insertAdjacentHTML('beforeend',
         `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">

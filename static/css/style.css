@@ -155,6 +155,17 @@ main {
     color: var(--custom-color-white);
 }
 
+.list-group .list-group-item:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.list-group .active {
+    border-color: var(--custom-color-white);
+    border-radius: .3rem;
+    font-weight: bold;
+}
+
 .modal-backdrop {
     opacity: .9 !important;
 }

@@ -3,8 +3,8 @@
         <h4 class="text-center m-1">Filters</h4>
         <hr class="m-1">
         <h5 class="mt-4 ps-2">Cuisine</h5>
-        <ul class="list-group list-group-flushrounded-3">
-            <li class="list-group-item d-flex justify-content-between align-items-start">
+        <ul class="list-group rounded-3">
+            <li class="list-group-item d-flex justify-content-between align-items-start cuisine-item active">
                 <div class="ms-2 me-auto">
                     <div>All</div>
                 </div>
@@ -12,7 +12,7 @@
             </li>
             {% for cuisine in cuisine_list %}
             {% if cuisine.restaurant_count != 0 %}
-            <li class="list-group-item d-flex justify-content-between align-items-start">
+            <li class="list-group-item d-flex justify-content-between align-items-start cuisine-item">
                 <div class="ms-2 me-auto">
                     <div>{{ cuisine.name }}</div>
                 </div>
@@ -22,15 +22,15 @@
             {% endfor %}
         </ul>
         <h5 class="mt-4 ps-2">Location</h5>
-        <ul class="list-group list-group-flush rounded-3">
-            <li class="list-group-item d-flex justify-content-between align-items-start">
+        <ul class="list-group rounded-3">
+            <li class="list-group-item d-flex justify-content-between align-items-start location-item active">
                 <div class="ms-2 me-auto">
                     <div>All</div>
                 </div>
                 <span class="badge bg-dark rounded-pill">{{ location_count }}</span>
             </li>
             {% for key, value in location_list.items %}
-            <li class="list-group-item d-flex justify-content-between align-items-start">
+            <li class="list-group-item d-flex justify-content-between align-items-start location-item">
                 <div class="ms-2 me-auto">
                     <div>{{ key }}</div>
                 </div>
