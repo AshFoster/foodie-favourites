@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
+            document.querySelector('#cuisine-filter').value = item.querySelector('.cuisine-name').textContent
             for (let other of cuisineListItems) {
                 if (other != item && other.classList.contains('active')) {
                     other.classList.remove('active');
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
+            document.querySelector('#location-filter').value = item.querySelector('.location-name').textContent
             for (let other of locationListItems) {
                 if (other != item && other.classList.contains('active')) {
                     other.classList.remove('active');
@@ -46,9 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
-// CREDIT
-// Idea for this section of code came from 'The Dumbfounds' YouTube video:
-// https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
+    // CREDIT
+    // Idea for these functions came from 'The Dumbfounds' YouTube video:
+    // https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
     updateDishesString();
     document.querySelector('#dishes-input').addEventListener('keydown', function (e) {
         if (e.keyCode !== 13) {
@@ -62,12 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
         addNewDish(dishName);
         updateDishesString();
     })
-// END CREDIT
+    // END CREDIT
 });
 
 // CREDIT
-// Idea for this section of code came from 'The Dumbfounds' YouTube video:
-// https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
+    // Idea for these functions came from 'The Dumbfounds' YouTube video:
+    // https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
 function addNewDish(name) {
     document.querySelector('#dishes-container').insertAdjacentHTML('beforeend',
         `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
