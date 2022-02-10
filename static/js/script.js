@@ -16,10 +16,19 @@ setTimeout(function () {
 Once the DOM has finshed loading add event listeners to some elements
 */
 document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search)
+    let cuisineFilter = params.get('cuisine-filter')
+    let locationFilter = params.get('location-filter')
     let cuisineListItems = document.querySelectorAll('.cuisine-item');
     let locationListItems = document.querySelectorAll('.location-item');
 
+    document.querySelector('#cuisine-filter').value = cuisineFilter
+    document.querySelector('#location-filter').value = locationFilter
+
     for (let item of cuisineListItems) {
+        if (item.querySelector('.cuisine-name').textContent == cuisineFilter) {
+            item.classList.add('active');
+        }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
@@ -34,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     for (let item of locationListItems) {
+        if (item.querySelector('.location-name').textContent == locationFilter) {
+            item.classList.add('active');
+        }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
@@ -46,11 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
             };
         })
     };
-
-    // document.querySelector('.filter-form').addEventListener('submit', (e) => {
-    //     const formData = new FormData(e.target);
-    //     alert(formData.values)
-    // });
 
 
     // CREDIT

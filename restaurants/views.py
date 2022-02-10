@@ -29,7 +29,7 @@ class RestaurantList(generic.ListView):
 
         if location_filter != '' and location_filter is not None and location_filter != 'All':
             self.queryset = self.queryset.filter(county__icontains=location_filter)
-        
+
         return self.queryset
 
     def get_context_data(self, **kwargs):
@@ -41,6 +41,7 @@ class RestaurantList(generic.ListView):
         
         restaurants = Restaurant.objects.filter(approved=True)
         cuisine_string = ''
+
         for restaurant in restaurants:
             cuisine_string += restaurant.list_cuisines() + ', '
         
