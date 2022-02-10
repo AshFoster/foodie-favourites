@@ -17,16 +17,25 @@ Once the DOM has finshed loading add event listeners to some elements
 */
 document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search)
-    let cuisineFilter = params.get('cuisine-filter')
-    let locationFilter = params.get('location-filter')
+    let cuisineFilterURL = params.get('cuisine-filter');
+    let locationFilterURL = params.get('location-filter');
+    let cuisineHiddenInput = document.querySelector('#cuisine-filter')
+    let locationHiddenInput = document.querySelector('#location-filter')
     let cuisineListItems = document.querySelectorAll('.cuisine-item');
     let locationListItems = document.querySelectorAll('.location-item');
 
-    document.querySelector('#cuisine-filter').value = cuisineFilter
-    document.querySelector('#location-filter').value = locationFilter
+    if (cuisineFilterURL != null) {
+        cuisineHiddenInput.value = cuisineFilterURL
+    }
+
+    if (locationFilterURL != null) {
+        locationHiddenInput.value = locationFilterURL
+    }
 
     for (let item of cuisineListItems) {
-        if (item.querySelector('.cuisine-name').textContent == cuisineFilter) {
+        if (item.querySelector('.cuisine-name').textContent == cuisineFilterURL) {
+            item.classList.add('active');
+        } else if (item.querySelector('.cuisine-name').textContent ==  'All' && cuisineHiddenInput.value == 'All') {
             item.classList.add('active');
         }
         item.addEventListener('click', function () {
@@ -43,7 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     for (let item of locationListItems) {
-        if (item.querySelector('.location-name').textContent == locationFilter) {
+        if (item.querySelector('.location-name').textContent == locationFilterURL) {
+            item.classList.add('active');
+        } else if (item.querySelector('.location-name').textContent ==  'All' && locationHiddenInput.value == 'All') {
             item.classList.add('active');
         }
         item.addEventListener('click', function () {
