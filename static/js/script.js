@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     other.classList.remove('active');
                 }
             };
+            document.getElementById('filter-form').submit();
         })
     };
 
@@ -67,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     other.classList.remove('active');
                 }
             };
+            document.getElementById('filter-form').submit();
         })
     };
 
@@ -127,7 +129,3 @@ function removeDish(e) {
     updateDishesString();
 }
 // END CREDIT
-
-function handleSubmit () {
-    document.getElementById('filter-form').submit();
-}

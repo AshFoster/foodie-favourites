@@ -166,7 +166,6 @@ main {
 }
 
 .list-group .current {
-    text-transform: uppercase;
     font-weight: bold;
 }
 
