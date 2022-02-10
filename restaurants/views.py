@@ -38,14 +38,24 @@ class RestaurantList(generic.ListView):
         to be used in restaurants.html
         """
         context = super(RestaurantList, self).get_context_data(**kwargs)
-
-        cuisine_with_restaurant_count = Cuisine.objects.filter(approved=True).annotate(cuisine_restaurant_count=Count('restaurant_cuisine'))
-        cuisine_with_restaurant_count_values = cuisine_with_restaurant_count.values('cuisine_restaurant_count')
-        cuisine_count = 0
-        for cuisine in cuisine_with_restaurant_count_values:
-            cuisine_count += cuisine['cuisine_restaurant_count']
         
         restaurants = Restaurant.objects.filter(approved=True)
+        cuisine_string = ''
+        for restaurant in restaurants:
+            cuisine_string += restaurant.list_cuisines() + ', '
+        
+        cuisine_string = cuisine_string[:len(cuisine_string)-2]
+        cuisine_list = cuisine_string.split(', ')
+        restaurant_cuisines = {}
+        restaurant_cuisines_count = 0
+
+        for cuisine in cuisine_list:
+            restaurant_cuisines_count += 1
+            if cuisine not in restaurant_cuisines:
+                restaurant_cuisines[cuisine] = 1
+            else:
+                restaurant_cuisines[cuisine] = restaurant_cuisines[cuisine] + 1
+
         restaurant_locations = {}
         restaurant_locations_count = 0
         for location in restaurants:
@@ -59,8 +69,8 @@ class RestaurantList(generic.ListView):
         if get_copy.get('page'):
             get_copy.pop('page')
 
-        context['cuisine_count'] = cuisine_count
-        context['cuisine_list'] = cuisine_with_restaurant_count
+        context['cuisine_count'] = restaurant_cuisines_count
+        context['cuisine_list'] = restaurant_cuisines
         context['location_count'] = restaurant_locations_count
         context['location_list'] = restaurant_locations
         context['range'] = range(5)

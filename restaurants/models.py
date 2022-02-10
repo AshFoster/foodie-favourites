@@ -51,11 +51,11 @@ class Restaurant(models.Model):
         return self.favourited.count()
 
     def list_cuisines(self):
-        cuisine_list = ""
+        cuisine_string = ""
         for cuisine in self.cuisine.all():
-            cuisine_list += str(cuisine) + ", "
+            cuisine_string += str(cuisine) + ", "
 
-        return cuisine_list[:len(cuisine_list)-2]
+        return cuisine_string[:len(cuisine_string)-2]
 
 
 class Comment(models.Model):

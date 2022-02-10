@@ -11,15 +11,15 @@
                     </div>
                     <span class="badge bg-dark rounded-pill">{{ cuisine_count }}</span>
                 </li>
-                {% for cuisine in cuisine_list %}
-                {% if cuisine.restaurant_count != 0 %}
+                {% for key, value in cuisine_list.items %}
+                <!-- {% if cuisine.restaurant_count != 0 %} -->
                 <li class="list-group-item d-flex justify-content-between align-items-start cuisine-item">
                     <div class="ms-2 me-auto">
-                        <div class="cuisine-name">{{ cuisine.name }}</div>
+                        <div class="cuisine-name">{{ key }}</div>
                     </div>
-                    <span class="badge bg-dark rounded-pill">{{ cuisine.cuisine_restaurant_count }}</span>
+                    <span class="badge bg-dark rounded-pill">{{ value }}</span>
                 </li>
-                {% endif %}
+                <!-- {% endif %} -->
                 {% endfor %}
             </ul>
             <h5 class="mt-4 ps-2">Location</h5>
