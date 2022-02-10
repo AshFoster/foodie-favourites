@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let item of cuisineListItems) {
         if (item.querySelector('.cuisine-name').textContent == cuisineFilterURL) {
-            item.classList.add('active');
+            item.classList.add('active', 'current');
         } else if (item.querySelector('.cuisine-name').textContent ==  'All' && cuisineHiddenInput.value == 'All') {
-            item.classList.add('active');
+            item.classList.add('active', 'current');
         }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
@@ -53,9 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let item of locationListItems) {
         if (item.querySelector('.location-name').textContent == locationFilterURL) {
-            item.classList.add('active');
+            item.classList.add('active', 'current');
         } else if (item.querySelector('.location-name').textContent ==  'All' && locationHiddenInput.value == 'All') {
-            item.classList.add('active');
+            item.classList.add('active', 'current');
         }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
@@ -127,3 +127,7 @@ function removeDish(e) {
     updateDishesString();
 }
 // END CREDIT
+
+function handleSubmit () {
+    document.getElementById('filter-form').submit();
+}

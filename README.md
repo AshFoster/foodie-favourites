@@ -177,6 +177,8 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - The height of the restaurnt previews on the home page and restaurant page varied based on the height of the images uploaded so different restauarant cards weren't always the same height. This was fixed by amending the y margins on the relevant elements and adding some custom height classes at certain screen widths. One of the custom classes forces the element to be 100% height at certain screen widths, and an other forces the height of the elements to be 180px at certain screen widths.
 
+- When submitting the filter form on restaurants.html it did not work when submitting via the model, but did when not submitting via the modal. This was fixed by submitting the form using Javascript, which is a requirement when using Bootstrap modals.
+
 #### Unfixed Bugs
 
 - Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens.
