@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let locationListItems = document.querySelectorAll('.location-item');
 
     for (let item of cuisineListItems) {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     for (let item of locationListItems) {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
@@ -46,6 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
             };
         })
     };
+
+    // document.querySelector('.filter-form').addEventListener('submit', (e) => {
+    //     const formData = new FormData(e.target);
+    //     alert(formData.values)
+    // });
 
 
     // CREDIT
@@ -68,8 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // CREDIT
-    // Idea for these functions came from 'The Dumbfounds' YouTube video:
-    // https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
+// Idea for these functions came from 'The Dumbfounds' YouTube video:
+// https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
 function addNewDish(name) {
     document.querySelector('#dishes-container').insertAdjacentHTML('beforeend',
         `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">

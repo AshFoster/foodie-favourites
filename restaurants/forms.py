@@ -14,7 +14,7 @@ class AddRestaurantForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
+        self.fields['description'].widget.attrs['rows'] = 4
         self.fields['rating'].widget = forms.Select(choices=RATING_CHOICES)
         self.fields['county'].widget = forms.Select(choices=GB_REGION_CHOICES)
 
@@ -26,7 +26,6 @@ class CommentForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
         self.fields['content'].label = False
         self.fields['content'].widget.attrs['placeholder'] = 'Leave a comment...'
         self.fields['content'].widget.attrs['rows'] = 2

@@ -20,6 +20,18 @@ class RestaurantList(generic.ListView):
     template_name = 'restaurants.html'
     paginate_by = 3
 
+    def get_queryset(self):
+        cuisine_filter = self.request.GET.get('cuisine-filter')
+        location_filter = self.request.GET.get('location-filter')
+
+        if cuisine_filter != '' and cuisine_filter is not None and cuisine_filter != 'All':
+            self.queryset = self.queryset.filter(cuisine__name=cuisine_filter)
+
+        if location_filter != '' and location_filter is not None and location_filter != 'All':
+            self.queryset = self.queryset.filter(county__icontains=location_filter)
+        
+        return self.queryset
+
     def get_context_data(self, **kwargs):
         """
         The get_context_data function sets the relevant context data
@@ -42,12 +54,17 @@ class RestaurantList(generic.ListView):
                 restaurant_locations[location.county] = 1
             else:
                 restaurant_locations[location.county] = restaurant_locations[location.county] + 1
+        
+        get_copy = self.request.GET.copy()
+        if get_copy.get('page'):
+            get_copy.pop('page')
 
         context['cuisine_count'] = cuisine_count
         context['cuisine_list'] = cuisine_with_restaurant_count
         context['location_count'] = restaurant_locations_count
         context['location_list'] = restaurant_locations
         context['range'] = range(5)
+        context['get_copy'] = get_copy
         return context
 
 
