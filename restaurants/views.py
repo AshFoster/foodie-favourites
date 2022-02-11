@@ -40,11 +40,17 @@ class RestaurantList(generic.ListView):
         context = super(RestaurantList, self).get_context_data(**kwargs)
         
         restaurants = Restaurant.objects.filter(approved=True)
+        location_filter = self.request.GET.get('location-filter')
         cuisine_string = ''
 
-        for restaurant in restaurants:
-            cuisine_string += restaurant.list_cuisines() + ', '
-        
+        if location_filter == 'All':
+            for restaurant in restaurants:
+                cuisine_string += restaurant.list_cuisines() + ', '
+        else:
+            for restaurant in restaurants:
+                if restaurant.county == location_filter:
+                    cuisine_string += restaurant.list_cuisines() + ', '
+
         cuisine_string = cuisine_string[:len(cuisine_string)-2]
         cuisine_list = cuisine_string.split(', ')
         restaurant_cuisines = {}
@@ -57,14 +63,27 @@ class RestaurantList(generic.ListView):
             else:
                 restaurant_cuisines[cuisine] = restaurant_cuisines[cuisine] + 1
 
+        cuisine_filter = self.request.GET.get('cuisine-filter')
         restaurant_locations = {}
         restaurant_locations_count = 0
-        for location in restaurants:
-            restaurant_locations_count += 1
-            if location.county not in restaurant_locations:
-                restaurant_locations[location.county] = 1
-            else:
-                restaurant_locations[location.county] = restaurant_locations[location.county] + 1
+
+        if cuisine_filter == 'All':
+            for restaurant in restaurants:
+                restaurant_locations_count += 1
+                if restaurant.county not in restaurant_locations:
+                    restaurant_locations[restaurant.county] = 1
+                else:
+                    restaurant_locations[restaurant.county] = restaurant_locations[restaurant.county] + 1
+        else:
+            for restaurant in restaurants:
+                print(restaurant.list_cuisines())
+                if cuisine_filter in restaurant.list_cuisines():
+                    print(restaurant.list_cuisines())
+                    restaurant_locations_count += 1
+                    if restaurant.county not in restaurant_locations:
+                        restaurant_locations[restaurant.county] = 1
+                    else:
+                        restaurant_locations[restaurant.county] = restaurant_locations[restaurant.county] + 1
         
         get_copy = self.request.GET.copy()
         if get_copy.get('page'):
