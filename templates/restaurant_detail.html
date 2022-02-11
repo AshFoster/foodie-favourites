@@ -31,7 +31,7 @@
                             <h4 class="card-title text-decoration-underline mb-3">{{ restaurant.name }}</h4>
                             <p class="card-text">
                                 Added by
-                                <a href="{% url 'profile' restaurant.author %}" class="link-custom">{{ restaurant.author }}</a>
+                                <a href="{% url 'profile' restaurant.author_slug %}" class="link-custom">{{ restaurant.author }}</a>
                                 on {{ restaurant.created_on }}
                             </p>
                             <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
