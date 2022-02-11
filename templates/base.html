@@ -42,7 +42,7 @@
                             </li>
                             {% if user.is_authenticated %}
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="#">Profile</a>
+                                <a class="nav-link" href="{% url 'profile' user.profile.slug %}">Profile</a>
                             </li>
                             <li class="nav-item d-sm-none">
                                 <a class="nav-link" href="{% url 'account_logout' %}">Sign Out</a>
@@ -64,7 +64,7 @@
                 <ul class="navbar-nav text-center">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="#">Profile</a>
+                        <a class="nav-link lh-1" href="{% url 'profile' user.profile.slug %}">Profile</a>
                     </li>
                     <hr class="m-1 text-light">
                     <li class="nav-item">

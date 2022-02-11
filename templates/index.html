@@ -59,7 +59,7 @@
                                     </a>
                                     <p class="card-text">
                                         Added by
-                                        <a href="#" class="link-custom">{{ restaurant.author }}</a>
+                                        <a href="{% url 'profile' restaurant.author %}" class="link-custom">{{ restaurant.author }}</a>
                                         on {{ restaurant.created_on }}
                                     </p>
                                     <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>

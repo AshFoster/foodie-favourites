@@ -9,11 +9,11 @@ class Profile(models.Model):
     The Profile model is linked to the Django User model and is used to
     allow the registered user's to have a profile which they can edit.
     """
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, blank=True)
     slug = models.SlugField(max_length=100, unique=True)
-    location = models.CharField(max_length=200)
-    bio = models.TextField()
+    location = models.CharField(max_length=200, blank=True)
+    bio = models.TextField(blank=True)
     image = CloudinaryField('image', default='default')
 
     def save(self, *args, **kwargs):
