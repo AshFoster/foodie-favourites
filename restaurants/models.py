@@ -21,6 +21,7 @@ class Restaurant(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='restaurant_posts')
+    author_slug = models.SlugField(max_length=100)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
@@ -39,6 +40,7 @@ class Restaurant(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
+        self.author_slug = slugify(self.author)
         super(Restaurant, self).save(*args, **kwargs)
 
     def __str__(self):
