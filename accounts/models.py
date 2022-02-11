@@ -17,8 +17,8 @@ class Profile(models.Model):
     image = CloudinaryField('image', default='default')
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.user.username)
+        self.slug = slugify(str(self.user))
         super(Profile, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.user.username
+        return str(self.user)

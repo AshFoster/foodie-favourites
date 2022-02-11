@@ -5,7 +5,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.db.models import Count
 from .models import Cuisine, Restaurant, Comment, Dish
 from .forms import AddRestaurantForm, CommentForm
 
@@ -38,12 +37,12 @@ class RestaurantList(generic.ListView):
         to be used in restaurants.html
         """
         context = super(RestaurantList, self).get_context_data(**kwargs)
-        
+
         restaurants = Restaurant.objects.filter(approved=True)
         location_filter = self.request.GET.get('location-filter')
         cuisine_string = ''
 
-        if location_filter == 'All':
+        if location_filter == 'All' or location_filter == '' or location_filter is None:
             for restaurant in restaurants:
                 cuisine_string += restaurant.list_cuisines() + ', '
         else:
@@ -67,7 +66,7 @@ class RestaurantList(generic.ListView):
         restaurant_locations = {}
         restaurant_locations_count = 0
 
-        if cuisine_filter == 'All':
+        if cuisine_filter == 'All' or cuisine_filter == '' or cuisine_filter is None:
             for restaurant in restaurants:
                 restaurant_locations_count += 1
                 if restaurant.county not in restaurant_locations:
@@ -84,7 +83,7 @@ class RestaurantList(generic.ListView):
                         restaurant_locations[restaurant.county] = 1
                     else:
                         restaurant_locations[restaurant.county] = restaurant_locations[restaurant.county] + 1
-        
+
         get_copy = self.request.GET.copy()
         if get_copy.get('page'):
             get_copy.pop('page')
@@ -225,7 +224,7 @@ class DeleteRestaurant(LoginRequiredMixin, DeleteView):
     model = Restaurant
     template_name = 'restaurant_confirm_delete.html'
     success_url = reverse_lazy('restaurants')
-    
+
     def delete(self, request, *args, **kwargs):
         messages.add_message(self.request, messages.SUCCESS, 'Restaurant has been deleted.')
         return super(DeleteRestaurant, self).delete(request, *args, **kwargs)
