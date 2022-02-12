@@ -60,4 +60,35 @@
 
 {% block right %}
 <h4 class="text-center">Restaurants Posted</h4>
+{% for restaurant in restaurant_posts %}
+<div class="card my-4 card-custom box-shadow-custom text-center">
+    <div class="row g-0">
+        <div class="col-12 mh-md-220px">
+            <a href="{% url 'restaurant_detail' restaurant.slug %}">
+                {% if "default" in restaurant.image.url %}
+                <img src="/static/images/default-restaurant.jpg" class="img-fluid rounded card-image"
+                    alt="Default image for restaurants posts">
+                {% else %}
+                <img class="img-fluid rounded card-image" src="{{ restaurant.image.url }}"
+                    alt="Uploaded image for restaurant's post">
+                {% endif %}
+            </a>
+        </div>
+        <div class="col-12 d-flex align-items-center">
+            <div class="card-body">
+                <a href="{% url 'restaurant_detail' restaurant.slug  %}" class="link-custom">
+                    <h4 class="card-title">{{ restaurant.name }}</h4>
+                </a>
+                <p class="card-text">
+                    Added by
+                    <a href="{% url 'profile' restaurant.author_slug %}" class="link-custom">{{ restaurant.author }}</a>
+                    on {{ restaurant.created_on }}
+                </p>
+                <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
+                <p class="card-text">Location: {{ restaurant.location }}, {{ restaurant.county }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

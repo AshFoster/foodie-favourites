@@ -168,9 +168,6 @@ main {
 .list-group .active {
     border-color: var(--custom-color-white);
     border-radius: .3rem;
-}
-
-.list-group .current {
     font-weight: bold;
 }
 
@@ -432,6 +429,10 @@ footer .vr {
 
     .h-md-180px {
         height: 180px;
+    }
+
+    .mh-md-220px {
+        max-height: 220px;
     }
 }
 

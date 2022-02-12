@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let item of cuisineListItems) {
         if (item.querySelector('.cuisine-name').textContent == cuisineFilterURL) {
-            item.classList.add('active', 'current');
+            item.classList.add('active');
         } else if (item.querySelector('.cuisine-name').textContent ==  'All' && cuisineHiddenInput.value == 'All') {
-            item.classList.add('active', 'current');
+            item.classList.add('active');
         }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let item of locationListItems) {
         if (item.querySelector('.location-name').textContent == locationFilterURL) {
-            item.classList.add('active', 'current');
+            item.classList.add('active');
         } else if (item.querySelector('.location-name').textContent ==  'All' && locationHiddenInput.value == 'All') {
-            item.classList.add('active', 'current');
+            item.classList.add('active');
         }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
