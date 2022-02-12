@@ -257,20 +257,6 @@ main {
     min-width: 160px;
 }
 
-.table-custom {
-    color: inherit;
-    vertical-align: middle;
-}
-
-.table-custom th,
-.table-custom td {
-    border-style: none;
-}
-
-.table-custom th {
-    text-align: ed;
-}
-
 /* ---------------------------------------------------- BASE.HTML styles */
 
 /* Navbar */
