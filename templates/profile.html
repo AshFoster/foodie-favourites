@@ -1,15 +1,61 @@
 {% extends "base_heading_split.html" %}
 
 {% block bg_image %}
-<div class="bg-img bg-img-add-restaurant"></div>
+<div class="bg-img bg-img-profile"></div>
 {% endblock %}
 
 {% block heading %}
-{{ profile.slug }}
+{{ profile.slug }}'s profile
 {% endblock %}
 
 {% block left %}
-<h4 class="text-center">Favourited Restaurants</h4>
+<h4 class="text-center">Profile Info</h4>
+
+{% if "default" in profile.image.url %}
+<div class="d-flex justify-content-center w-100 py-3">
+    <img src="/static/images/default-profile.png" class="rounded profile-image" alt="Default image for user profiles">
+    {% else %}
+    <img class="rounded profile-image" src="{{ profile.image.url }}" alt="Uploaded image for user's profile">
+    {% endif %}
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-4 profile-info-left">
+        <p class="text-end fw-bold">Name:</p>
+    </div>
+    <div class="col-8 profile-info-right">
+        {% if profile.name != '' %}
+        <p class="text-start">{{ profile.name }}</p>
+        {% else %}
+        <p class="text-start">{{ profile.user }}</p>
+        {% endif %}
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-4 profile-info-left">
+        <p class="text-end fw-bold">Location:</p>
+    </div>
+    <div class="col-8 profile-info-right">
+        <p class="text-start">{{ profile.location }}</p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-4 profile-info-left">
+        <p class="text-end fw-bold">Favourite cuisine:</p>
+    </div>
+    <div class="col-8 profile-info-right">
+        <p class="text-start">{{ profile.favourite_cuisine }}</p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-4 profile-info-left">
+        <p class="text-end fw-bold">Bio:</p>
+    </div>
+    <div class="col-8 profile-info-right">
+        <p class="text-start">{{ profile.bio }}</p>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block right %}

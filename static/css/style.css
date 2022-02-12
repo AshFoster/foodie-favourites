@@ -65,6 +65,11 @@ main {
     background-size: cover;
 }
 
+.bg-img-profile {
+    background: url("../images/bg-img-profile.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 
 /* Background colours and opacity */
 .bg-lighter-dark-custom {
@@ -246,6 +251,25 @@ main {
     padding: 0;
 }
 
+.profile-image {
+    max-width: 60%;
+    object-fit: cover;
+    min-width: 160px;
+}
+
+.table-custom {
+    color: inherit;
+    vertical-align: middle;
+}
+
+.table-custom th,
+.table-custom td {
+    border-style: none;
+}
+
+.table-custom th {
+    text-align: ed;
+}
 
 /* ---------------------------------------------------- BASE.HTML styles */
 
@@ -343,6 +367,21 @@ footer .vr {
 
     #comment-submit {
         width: 70%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .profile-info-left {
+        width: 100%;
+    }
+    
+    .profile-info-right {
+        width: 100%;
+    }
+
+    .profile-info-left p,
+    .profile-info-right p {
+        text-align: center !important;
     }
 }
 

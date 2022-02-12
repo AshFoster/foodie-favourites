@@ -13,6 +13,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=100, blank=True)
     slug = models.SlugField(max_length=100, unique=True)
     location = models.CharField(max_length=200, blank=True)
+    favourite_cuisine = models.SlugField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
     image = CloudinaryField('image', default='default')
 
