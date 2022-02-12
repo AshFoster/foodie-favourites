@@ -32,7 +32,7 @@
                 <div class="col-10">
                     <div class="card my-4 card-custom box-shadow-custom text-center">
                         <div class="row g-0">
-                            <div class="col-md-4 h-md-180px">
+                            <div class="col-md-4 h-md-250px">
                                 <a href="{% url 'restaurant_detail' restaurant.slug %}">
                                     {% if "default" in restaurant.image.url %}
                                     <img src="../static/images/default-restaurant.jpg"
@@ -43,7 +43,7 @@
                                     {% endif %}
                                 </a>
                             </div>
-                            <div class="col-md-8 d-flex align-items-center h-md-180px">
+                            <div class="col-md-8 d-flex align-items-center h-md-250px">
                                 <div class="card-body">
                                     <a href="{% url 'restaurant_detail' restaurant.slug  %}" class="link-custom">
                                         <h4 class="card-title">{{ restaurant.name }}</h4>
@@ -54,6 +54,7 @@
                                         on {{ restaurant.created_on }}
                                     </p>
                                     <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
+                                    <p class="card-text"></p>Location: {{ restaurant.location }}, {{ restaurant.county }}</p>
                                     <div class="text-muted d-flex justify-content-between mt-3 mb-0 favourties-rating">
                                         <span class="favourties-span ms-3 ms-sm-5">
                                             <i class="far fa-heart"></i>
