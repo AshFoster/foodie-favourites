@@ -1,9 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import  generic, View
+from django.views.generic.edit import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.core.paginator import Paginator
 from restaurants.models import Restaurant
 from .models import Profile
+from .forms import UpdateProfileForm
 
 
 class ProfileView(View):
@@ -38,3 +42,16 @@ class ProfileView(View):
                 'get_copy': get_copy,
             }
         )
+
+
+class EditProfile(LoginRequiredMixin, UpdateView):
+    model = Profile
+    template_name = 'edit_profile.html'
+    form_class = UpdateProfileForm
+
+    def form_valid(self, form):
+        self.object.save()
+
+        messages.add_message(self.request, messages.SUCCESS, f'Your profile has been updated.')
+
+        return super().form_valid(form)

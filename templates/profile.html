@@ -12,7 +12,7 @@
 <h4 class="text-center">Profile Info</h4>
 {% if user.username == profile.slug %}
 <div class="edit-link-profile">
-    <a href="" class="link-custom me-sm-2 me-xl-4">(Edit)</a>
+    <a href="{% url 'edit_profile' user.username %}" class="link-custom me-sm-2 me-xl-4">(Edit)</a>
 </div>
 {% endif %}
 
