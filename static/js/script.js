@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let locationHiddenInput = document.querySelector('#location-filter')
     let cuisineListItems = document.querySelectorAll('.cuisine-item');
     let locationListItems = document.querySelectorAll('.location-item');
+    let dishesInput = document.querySelector('#dishes-input');
+    let profileToggleBtn = document.querySelector('#btn-posts-favourites-toggle');
 
     if (cuisineFilterURL != null) {
         cuisineHiddenInput.value = cuisineFilterURL
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let item of cuisineListItems) {
         if (item.querySelector('.cuisine-name').textContent == cuisineFilterURL) {
             item.classList.add('active');
-        } else if (item.querySelector('.cuisine-name').textContent ==  'All' && cuisineHiddenInput.value == 'All') {
+        } else if (item.querySelector('.cuisine-name').textContent == 'All' && cuisineHiddenInput.value == 'All') {
             item.classList.add('active');
         }
         item.addEventListener('click', function () {
@@ -55,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let item of locationListItems) {
         if (item.querySelector('.location-name').textContent == locationFilterURL) {
             item.classList.add('active');
-        } else if (item.querySelector('.location-name').textContent ==  'All' && locationHiddenInput.value == 'All') {
+        } else if (item.querySelector('.location-name').textContent == 'All' && locationHiddenInput.value == 'All') {
             item.classList.add('active');
         }
         item.addEventListener('click', function () {
@@ -68,28 +70,44 @@ document.addEventListener("DOMContentLoaded", function () {
                     other.classList.remove('active');
                 }
             };
-            document.getElementById('filter-form').submit();
+            document.querySelector('#filter-form').submit();
         })
     };
-
 
     // CREDIT
     // Idea for these functions came from 'The Dumbfounds' YouTube video:
     // https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
     updateDishesString();
-    document.querySelector('#dishes-input').addEventListener('keydown', function (e) {
-        if (e.keyCode !== 13) {
-            return;
-        }
 
-        e.preventDefault();
+    if (dishesInput != null) {
+        dishesInput.addEventListener('keydown', function (e) {
+            if (e.keyCode !== 13) {
+                return;
+            }
 
-        let dishName = this.value;
-        this.value = '';
-        addNewDish(dishName);
-        updateDishesString();
-    })
+            e.preventDefault();
+
+            let dishName = this.value;
+            this.value = '';
+            addNewDish(dishName);
+            updateDishesString();
+        })
+    }
     // END CREDIT
+
+    if (profileToggleBtn != null) {
+        profileToggleBtn.addEventListener('click', function () {
+            let profileToggleURL = params.get('posts-favourites-toggle');
+            let profileHiddenInput = document.querySelector('#posts-favourites-toggle');
+    
+            if (profileToggleURL == 'Posts' || profileToggleURL == null) {
+                profileHiddenInput.value = 'Favourites';
+            } else {
+                profileHiddenInput.value = 'Posts';
+            }
+            document.querySelector('#profile-toggle-form').submit();
+        });
+    }
 });
 
 // CREDIT
@@ -104,8 +122,12 @@ function addNewDish(name) {
 }
 
 function updateDishesString() {
-    dishes = fetchDishArray();
-    document.querySelector('#dishes-string').value = dishes.join(',')
+    let dishes = fetchDishArray();
+    let dishesString = document.querySelector('#dishes-string');
+
+    if (dishesString != null) {
+        document.querySelector('#dishes-string').value = dishes.join(',');
+    }
 }
 
 function fetchDishArray() {

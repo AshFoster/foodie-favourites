@@ -56,10 +56,30 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-12 px-0 px-md-2">
+        <hr class="hr-custom m-0">
+        <div class="d-flex justify-content-center mt-4 mb-1">
+            <form id="profile-toggle-form" action="{% url 'profile' profile.slug %}" method="get">
+                <input type="hidden" name="posts-favourites-toggle" id="posts-favourites-toggle" value="Posts" required>
+                {% if current_list == 'posts' %}
+                <button type="button" class="btn btn-light" id="btn-posts-favourites-toggle">Show Favourites</button>
+                {% else %}
+                <button type="button" class="btn btn-light" id="btn-posts-favourites-toggle">Show Restaurants Posted</button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block right %}
+{% if current_list == 'posts' %}
 <h4 class="text-center">Restaurants Posted</h4>
+{% else %}
+<h4 class="text-center">Favourited Posts</h4>
+{% endif %}
 {% for restaurant in restaurant_posts %}
 <div class="card my-4 card-custom box-shadow-custom text-center">
     <div class="row g-0">
