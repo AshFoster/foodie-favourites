@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from django.views import View
+from django.views import  generic, View
 from django.contrib.auth.models import User
-from .models import Profile
+from django.core.paginator import Paginator
 from restaurants.models import Restaurant
+from .models import Profile
 
 
 class ProfileView(View):
@@ -18,13 +19,57 @@ class ProfileView(View):
         if profile_toggle != '' and profile_toggle is not None and profile_toggle != 'Posts':
             restaurant_posts = Restaurant.objects.filter(favourited__username=slug, approved=True).order_by('-created_on')
             current_list = 'favourites'
+        
+        paginator = Paginator(restaurant_posts, 3)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        get_copy = self.request.GET.copy()
+        if get_copy.get('page'):
+            get_copy.pop('page')
 
         return render(
             request,
             'profile.html',
             {
                 'profile': profile,
-                'restaurant_posts': restaurant_posts,
                 'current_list': current_list,
+                'page_obj': page_obj,
+                'get_copy': get_copy,
             }
         )
+
+
+# class ProfileView(generic.ListView):
+#     model = Restaurant
+#     queryset = Restaurant.objects.filter(approved=True).order_by('-created_on')
+#     template_name = 'profile.html'
+#     paginate_by = 1
+#     current_list = 'posts'
+
+#     def get_queryset(self, *args, **kwargs):
+#         slug = self.kwargs.get('slug')
+#         profile_toggle = self.request.GET.get('posts-favourites-toggle')
+#         author = User.objects.get(username=slug)
+#         self.queryset = Restaurant.objects.filter(author=author, approved=True).order_by('-created_on')
+
+#         if profile_toggle != '' and profile_toggle is not None and profile_toggle != 'Posts':
+#             self.queryset = Restaurant.objects.filter(favourited__username=slug, approved=True).order_by('-created_on')
+#             self.current_list = 'favourites'
+
+#         return self.queryset
+
+#     def get_context_data(self, **kwargs):
+#         context = super(ProfileView, self).get_context_data(**kwargs)
+#         slug = self.kwargs.get('slug')
+#         profile = get_object_or_404(Profile.objects.all(), slug=slug)
+#         get_copy = self.request.GET.copy()
+
+#         if get_copy.get('page'):
+#             get_copy.pop('page')
+
+#         context['profile'] = profile
+#         context['restaurant_posts'] = self.queryset
+#         context['current_list'] = self.current_list
+#         context['get_copy'] = get_copy
+#         return context

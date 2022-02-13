@@ -65,7 +65,8 @@
                 {% if current_list == 'posts' %}
                 <button type="button" class="btn btn-light" id="btn-posts-favourites-toggle">Show Favourites</button>
                 {% else %}
-                <button type="button" class="btn btn-light" id="btn-posts-favourites-toggle">Show Restaurants Posted</button>
+                <button type="button" class="btn btn-light" id="btn-posts-favourites-toggle">Show Restaurants
+                    Posted</button>
                 {% endif %}
             </form>
         </div>
@@ -80,7 +81,7 @@
 {% else %}
 <h4 class="text-center">Favourited Posts</h4>
 {% endif %}
-{% for restaurant in restaurant_posts %}
+{% for restaurant in page_obj.object_list %}
 <div class="card my-4 card-custom box-shadow-custom text-center">
     <div class="row g-0">
         <div class="col-12 mh-md-220px">
@@ -111,4 +112,20 @@
     </div>
 </div>
 {% endfor %}
+{% if page_obj.has_other_pages %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center my-2">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}&{{ get_copy.urlencode }}"
+                class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom mx-2">&laquo; PREV </a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}&{{ get_copy.urlencode }}"
+                class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom mx-2"> NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 {% endblock %}

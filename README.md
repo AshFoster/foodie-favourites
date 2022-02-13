@@ -179,6 +179,8 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - When submitting the filter form on restaurants.html it did not work when submitting via the model, but did when not submitting via the modal. This was fixed by submitting the form using Javascript, which is a requirement when using Bootstrap modals.
 
+- When adding pagination to profile.html it wasn't working initially. It was eventually fixed by using page_obj.object_list as the context to be looped over rather than the context that was explicitly defined in ProfileView.
+
 #### Unfixed Bugs
 
 - Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens.
