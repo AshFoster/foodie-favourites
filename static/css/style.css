@@ -228,7 +228,8 @@ main {
     opacity: 0;
 }
 
-.edit-link {
+.edit-link-add,
+.edit-link-profile {
     position: absolute;
     top: 0;
     right: 0;
@@ -313,16 +314,6 @@ footer .vr {
     .fs-small-custom button {
         font-size: .8em !important;
     }
-
-    .edit-link {
-        top: -1%;
-        right: -3%;
-    }
-
-    .delete-link {
-        top: -50% !important;
-        right: -20% !important;
-    }
 }
 
 @media screen and (min-width: 368px) {
@@ -366,6 +357,25 @@ footer .vr {
     .profile-info-right p {
         text-align: center !important;
     }
+
+    .edit-link-profile {
+        top: -25px;
+        right: 0;
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .edit-link-add {
+        top: -10px;
+        right: 0;
+        left: 0;
+    }
+
+    .delete-link {
+        right: 0;
+        left: 0;
+    }
 }
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
@@ -407,8 +417,7 @@ footer .vr {
     }
 
     .delete-link {
-        top: -60%;
-        right: -5%;
+        top: -30px
     }
 }
 

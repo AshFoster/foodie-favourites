@@ -23,12 +23,12 @@
                     <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body h-100 position-relative">
                             {% if user == restaurant.author %}
-                            <div class="mt-3 mb-0 edit-link">
+                            <div class="mt-3 mb-0 edit-link-add">
                                 <a href="{% url 'edit_restaurant' restaurant.slug %}"
-                                    class="link-custom me-4">(Edit)</a>
+                                    class="link-custom me-sm-3">(Edit)</a>
                             </div>
                             {% endif %}
-                            <h4 class="card-title text-decoration-underline mb-3">{{ restaurant.name }}</h4>
+                            <h4 class="card-title text-decoration-underline mt-3 mt-sm-0 mb-3 mx-sm-5">{{ restaurant.name }}</h4>
                             <p class="card-text">
                                 Added by
                                 <a href="{% url 'profile' restaurant.author_slug %}" class="link-custom">{{ restaurant.author }}</a>
