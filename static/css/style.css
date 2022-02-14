@@ -70,6 +70,16 @@ main {
     background-size: cover;
 }
 
+.bg-img-edit-profile {
+    background: url("../images/bg-img-edit-profile.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.bg-img-contact {
+    background: url("../images/bg-img-contact.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 
 /* Background colours and opacity */
 .bg-lighter-dark-custom {
