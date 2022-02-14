@@ -1,0 +1,22 @@
+{% extends "base_heading.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block bg_image %}
+<div class="bg-img bg-img-login-register"></div>
+{% endblock %}
+
+{% block heading %}
+Contact Us
+{% endblock %}
+
+{% block section_content %}
+<form class="contact-us-form mt-3 mx-auto mw-lg-600px" action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <hr class="hr-custom mt-3 mb-0">
+    <div class="d-flex justify-content-center pt-4">
+        <button type="submit" class="btn btn-light">Submit</button>
+    </div>
+</form>
+{% endblock %}

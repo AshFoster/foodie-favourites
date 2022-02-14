@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'localflavor',
     'restaurants',
     'accounts',
+    'contact',
 ]
 
 SITE_ID = 1
