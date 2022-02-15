@@ -325,8 +325,9 @@ footer .vr {
 
 /* ---------------------------------------------------- MEDIA QUERIES */
 @media screen and (max-width: 368px) {
-    .fs-small-custom button {
-        font-size: .8em !important;
+    .fs-small-custom button,
+    .fs-small-custom a {
+        font-size: .7em !important;
     }
 }
 

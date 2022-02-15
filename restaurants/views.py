@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from foodiefavourites.settings import EMAIL_HOST_USER
 from .models import Cuisine, Restaurant, Comment, Dish
 from .forms import AddRestaurantForm, CommentForm
 
@@ -142,6 +144,14 @@ class RestaurantDetail(View):
             comment = comment_form.save(commit=False)
             comment.restaurant = restaurant
             comment.save()
+
+            send_mail(
+                'Comment from: ' + comment_form.instance.name + ' - Foodie Favourites',
+                'A comment on "' + str(restaurant) + ' "has been submitted and needs approval.',
+                EMAIL_HOST_USER,
+                [EMAIL_HOST_USER],
+                fail_silently=False,
+            )
         else:
             comment_form = CommentForm()
 
