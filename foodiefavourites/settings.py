@@ -64,6 +64,8 @@ ACCOUNT_FORMS = {
 'signup': 'accounts.forms.CustomSignupForm',
 }
 
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 

@@ -80,6 +80,11 @@ main {
     background-size: cover;
 }
 
+.bg-img-password-reset {
+    background: url("../images/bg-img-password-reset.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 
 /* Background colours and opacity */
 .bg-lighter-dark-custom {
@@ -201,7 +206,9 @@ main {
 
 .login .form-group,
 .signup .form-group,
-.add-restaurant-form .form-group {
+.add-restaurant-form .form-group,
+.contact-us-form .form-group,
+.password_reset .form-group {
     padding-bottom: 1rem;
 }
 
