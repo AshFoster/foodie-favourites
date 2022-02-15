@@ -210,7 +210,8 @@ main {
 .contact-us-form .form-group,
 .password_reset .form-group,
 .add_email .form-group,
-.email_list .ctrlHolder {
+.email_list .ctrlHolder,
+.password_change .form-group {
     padding-bottom: 1rem;
 }
 
