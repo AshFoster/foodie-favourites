@@ -211,7 +211,8 @@ main {
 .password_reset .form-group,
 .add_email .form-group,
 .email_list .ctrlHolder,
-.password_change .form-group {
+.password_change .form-group,
+.password_set .form-group {
     padding-bottom: 1rem;
 }
 
