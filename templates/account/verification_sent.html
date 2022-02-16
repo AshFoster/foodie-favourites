@@ -1,12 +1,12 @@
-{% extends "account/base.html" %}
+{% extends "base_confirm.html" %}
 
-{% load i18n %}
+{% block bg_image %}
+<div class="bg-img bg-img-password-reset"></div>
+{% endblock %}
 
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block section_content %}
+<h1>Verify Your E-mail Address</h1>
 
-{% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
-
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
-
+<p>We have sent an e-mail to you for verification. Follow the link provided to finalise the signup process. Please
+    <a href="{% url 'contact' %}" class="link-custom">contact us</a> if you do not receive it within a few minutes.</p>
 {% endblock %}
