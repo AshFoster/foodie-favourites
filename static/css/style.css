@@ -472,13 +472,16 @@ footer .vr {
 }
 
 @media screen and (max-width: 992px) {
-
     .favourites-rating,
     .favourites-span,
     .rating-span {
         display: block !important;
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+
+    .welcome-message {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
     }
 }
 
@@ -502,6 +505,10 @@ footer .vr {
 
    .mw-lg-600px {
        max-width: 600px;
+   }
+
+   .welcome-container {
+       box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
    }
 }
 

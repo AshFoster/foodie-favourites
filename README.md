@@ -181,13 +181,13 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - When adding pagination to profile.html it wasn't working initially. It was eventually fixed by using page_obj.object_list as the context to be looped over rather than the context that was explicitly defined in ProfileView.
 
-#### Unfixed Bugs
+- Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens. This was solved by adding custom class names to the relevant elements and then adding box shadows using media queries.
 
-- Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens.
+#### Unfixed Bugs
 
 - When adding a restaurant, if a restaurant with that same name already exists an error is thrown, but the list of dishes disappear.
 
-- Any logged in user can access the edit page of any restaurant if the type in the correct url.
+- Any logged in user can access the edit page of any restaurant if they type in the correct url.
 
 
 ## Deployment
