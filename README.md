@@ -183,11 +183,11 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens. This was solved by adding custom class names to the relevant elements and then adding box shadows using media queries.
 
+- Any logged in user can access the edit and delete pages of any restaurant, and the edit page of any user's profile if they type in the correct url. This was fixed by overiding the get_queryset funcion of the relevant views and returning only objects which the current user is associated with.
+
 #### Unfixed Bugs
 
 - When adding a restaurant, if a restaurant with that same name already exists an error is thrown, but the list of dishes disappear.
-
-- Any logged in user can access the edit page of any restaurant if they type in the correct url.
 
 
 ## Deployment

@@ -200,6 +200,12 @@ class EditRestaurant(LoginRequiredMixin, UpdateView):
     template_name = 'add_restaurant.html'
     form_class = AddRestaurantForm
 
+    # https://www.django-antipatterns.com/antipattern/checking-ownership-through-the-userpassestestmixin.html
+    def get_queryset(self, *args, **kwargs):
+        return super().get_queryset(*args, **kwargs).filter(
+            author=self.request.user
+        )
+
     def get_context_data(self, **kwargs):
         context = super(EditRestaurant, self).get_context_data(**kwargs)
         dishes = self.object.dishes.order_by('name')
@@ -234,6 +240,12 @@ class DeleteRestaurant(LoginRequiredMixin, DeleteView):
     model = Restaurant
     template_name = 'restaurant_confirm_delete.html'
     success_url = reverse_lazy('restaurants')
+
+    # https://www.django-antipatterns.com/antipattern/checking-ownership-through-the-userpassestestmixin.html
+    def get_queryset(self, *args, **kwargs):
+        return super().get_queryset(*args, **kwargs).filter(
+            author=self.request.user
+        )
 
     def delete(self, request, *args, **kwargs):
         messages.add_message(self.request, messages.SUCCESS, 'Restaurant has been deleted.')

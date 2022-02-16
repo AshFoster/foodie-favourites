@@ -48,6 +48,12 @@ class EditProfile(LoginRequiredMixin, UpdateView):
     model = Profile
     template_name = 'edit_profile.html'
     form_class = UpdateProfileForm
+    
+    # https://www.django-antipatterns.com/antipattern/checking-ownership-through-the-userpassestestmixin.html
+    def get_queryset(self, *args, **kwargs):
+        return super().get_queryset(*args, **kwargs).filter(
+            user=self.request.user
+        )
 
     def form_valid(self, form):
         self.object.save()
