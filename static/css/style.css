@@ -297,12 +297,16 @@ main {
 }
 
 .navbar-custom .nav-link:hover {
-    font-weight: 500;
     color: var(--custom-color-white) !important;
 }
 
 .navbar-custom-side {
     background-color: var(--custom-color-lighter-dark);
+}
+
+.navbar-custom .active {
+    font-weight: 500;
+    color: var(--custom-color-white) !important;
 }
 
 

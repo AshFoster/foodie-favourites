@@ -32,27 +32,34 @@
                     <div class="collapse navbar-collapse me-auto mx-sm-auto navbar-custom" id="main-nav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                {% url 'home' as url %}
+                                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'home' %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'restaurants' %}">Restaurants</a>
+                                {% url 'restaurants' as url %}
+                                <a class="nav-link {% if url in request.path %}active{% endif %}" href="{% url 'restaurants' %}">Restaurants</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                {% url 'contact' as url %}
+                                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
                             </li>
                             {% if user.is_authenticated %}
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="{% url 'profile' user.profile.slug %}">Profile</a>
+                                {% url 'profile' user.profile.slug as url %}
+                                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'profile' user.profile.slug %}">Profile</a>
                             </li>
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="{% url 'account_logout' %}">Sign Out</a>
+                                {% url 'account_logout' as url %}
+                                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'account_logout' %}">Sign Out</a>
                             </li>
                             {% else %}
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="{% url 'account_login' %}">Sign in</a>
+                                {% url 'account_login' as url %}
+                                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'account_login' %}">Sign in</a>
                             </li>
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                                {% url 'account_signup' as url %}
+                                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
                             </li>
                             {% endif %}
                         </ul>
@@ -64,19 +71,23 @@
                 <ul class="navbar-nav text-center">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="{% url 'profile' user.profile.slug %}">Profile</a>
+                        {% url 'profile' user.profile.slug as url %}
+                        <a class="nav-link lh-1 {% if request.path == url %}active{% endif %}" href="{% url 'profile' user.profile.slug %}">Profile</a>
                     </li>
                     <hr class="m-1 text-light">
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="{% url 'account_logout' %}">Sign Out</a>
+                        {% url 'account_logout' as url %}
+                        <a class="nav-link lh-1 {% if request.path == url %}active{% endif %}" href="{% url 'account_logout' %}">Sign Out</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="{% url 'account_login' %}">Sign in</a>
+                        {% url 'account_login' as url %}
+                        <a class="nav-link lh-1 {% if request.path == url %}active{% endif %}" href="{% url 'account_login' %}">Sign in</a>
                     </li>
                     <hr class="m-1 text-light">
                     <li class="nav-item">
-                        <a class="nav-link lh-1" href="{% url 'account_signup' %}">Register</a>
+                        {% url 'account_signup' as url %}
+                        <a class="nav-link lh-1 {% if request.path == url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     {% endif %}
                 </ul>
