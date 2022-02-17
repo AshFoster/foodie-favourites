@@ -6,11 +6,32 @@ from .forms import ContactForm
 
 
 class ContactUs(FormView):
+    """
+    View used to process ContactForm form
+    """
     template_name = 'contact_us.html'
     form_class = ContactForm
     success_url = '/contact/'
 
+    def get_initial(self):
+        """
+        Returns the initial data to use for forms on this view.
+        """
+        initial = super().get_initial()
+
+        if self.request.user.profile.name == '':
+            initial['name'] = self.request.user.username
+        else:
+            initial['name'] = self.request.user.profile.name
+        
+        initial['email'] = self.request.user.email
+
+        return initial
+
     def form_valid(self, form):
+        """
+        Sends contact form message as email if form is valid when submitted
+        """
         name = self.request.POST.get('name')
         email = self.request.POST.get('email')
         message = self.request.POST.get('message')
