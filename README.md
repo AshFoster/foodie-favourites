@@ -123,15 +123,29 @@ Here are links to each of them:
 
 #### Imagery
 
+Images are an important part of the look and feel of the website. Each page has a different background image, most of which are of different restaurant settings.
+
 #### Colour Scheme
+
+The colour scheme of the site is very simple, with the main colour's being shade's of black, grey, and white.
 
 ![Website's Colours 1]()
 
+The idea was to keep the colours themselves simple, and to use the different background images on each page to provide the more interesting colours. Using shades of black, grey and white meant that most images could be used without clashing.
+
 #### Typography
 
-#### Iconography
+For my typography choices, I used [Google Fonts](https://fonts.google.com/?sort=popularity) which I sorted by popularity to give me an idea of some fonts that are likely to work well across a number of websites.
 
-[Font Awesome](https://fontawesome.com/)
+I then selected the ones that stood out the most to me. The fonts I chose are as follows:
+
+Open Sans Condensed (italic) - This is used for the Foodie Favourites logo shown on the navbar.
+
+Oswald - This is used for all navbar links. 
+
+Lato - This is used for all other text throughout the site.
+
+Each of them is of the font category Sans Serif which is the font used as a fallback if for any reason the specified font isn't available.
 
 ## Features
 
