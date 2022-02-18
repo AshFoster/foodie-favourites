@@ -8,11 +8,11 @@
 
 - [Overview](#overview)
 - [User Experience (UX)](#user-experience)
-    - [Strategy Plane](#strategy-plane)
-    - [Scope Plane](#scope-plane)
-    - [Structure Plane](#structure-plane)
-    - [Skeleton Plane](#skeleton-plane)
-    - [Surface Plane](#surface-plane)
+    - [Strategy](#strategy)
+    - [Scope](#scope)
+    - [Structure](#structure)
+    - [Skeleton](#skeleton)
+    - [Surface](#surface)
 - [Features](#features)
     - [Existing Features](#existing-features)
 - [Testing](#testing)
@@ -31,20 +31,24 @@
 
 ## Overview
 
-Foodie Favourites is a free to use website where food lovers - especially those who enjoy eating out - can share and discover their favourite restaurants and dishes. Once registered, users can create posts of their own favourite restaurants, and can comment, rate and favourite other peoples' restaurant posts.
+Foodie Favourites is a free to use website where UK based food lovers - especially those who enjoy eating out - can share and discover their favourite restaurants and dishes. Once registered, users can create posts of their own favourite restaurants, and can comment and favourite other peoples' restaurant posts. Registered users will have their own profile page where they can share some infomation about themselves if they so desire. The profile page also shows any restaurant posts they have made, and any restaurants they have favourited.
 
 ## User Experience
 
-### Strategy Plane
+### Strategy
+
+This website is aimed at people who would like to share their favourite restaurants with others, and/ or people who would like to discover some new restaurants. Therefore the age range aimed for is quite wide, essentially anyone who is able to enjoy a nice meal out.
+
+In a very broad sense, their are 3 types of users the website will have: site admins, registered users and non-registered users. For this reason the epics and user stories have been categorised in this way.
 
 #### Epics and User Stories
+
+There are 3 epics, each of which have been split up into multiple user stories. All of which are outlined below.
+
   - __Epic 1: Admin Setup__
       - As a Site Admin I can create, read, update and delete restaurant posts so that I can manage the site's content
-      - As a Site Admin I can approve or disapprove restaurant posts so that I can filter out any questionable posts
       - As a Site Admin I can approve or disapprove comments on restaurant posts so that I can filter out any questionable comments
-      - As a Site User I can start typing a location which will have autocomplete suggestions so that I can more easily fill in the restaurants location field
-      - As a Site Admin I can approve or disapprove suggested new cuisines so that I can filter out any questionable cuisines
-      - As a Site Admin I can be notified when a post, location, cuisine or comment needs to be approved so that I do not need to keep checking the admin site for anything to be approved
+      - As a Site Admin I can be notified when a comment needs to be approved so that I do not need to keep checking the admin site for anything to be approved
       - As a Site Admin I can be notified when a user has submitted the contact form so that I do not need to keep checking the admin site for any form submissions to read
 
   - __Epic 2: All User Functionality__
@@ -55,23 +59,57 @@ Foodie Favourites is a free to use website where food lovers - especially those 
       - As a Site User I can click on a restaurant post so that I can view the post in its entirety
       - As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular
       - As a Site User I can view comments on an individual restaurant post so that I can I can see what people have had to say about it
-      - As a Site User I can view registered users' profiles so that I can learn more about them
+      - As a Site User I can view the author's favourite dishes on each individual restaurant post so that I can see which dishes the author of each restaurant post recommends
+      - As a Site User I can view registered users' profiles so that I can learn more about them and see which restaurant posts they've favourited and/or which they've posted.
       - As a Site User I can fill in a contact form so that I can get in contact with the site owners to ask any questions I might have
       - As a Site User I can register for an account so that I can contibute to the site
 
   - __Epic 3: Registered User Functionality__
+      - As a Registered Site User I can add my own restaurant posts so that I can share my favourites restaurants and dishes with other users
+      - As a Registered Site User I can update restaurant posts that I've previosuly made so that I can amend anything that might be incorrect or add dishes
+      - As a Registered Site User I can delete restaurant posts that I've previosuly made so that I can remove any restaurant posts that I no longer wish to share
       - As a Registered Site User I can leave comments on restaurant posts so that I can give my opinion on posts
-      - As a Registered Site User I can Favourite or Unfavourite restaurant posts so that I can keep track of restautant posts that I like
+      - As a Registered Site User I can favourite or unfavourite restaurant posts so that I can keep track of restautant posts that I like
       - As a Registered Site User I can reset my password so that I can still gain access to my account if I've forgotten the current one
-      - As a Registered Site User I can request a new cuisine to be added so that I can use it on future restaurant posts I make
+      - As a Registered Site User I can update my registered email address or update my password so that I can use a new email address with my account, strengthen my password or user a more memorable password
       - As a Registered Site User I can view my own profile so that I can see what restaurant posts I've posted or favourited
       - As a Registered Site User I can edit my own profile so that I can choose what to share about myself with other users
 
-### Scope Plane
+### Scope
 
-### Structure Plane
+All of the user stories outlined above are all feassible for the first release of the website. Some further features that could be implemented later on include:
 
-### Skeleton Plane
+- Allowing users to suggest their favourites dishes on other user's restaurant posts
+- Adding an autocomplete feature to the location selection when adding a new restaurant
+- Giving the user the ability to explicitly request new cuisines (this can currently be done using contact us page)
+
+I don't feel that having these features will impact the user experience too much, so felt it was fine to exclude them for the first release. Each of which would need to be thought about carefully in how they would be implemented in order to not overcomplicate the website too much.
+
+### Structure
+
+The structure of the website is aimed to be as simple as possible whilst showing all the necessary information. The main parts of the site will be accessible from the navbar, with any other parts easily accessible from the relevant pages. The main parts of the site included within the navbar are as follows:
+
+- Home
+- Restaurants (where all restaurant posts can be found)
+- Contact Us
+- Sign In
+- Register
+- Profile (registered users only)
+- Sign Out (registered users only)
+
+Other parts of the site not included in the navbar are as follows:
+
+- Restaurant detail (accessed from restaurants page and users' profile pages)
+- Add Restaurant (registered users only - accessed from home page and restaurant page)
+- Update Restaurant (registered users only - accessed from restaurant detail page - only post's author can access)
+- Delete Restaurant (registered users only - accessed from update restaurant page - only post's author can access)
+- Other users' profiles - accessed by clicking on the author's username on restaurant posts or comments
+- Edit profile (registered users only - accessed from profile page - users can only edit their own profiles)
+- Update Email (registered users only - accessed from profile page - users can only update their own email)
+- Update Password (registered users only - accessed from profile page - users can only update their own password)
+- Reset Password (registered users only - accessed from sign in page - users can only reset their own password)
+
+### Skeleton
 
 #### Wireframes
 
@@ -81,7 +119,7 @@ Here are links to each of them:
 
 - [Desktop - Home]()
 
-### Surface Plane
+### Surface
 
 #### Imagery
 
