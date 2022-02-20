@@ -31,8 +31,10 @@
             <div class="row g-0 justify-content-center mt-3 mb-2">
                 <div class="col-10 py-2 px-3 bg-lighter-dark-custom rounded-3 box-shadow-custom">
                     <div class="row g-0 justify-content-center">
-                        <input class="col-11 col-md-8 me-md-2 py-2 px-3 rounded-3" id="search-input" placeholder="Search for a restaurant..." aria-label="Search" type="search">
-                        <button class="col-4 col-md-2 mt-1 mt-md-0 px-0 px-sm-3 btn btn-light rounded-3" id="search-button">Search</button>
+                        <input class="col-11 col-md-8 me-md-2 py-2 px-3 rounded-3" id="search-input"
+                            placeholder="Search for a restaurant..." aria-label="Search" type="search">
+                        <button class="col-4 col-md-2 mt-1 mt-md-0 px-0 px-sm-3 btn btn-light rounded-3"
+                            id="search-button">Search</button>
                     </div>
                 </div>
             </div>
@@ -95,13 +97,28 @@
                 <ul class="pagination justify-content-center my-2">
                     {% if page_obj.has_previous %}
                     <li><a href="?page={{ page_obj.previous_page_number }}&{{ get_copy.urlencode }}"
-                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom mx-2">&laquo; PREV
+                            class="page-link bg-light text-dark rounded-3 fw-bold mx-2">&laquo; PREV
                         </a>
                     </li>
                     {% endif %}
+                    <!-- CREDIT https://nemecek.be/blog/105/how-to-use-elided-pagination-in-django-and-solve-too-many-pages-problem -->
+                    {% for i in page_range|default_if_none:page_obj.paginator.get_elided_page_range %}
+                    {% if page_obj.number == i %}
+                    <li class="active page-item"><span class="page-link">{{ i }} <span
+                                class="sr-only">(current)</span></span>
+                    </li>
+                    {% else %}
+                    {% if i == page_obj.paginator.ELLIPSIS %}
+                    <li class="page-item"><span class="page-link">{{ i }}</span></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link bg-light text-dark fw-bold" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    <!-- END CREDIT -->
                     {% if page_obj.has_next %}
                     <li><a href="?page={{ page_obj.next_page_number }}&{{ get_copy.urlencode }}"
-                            class="page-link bg-light text-dark rounded-3 fw-bold box-shadow-custom mx-2"> NEXT
+                            class="page-link bg-light text-dark rounded-3 fw-bold mx-2"> NEXT
                             &raquo;</a>
                     </li>
                     {% endif %}

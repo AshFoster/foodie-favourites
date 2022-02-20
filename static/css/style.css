@@ -284,6 +284,11 @@ main {
     border: 1px solid var(--custom-color-light);
 }
 
+.page-item.active .page-link {
+    background-color: var(--custom-color-lighter-dark);
+    border-color: var(--custom-color-lighter-dark);
+}
+
 /* ---------------------------------------------------- BASE.HTML styles */
 
 /* Navbar */
