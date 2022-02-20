@@ -93,6 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    searchInput.addEventListener('search', function () {
+        searchHiddenInput.value = searchInput.value;
+        filterForm.submit();
+    });
+
     searchBtn.addEventListener('click', function () {
         searchHiddenInput.value = searchInput.value;
         filterForm.submit();
