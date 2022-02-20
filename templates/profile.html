@@ -124,6 +124,8 @@
         </div>
     </div>
 </div>
+{% empty %}
+<h5 class="my-4 text-center text-light-custom">No restaurants to show.</h5>
 {% endfor %}
 {% if page_obj.has_other_pages %}
 <nav aria-label="Page navigation">

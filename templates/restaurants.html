@@ -87,6 +87,8 @@
                     </div>
                 </div>
             </div>
+            {% empty %}
+            <h4 class="my-4 text-center text-light-custom">No restaurants match your search.</h4>
             {% endfor %}
             {% if is_paginated %}
             <nav aria-label="Page navigation">

@@ -86,22 +86,26 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     };
 
-    searchInput.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
+    if (searchInput != null) {
+        searchInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                searchHiddenInput.value = searchInput.value;
+                filterForm.submit();
+            }
+        });
+
+        searchInput.addEventListener('search', function () {
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
-        }
-    });
-
-    searchInput.addEventListener('search', function () {
-        searchHiddenInput.value = searchInput.value;
-        filterForm.submit();
-    });
-
-    searchBtn.addEventListener('click', function () {
-        searchHiddenInput.value = searchInput.value;
-        filterForm.submit();
-    })
+        });
+    }
+    
+    if (searchBtn != null) {
+        searchBtn.addEventListener('click', function () {
+            searchHiddenInput.value = searchInput.value;
+            filterForm.submit();
+        })
+    }
 
 
 
