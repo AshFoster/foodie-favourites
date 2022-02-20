@@ -55,7 +55,6 @@ There are 3 epics, each of which have been split up into multiple user stories. 
       - As a Site User I can view a list of restaurant posts so that I can select one to view
       - As a Site User I can view a paginated list of restaurant posts so that I can easily select a post to view
       - As a Site User I can filter the available restaurant posts so that I can see posts which are more specified to my needs
-      - As a Site User I can search through the available restaurant posts using keywords so that I can see posts which are more specified to my needs
       - As a Site User I can click on a restaurant post so that I can view the post in its entirety
       - As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular
       - As a Site User I can view comments on an individual restaurant post so that I can I can see what people have had to say about it
@@ -79,11 +78,12 @@ There are 3 epics, each of which have been split up into multiple user stories. 
 
 All of the user stories outlined above are all feassible for the first release of the website. Some further features that could be implemented later on include:
 
+- Allowing users to search for restaurant names using a search bar
 - Allowing users to suggest their favourites dishes on other user's restaurant posts
 - Adding an autocomplete feature to the location selection when adding a new restaurant
 - Giving the user the ability to explicitly request new cuisines (this can currently be done using contact us page)
 
-I don't feel that having these features will impact the user experience too much, so felt it was fine to exclude them for the first release. Each of which would need to be thought about carefully in how they would be implemented in order to not overcomplicate the website too much.
+I don't feel that having these features will impact the user experience too much, so felt it was fine to exclude them for the first release. Each of which would need to be thought about carefully in how they would be implemented in order to not overcomplicate the website too much. As the site gains users and the restaurant list expands, the search functionality might come in handy for the user, so then might be worth implementing.
 
 ### Structure
 
@@ -135,9 +135,9 @@ The idea was to keep the colours themselves simple, and to use the different bac
 
 #### Typography
 
-For my typography choices, I used [Google Fonts](https://fonts.google.com/?sort=popularity) which I sorted by popularity to give me an idea of some fonts that are likely to work well across a number of websites.
+For typography choices, [Google Fonts](https://fonts.google.com/?sort=popularity) was used, which was sorted by popularity to give an idea of some fonts that are likely to work well across a number of websites.
 
-I then selected the ones that stood out the most to me. The fonts I chose are as follows:
+The ones that stood out and seemed most suited to the project were chosen. They are as follows:
 
 Open Sans Condensed (italic) - This is used for the Foodie Favourites logo shown on the navbar.
 
@@ -239,12 +239,54 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 #### Unfixed Bugs
 
-- When adding a restaurant, if a restaurant with that same name already exists an error is thrown, but the list of dishes disappear.
+- When adding a restaurant, if a restaurant with the same name already exists an error is thrown as expected. But when the form is reloaded the list of dishes added before submission disappear.
 
 
 ## Deployment
 
 [Here's a link to the live site.]()
+
+To deploy this application please fork or clone the [Foodie Favourites Repository](https://github.com/AshFoster/foodie-favourites).
+
+Steps to do so are shown below.
+
+### Forking the GitHub Repository
+
+To fork the the GitHub repository follow these steps:
+
+- Log in to GitHub and navigate to the [Foodie Favourites Repository](https://github.com/AshFoster/foodie-favourites).
+- Once the page has loaded look for the "Fork" button near the top right of the page and click it.
+- A copy of the original repository should now be in your GitHub account.
+
+### Cloning the GitHub Repository
+
+To clone the the GitHub repository follow these steps:
+
+- Log in to GitHub and navigate to the [Foodie Favourites Repository](https://github.com/AshFoster/foodie-favourites).
+- Above the repository's list of files, on the right, click on the "Code" button.
+- Copy the link that is shown in the drop-down list.
+- Open Git Bash and change the current working directory to the location where you want the cloned directory to be made.
+- In the terminal, type `git clone`, and then paste the URL you copied earlier and press enter.
+- A local clone of the original repository should now be available.
+
+### Deploying with Heroku
+
+If deploying using a fork or clone of the repository, all of the apps in the 'requirements.txt' file will need to be installed.
+
+Also, an env.py file will need to be added to the top level directory, with SECRET_KEY and CLOUDINARY_URL environment variables added to it.
+
+This project has been deployed using Heroku from a GitHub repository using the following steps:
+ 
+- Log into Heroku or create an account.
+- Create a new Heroku App with an approriate name and region.
+- Once created go to Resources tab, then under Add-ons search and add 'Heroku Postgres’.
+- Then go to the Settings tab and click Reveal Config Vars.
+- Add SECRET_KEY and CLOUDINARY_URL variables as config vars from the env.py file in GitPod.
+- Then copy the DATABASE_URL value from 'Config Vars' into the env.py file in GitPod.
+- Back in Heroku go to the Deploy tab.
+- Connect to Github using the relevant repository name.
+- Then click 'Deploy a GitHub branch' under the Manual deploy section.
+- Once confirmation of deployment is shown, the project is now deployed and can be opened.
 
 ## Technologies Used
 
