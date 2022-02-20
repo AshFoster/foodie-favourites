@@ -32,7 +32,7 @@ class RestaurantList(generic.ListView):
         if location_filter != '' and location_filter is not None and location_filter != 'All':
             self.queryset = self.queryset.filter(county__icontains=location_filter)
         
-        if search_restaurants != '' and location_filter is not None:
+        if search_restaurants != '' and search_restaurants is not None:
             self.queryset = self.queryset.filter(name__icontains=search_restaurants)
 
         return self.queryset
@@ -45,6 +45,11 @@ class RestaurantList(generic.ListView):
         context = super(RestaurantList, self).get_context_data(**kwargs)
 
         restaurants = Restaurant.objects.filter(approved=True)
+        search_restaurants = self.request.GET.get('search-restaurants')
+
+        if search_restaurants != '' and search_restaurants is not None:
+            restaurants = restaurants.filter(name__icontains=search_restaurants)
+        
         location_filter = self.request.GET.get('location-filter')
         cuisine_string = ''
 
@@ -56,8 +61,12 @@ class RestaurantList(generic.ListView):
                 if restaurant.county == location_filter:
                     cuisine_string += restaurant.list_cuisines() + ', '
 
-        cuisine_string = cuisine_string[:len(cuisine_string)-2]
-        cuisine_list = cuisine_string.split(', ')
+        if cuisine_string != '':
+            cuisine_string = cuisine_string[:len(cuisine_string)-2]
+            cuisine_list = cuisine_string.split(', ')
+        else:
+            cuisine_list = []
+
         restaurant_cuisines = {}
         restaurant_cuisines_count = 0
 
