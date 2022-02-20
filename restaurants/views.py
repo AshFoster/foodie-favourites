@@ -24,12 +24,16 @@ class RestaurantList(generic.ListView):
     def get_queryset(self):
         cuisine_filter = self.request.GET.get('cuisine-filter')
         location_filter = self.request.GET.get('location-filter')
+        search_restaurants = self.request.GET.get('search-restaurants')
 
         if cuisine_filter != '' and cuisine_filter is not None and cuisine_filter != 'All':
             self.queryset = self.queryset.filter(cuisine__name=cuisine_filter)
 
         if location_filter != '' and location_filter is not None and location_filter != 'All':
             self.queryset = self.queryset.filter(county__icontains=location_filter)
+        
+        if search_restaurants != '' and location_filter is not None:
+            self.queryset = self.queryset.filter(name__icontains=search_restaurants)
 
         return self.queryset
 

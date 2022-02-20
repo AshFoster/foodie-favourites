@@ -19,12 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search)
     let cuisineFilterURL = params.get('cuisine-filter');
     let locationFilterURL = params.get('location-filter');
+    let searchRestaurantsURL = params.get('search-restaurants');
     let cuisineHiddenInput = document.querySelector('#cuisine-filter')
     let locationHiddenInput = document.querySelector('#location-filter')
+    let searchHiddenInput = document.querySelector('#search-restaurants')
     let cuisineListItems = document.querySelectorAll('.cuisine-item');
     let locationListItems = document.querySelectorAll('.location-item');
     let dishesInput = document.querySelector('#dishes-input');
     let profileToggleBtn = document.querySelector('#btn-posts-favourites-toggle');
+    let filterForm = document.querySelector('#filter-form');
+    let searchInput = document.querySelector('#search-input');
+    let searchBtn = document.querySelector('#search-button');
 
     if (cuisineFilterURL != null) {
         cuisineHiddenInput.value = cuisineFilterURL
@@ -32,6 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (locationFilterURL != null) {
         locationHiddenInput.value = locationFilterURL
+    }
+
+    if (searchRestaurantsURL != null) {
+        searchHiddenInput.value = searchRestaurantsURL
+        searchInput.value = searchRestaurantsURL
     }
 
     for (let item of cuisineListItems) {
@@ -50,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     other.classList.remove('active');
                 }
             };
-            document.getElementById('filter-form').submit();
+            searchHiddenInput.value = searchInput.value;
+            filterForm.submit();
         })
     };
 
@@ -70,9 +81,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     other.classList.remove('active');
                 }
             };
-            document.querySelector('#filter-form').submit();
+            searchHiddenInput.value = searchInput.value;
+            filterForm.submit();
         })
     };
+
+    searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            searchHiddenInput.value = searchInput.value;
+            filterForm.submit();
+        }
+    });
+
+    searchBtn.addEventListener('click', function () {
+        searchHiddenInput.value = searchInput.value;
+        filterForm.submit();
+    })
+
+
 
     // CREDIT
     // Idea for these functions came from 'The Dumbfounds' YouTube video:
@@ -99,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
         profileToggleBtn.addEventListener('click', function () {
             let profileToggleURL = params.get('posts-favourites-toggle');
             let profileHiddenInput = document.querySelector('#posts-favourites-toggle');
-    
+
             if (profileToggleURL == 'Posts' || profileToggleURL == null) {
                 profileHiddenInput.value = 'Favourites';
             } else {
