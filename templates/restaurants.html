@@ -111,7 +111,7 @@
                     {% if i == page_obj.paginator.ELLIPSIS %}
                     <li class="page-item"><span class="page-link">{{ i }}</span></li>
                     {% else %}
-                    <li class="page-item"><a class="page-link bg-light text-dark fw-bold" href="?page={{ i }}">{{ i }}</a></li>
+                    <li class="page-item"><a class="page-link bg-light text-dark fw-bold" href="?page={{ i }}&{{ get_copy.urlencode }}">{{ i }}</a></li>
                     {% endif %}
                     {% endif %}
                     {% endfor %}

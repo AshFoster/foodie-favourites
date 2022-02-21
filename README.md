@@ -45,6 +45,8 @@ In a very broad sense, their are 3 types of users the website will have: site ad
 
 There are 3 epics, each of which have been split up into multiple user stories. All of which are outlined below.
 
+More detail about the user stories including acceptance criteria and tasks associated with each of them can be found in the [issues](https://github.com/AshFoster/foodie-favourites/issues) section of the GitHub repository.
+
   - __Epic 1: Admin Setup__
       - As a Site Admin I can create, read, update and delete restaurant posts so that I can manage the site's content
       - As a Site Admin I can approve or disapprove comments on restaurant posts so that I can filter out any questionable comments
@@ -55,6 +57,7 @@ There are 3 epics, each of which have been split up into multiple user stories. 
       - As a Site User I can view a list of restaurant posts so that I can select one to view
       - As a Site User I can view a paginated list of restaurant posts so that I can easily select a post to view
       - As a Site User I can filter the available restaurant posts so that I can see posts which are more specified to my needs
+      - As a Site User I can type keywords into a search bar so that I can find restaurant posts with titles that contain the keywords that I typed
       - As a Site User I can click on a restaurant post so that I can view the post in its entirety
       - As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular
       - As a Site User I can view comments on an individual restaurant post so that I can I can see what people have had to say about it
@@ -78,12 +81,11 @@ There are 3 epics, each of which have been split up into multiple user stories. 
 
 All of the user stories outlined above are all feassible for the first release of the website. Some further features that could be implemented later on include:
 
-- Allowing users to search for restaurant names using a search bar
 - Allowing users to suggest their favourites dishes on other user's restaurant posts
 - Adding an autocomplete feature to the location selection when adding a new restaurant
 - Giving the user the ability to explicitly request new cuisines (this can currently be done using contact us page)
 
-I don't feel that having these features will impact the user experience too much, so felt it was fine to exclude them for the first release. Each of which would need to be thought about carefully in how they would be implemented in order to not overcomplicate the website too much. As the site gains users and the restaurant list expands, the search functionality might come in handy for the user, so then might be worth implementing.
+I don't feel that having these features will impact the user experience too much, so felt it was fine to exclude them for the first release. Each of which would need to be thought about carefully in how they would be implemented in order to not overcomplicate the website too much.
 
 ### Structure
 
@@ -259,7 +261,7 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - The height of the restaurnt previews on the home page and restaurant page varied based on the height of the images uploaded so different restauarant cards weren't always the same height. This was fixed by amending the y margins on the relevant elements and adding some custom height classes at certain screen widths. One of the custom classes forces the element to be 100% height at certain screen widths, and an other forces the height of the elements to be 180px at certain screen widths.
 
-- When submitting the filter form on restaurants.html it did not work when submitting via the model, but did when not submitting via the modal. This was fixed by submitting the form using Javascript, which is a requirement when using Bootstrap modals.
+- When submitting the filter form on restaurants.html it did not work when submitting via the modal, but did when not submitting via the modal. This was fixed by submitting the form using Javascript, which is a requirement when using Bootstrap modals.
 
 - When adding pagination to profile.html it wasn't working initially. It was eventually fixed by using page_obj.object_list as the context to be looped over rather than the context that was explicitly defined in ProfileView.
 
@@ -277,6 +279,21 @@ Google Chrome was the browser used for the majority of testing during the develo
 ## Deployment
 
 [Here's a link to the live site.]()
+
+### Deploying with Heroku
+
+This project has been deployed using Heroku from a GitHub repository using the following steps:
+ 
+- Log into Heroku or create an account.
+- Create a new Heroku App with an approriate name and region.
+- Once created go to Resources tab, then under Add-ons search and add 'Heroku Postgres’.
+- Then go to the Settings tab and click Reveal Config Vars.
+- Add SECRET_KEY and CLOUDINARY_URL variables as config vars from the env.py file in GitPod.
+- Then copy the DATABASE_URL value from 'Config Vars' into the env.py file in GitPod.
+- Back in Heroku go to the Deploy tab.
+- Connect to Github using the relevant repository name.
+- Then click 'Deploy a GitHub branch' under the Manual deploy section.
+- Once confirmation of deployment is shown, the project is now deployed and can be opened.
 
 ### Forking or Cloning the GitHub Repository
 
@@ -306,21 +323,6 @@ To clone the GitHub repository follow these steps:
 - Open Git Bash and change the current working directory to the location where you want the cloned directory to be made.
 - In the terminal, type `git clone`, and then paste the URL you copied earlier and press enter.
 - A local clone of the original repository should now be available.
-
-### Deploying with Heroku
-
-This project has been deployed using Heroku from a GitHub repository using the following steps:
- 
-- Log into Heroku or create an account.
-- Create a new Heroku App with an approriate name and region.
-- Once created go to Resources tab, then under Add-ons search and add 'Heroku Postgres’.
-- Then go to the Settings tab and click Reveal Config Vars.
-- Add SECRET_KEY and CLOUDINARY_URL variables as config vars from the env.py file in GitPod.
-- Then copy the DATABASE_URL value from 'Config Vars' into the env.py file in GitPod.
-- Back in Heroku go to the Deploy tab.
-- Connect to Github using the relevant repository name.
-- Then click 'Deploy a GitHub branch' under the Manual deploy section.
-- Once confirmation of deployment is shown, the project is now deployed and can be opened.
 
 ## Technologies Used
 
