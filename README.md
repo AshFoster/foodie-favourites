@@ -109,6 +109,30 @@ Other parts of the site not included in the navbar are as follows:
 - Update Password (registered users only - accessed from profile page - users can only update their own password)
 - Reset Password (registered users only - accessed from sign in page - users can only reset their own password)
 
+The site has been split up into 3 apps: restaurants, accounts and contact. With the restaurants app handling everything to do with displaying, adding, updating, deleting and interacting with restaurant posts. The accounts app handles everything to do with user accounts and profiles, and the contact app handles the contact form.
+
+The site map can be seen in the following image:
+
+![Site Map](assets/readme-images/site-map.png)
+
+#### Data Models
+
+##### Restaurants App Models
+
+The restaurants app has 4 database tables associated with it: Restaurant, Cuisine, Comment and Dish.
+
+The Restaurant table has relationships with all of the other tables: Cuisine being a many to many relationship, Comment being a one to many relationship, and Dish also being a one to many relationship (many comments and many dishes can be associated with one restaurant). Each table has some of their own other fields, too. The restaurant table also has a one to many relationship and a many to many relationship with Django's built in User model: the author field and the favourited field respectively.
+
+All of which can be seen in the image below.
+
+![Restaurant Models](assets/readme-images/restaurant-models.png)
+
+##### Accounts App Models
+
+The accounts app has a single database table associated with it: Profile. This has a one to one relationship with Django's built in User model, and adds some more fields to be used on the user's profiles. The image below shows how this table is structured.
+
+![Profile Model](assets/readme-images/profile-model.png)
+
 ### Skeleton
 
 #### Wireframes
@@ -129,13 +153,13 @@ Images are an important part of the look and feel of the website. Each page has 
 
 The colour scheme of the site is very simple, with the main colour's being shade's of black, grey, and white.
 
-![Website's Colours 1]()
+![Website's Colours](assets/readme-images/colour-scheme.JPG)
 
 The idea was to keep the colours themselves simple, and to use the different background images on each page to provide the more interesting colours. Using shades of black, grey and white meant that most images could be used without clashing.
 
 #### Typography
 
-For typography choices, [Google Fonts](https://fonts.google.com/?sort=popularity) was used, which was sorted by popularity to give an idea of some fonts that are likely to work well across a number of websites.
+For the typography choices, [Google Fonts](https://fonts.google.com/?sort=popularity) was used, which was sorted by popularity to give an idea of some fonts that are likely to work well across a number of websites.
 
 The ones that stood out and seemed most suited to the project were chosen. They are as follows:
 
@@ -150,6 +174,12 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 ## Features
 
 ### Existing Features
+
+- __Heading__
+
+  - 
+  - 
+
 
 ## Testing
 
@@ -241,28 +271,36 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - When adding a restaurant, if a restaurant with the same name already exists an error is thrown as expected. But when the form is reloaded the list of dishes added before submission disappear.
 
+- When viewing the forms to add a restaurant or to update your profile, on very small screens (below 360px wide) the image upload element becomes too wide and is not contained within its parent element.
+
 
 ## Deployment
 
 [Here's a link to the live site.]()
 
-To deploy this application please fork or clone the [Foodie Favourites Repository](https://github.com/AshFoster/foodie-favourites).
+### Forking or Cloning the GitHub Repository
+
+To deploy this application fork or clone the [repository](https://github.com/AshFoster/foodie-favourites).
 
 Steps to do so are shown below.
 
-### Forking the GitHub Repository
+When deploying using a fork or clone, all of the apps in the 'requirements.txt' file will need to be installed.
 
-To fork the the GitHub repository follow these steps:
+Also, an env.py file will need to be added to the top level directory, with SECRET_KEY and CLOUDINARY_URL environment variables added to it.
 
-- Log in to GitHub and navigate to the [Foodie Favourites Repository](https://github.com/AshFoster/foodie-favourites).
+#### Forking the Repository
+
+To fork the GitHub repository follow these steps:
+
+- Log in to GitHub and navigate to the [repository](https://github.com/AshFoster/foodie-favourites).
 - Once the page has loaded look for the "Fork" button near the top right of the page and click it.
 - A copy of the original repository should now be in your GitHub account.
 
-### Cloning the GitHub Repository
+#### Cloning the Repository
 
-To clone the the GitHub repository follow these steps:
+To clone the GitHub repository follow these steps:
 
-- Log in to GitHub and navigate to the [Foodie Favourites Repository](https://github.com/AshFoster/foodie-favourites).
+- Log in to GitHub and navigate to the [repository](https://github.com/AshFoster/foodie-favourites).
 - Above the repository's list of files, on the right, click on the "Code" button.
 - Copy the link that is shown in the drop-down list.
 - Open Git Bash and change the current working directory to the location where you want the cloned directory to be made.
@@ -270,10 +308,6 @@ To clone the the GitHub repository follow these steps:
 - A local clone of the original repository should now be available.
 
 ### Deploying with Heroku
-
-If deploying using a fork or clone of the repository, all of the apps in the 'requirements.txt' file will need to be installed.
-
-Also, an env.py file will need to be added to the top level directory, with SECRET_KEY and CLOUDINARY_URL environment variables added to it.
 
 This project has been deployed using Heroku from a GitHub repository using the following steps:
  
