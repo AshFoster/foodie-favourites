@@ -169,7 +169,7 @@ function fetchDishArray() {
     let dishes = [];
 
     document.querySelectorAll('.dish').forEach(function (e) {
-        let name = e.querySelector('.name').innerHTML;
+        let name = e.querySelector('.name').textContent;
 
         if (name == '') {
             return;
@@ -177,7 +177,7 @@ function fetchDishArray() {
 
         dishes.push(name);
     })
-
+    
     return dishes;
 }
 

@@ -44,21 +44,12 @@
                             <hr>
                             <div class="row justify-content-evenly favourite-dishes">
                                 <div
-                                    class="col-10 col-sm-5 mb-3 mb-sm-0 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+                                    class="col-10 col-sm-5 mt-1 mt-sm-2 mb-sm-0 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
                                     <h5 class="my-2">Favourite Dishes:</h5>
                                     <ul class="p-0">
                                         {% for dish in dishes %}
-                                        <li>{{ dish }}</li>
+                                        <li>{{ dish.name }}</li>
                                         {% endfor %}
-                                    </ul>
-                                </div>
-                                <div
-                                    class="col-10 col-sm-5 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-                                    <h5 class="my-2">Other User's Favourites:</h5>
-                                    <ul class="p-0">
-                                        <li>Monkey</li>
-                                        <li>Treasure lengs</li>
-                                        <li>Boss bootles</li>
                                     </ul>
                                 </div>
                             </div>

@@ -143,7 +143,30 @@ Wireframes were created for mobiles, tablets, and desktops using [Balsamiq](http
 
 Here are links to each of them:
 
-- [Desktop - Home]()
+- [Desktop - Home](assets/wireframes/home-desktop.png)
+- [Tablet - Home](assets/wireframes/home-tablet.png)
+- [Mobile - Home](assets/wireframes/home-mobile.png)
+- [Desktop - Restaurants](assets/wireframes/restaurants-desktop.png)
+- [Tablet - Restaurants](assets/wireframes/restaurants-tablet.png)
+- [Mobile - Restaurants](assets/wireframes/restaurants-mobile.png)
+- [Desktop - Contact](assets/wireframes/contact-desktop.png)
+- [Tablet - Contact](assets/wireframes/contact-tablet.png)
+- [Mobile - Contact](assets/wireframes/contact-mobile.png)
+- [Desktop - Sign In](assets/wireframes/sign-in-desktop.png)
+- [Tablet - Sign In](assets/wireframes/sign-in-tablet.png)
+- [Mobile - Sign In](assets/wireframes/sign-in-mobile.png)
+- [Desktop - Register](assets/wireframes/register-desktop.png)
+- [Tablet - Register](assets/wireframes/register-tablet.png)
+- [Mobile - Register](assets/wireframes/register-mobile.png)
+- [Desktop - Restaurant Detail](assets/wireframes/restaurant-detail-desktop.png)
+- [Tablet - Restaurant Detail](assets/wireframes/restaurant-detail-tablet.png)
+- [Mobile - Restaurant Detail](assets/wireframes/restaurant-detail-mobile.png)
+- [Desktop - Add Restaurant](assets/wireframes/add-restaurant-desktop.png)
+- [Tablet - Add Restaurant](assets/wireframes/add-restaurant-tablet.png)
+- [Mobile - Add Restaurant](assets/wireframes/add-restaurant-mobile.png)
+- [Desktop - Profile](assets/wireframes/profile-desktop.png)
+- [Tablet - Profile](assets/wireframes/profile-tablet.png)
+- [Mobile - Profile](assets/wireframes/profile-mobile.png)
 
 ### Surface
 
@@ -161,7 +184,7 @@ The idea was to keep the colours themselves simple, and to use the different bac
 
 #### Typography
 
-For the typography choices, [Google Fonts](https://fonts.google.com/?sort=popularity) was used, which was sorted by popularity to give an idea of some fonts that are likely to work well across a number of websites.
+For the typography choices, [Google Fonts](https://fonts.google.com/?sort=popularity) was used, sorted by popularity to give an idea of some fonts that are likely to work well across a number of websites.
 
 The ones that stood out and seemed most suited to the project were chosen. They are as follows:
 
