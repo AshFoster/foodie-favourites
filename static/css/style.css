@@ -86,21 +86,9 @@ main {
 }
 
 
-/* Background colours and opacity */
+/* Background colours  */
 .bg-lighter-dark-custom {
     background-color: var(--custom-color-lighter-dark);
-}
-
-.opacity-25-custom {
-    background-color: rgba(0, 0, 0, .25);
-}
-
-.opacity-50-custom {
-    background-color: rgba(0, 0, 0, .5);
-}
-
-.opacity-75-custom {
-    background-color: rgba(0, 0, 0, .75);
 }
 
 
@@ -513,6 +501,10 @@ footer .vr {
         background-color: var(--custom-color-lighter-dark) !important;
     }
 
+    .navbar-custom .navbar-brand {
+        font-size: 4em !important;
+    }
+
     #msg-alert {
         position: absolute;
         top: 2%;
@@ -532,10 +524,6 @@ footer .vr {
 }
 
 @media screen and (min-width: 1200px) {
-    .navbar-custom .navbar-brand {
-        font-size: 4em !important;
-    }
-
     .w-xl-25 {
         width: 25% !important;
     }

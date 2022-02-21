@@ -202,7 +202,6 @@ class AddRestaurant(LoginRequiredMixin, CreateView):
                 name=dish
             ).save()
 
-        # messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
         messages.add_message(self.request, messages.SUCCESS, f'"{self.object.name}" has been added.')
 
         return super().form_valid(form)
@@ -243,7 +242,6 @@ class EditRestaurant(LoginRequiredMixin, UpdateView):
                 name=dish
             ).save()
 
-        # messages.add_message(self.request, messages.SUCCESS, f'{self.object.name} has been sent for approval.')
         messages.add_message(self.request, messages.SUCCESS, f'"{self.object.name}" has been updated.')
 
         return super().form_valid(form)

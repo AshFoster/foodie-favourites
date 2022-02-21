@@ -139,7 +139,7 @@ The accounts app has a single database table associated with it: Profile. This h
 
 #### Wireframes
 
-Wireframes were created for mobiles, tablets, and desktops using [Balsamiq](https://balsamiq.com/).
+Wireframes were created for mobiles, tablets, and desktops using [Balsamiq](https://balsamiq.com/). The actual pages do differ slightly from the original wireframes.
 
 Here are links to each of them:
 
@@ -200,10 +200,35 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
 ### Existing Features
 
-- __Heading__
+- __Navbar__
 
-  - 
-  - 
+- __Footer__
+
+- __Welcome Message__
+
+- __Recently Added Restaurants__
+
+- __Sign In__
+
+- __Register__
+
+- __Restaurants List__
+
+- __Filters__
+
+- __Contact Form__
+
+- __Profile__
+
+- __Add Restaurant__
+
+- __Update Email__
+
+- __Change Password__
+
+- __Reset Password__
+
+- __Sign Out__
 
 
 ## Testing
@@ -278,11 +303,11 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 #### Fixed Bugs
 
-- When submitting the add restaurant form the Cuisine field wasn't being saved to the database. This was a problem because it is a required field. This was caused due to the use of 'commit-False' when initially saving the form data, and the Cuisine being a many to many relationship with Restaurant. It was fixed by saving the form using Django's save_m2m() function on the form straight after the Restaurant's object data was saved.
+- When submitting the add restaurant form the Cuisine field wasn't being saved to the database. This was a problem because it is a required field. This was caused due to the use of 'commit=False' when initially saving the form data, and the Cuisine being a many to many relationship with Restaurant. It was fixed by saving the form using Django's save_m2m() function on the form straight after the Restaurant's object data was saved.
 
 - When updating a restaurant post the dishes get added again when submitting the form. This was solved by deleting all of the current dishes related to the relevant restaurant and then adding the new list of dishes which may or may not contain the original dishes.
 
-- The height of the restaurnt previews on the home page and restaurant page varied based on the height of the images uploaded so different restauarant cards weren't always the same height. This was fixed by amending the y margins on the relevant elements and adding some custom height classes at certain screen widths. One of the custom classes forces the element to be 100% height at certain screen widths, and an other forces the height of the elements to be 180px at certain screen widths.
+- The height of the restaurnt previews on the home page and restaurant page varied based on the height of the images uploaded so different restauarant cards weren't always the same height. This was fixed by amending the y margins on the relevant elements and adding some custom height classes at certain screen widths. One of the custom classes forces the element to be 100% height at certain screen widths, and an other forces the height of the elements to be 250px at certain screen widths.
 
 - When submitting the filter form on restaurants.html it did not work when submitting via the modal, but did when not submitting via the modal. This was fixed by submitting the form using Javascript, which is a requirement when using Bootstrap modals.
 
@@ -305,7 +330,7 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 ### Deploying with Heroku
 
-This project has been deployed using Heroku from a GitHub repository using the following steps:
+This project has been deployed using Heroku from the GitHub repository using the following steps:
  
 - Log into Heroku or create an account.
 - Create a new Heroku App with an approriate name and region.
@@ -320,7 +345,7 @@ This project has been deployed using Heroku from a GitHub repository using the f
 
 ### Forking or Cloning the GitHub Repository
 
-To deploy this application fork or clone the [repository](https://github.com/AshFoster/foodie-favourites).
+To deploy this application fork or clone the [repository](https://github.com/AshFoster/foodie-favourites), then follow the steps outlined in the '[Deploying with Heroku](#deploying-with-heroku)' section above.
 
 Steps to do so are shown below.
 
