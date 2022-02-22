@@ -9,3 +9,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls"), name="account_urls"),
     path("contact/", include("contact.urls"), name="contact_urls"),
 ]
+
+
+handler404 = views.handler404
+handler500 = views.handler500

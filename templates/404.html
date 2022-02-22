@@ -1,0 +1,17 @@
+{% extends "base_confirm.html" %}
+
+{% block bg_image %}
+<div class="bg-img bg-img-error"></div>
+{% endblock %}
+
+{% block heading %}
+404 ERROR
+{% endblock %}
+
+{% block section_content %}
+
+<p>Sorry, the page you were attempting to view does not exist!</p>
+
+<a href="{% url 'home' %}" class="btn btn-light">Back to Home</a>
+
+{% endblock %}

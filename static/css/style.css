@@ -85,6 +85,11 @@ main {
     background-size: cover;
 }
 
+.bg-img-error {
+    background: url("../images/bg-img-error.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 
 /* Background colours  */
 .bg-lighter-dark-custom {

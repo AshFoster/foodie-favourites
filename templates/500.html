@@ -1,0 +1,19 @@
+{% extends "base_confirm.html" %}
+
+{% block bg_image %}
+<div class="bg-img bg-img-error"></div>
+{% endblock %}
+
+{% block heading %}
+500 ERROR
+{% endblock %}
+
+{% block section_content %}
+
+<p>Sorry, and internal server error has been encountered!</p>
+
+<p>Your request could not be completed.</p>
+
+<a href="{% url 'home' %}" class="btn btn-light">Back to Home</a>
+
+{% endblock %}
