@@ -1,4 +1,11 @@
+/* All main section names within this style sheet are preceeded with /// for ease of finding */
+
+
+/* Google Fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&family=Lato:wght@300;400&family=Roboto:ital,wght@1,300&display=swap');
+
+
+/* /// ---------------------------------------------------- GENERAL STYLES - NON PAGE SPECIFIC */
 
 /* Variables for colours used throughout site*/
 :root {
@@ -8,7 +15,6 @@
     --custom-color-white: #FFFFFF;
 }
 
-
 /* Element selectors */
 body {
     position: relative;
@@ -17,7 +23,6 @@ body {
 main {
     font-family: 'Lato', sans-serif;
 }
-
 
 /* Background images for all pages*/
 .bg-img {
@@ -90,18 +95,15 @@ main {
     background-size: cover;
 }
 
-
 /* Background colours  */
 .bg-lighter-dark-custom {
     background-color: var(--custom-color-lighter-dark);
 }
 
-
 /* Text colours */
 .text-light-custom {
     color: var(--custom-color-light);
 }
-
 
 /* Widths & Heights */
 .mw-325px {
@@ -120,7 +122,6 @@ main {
     min-height: 48px !important;
 }
 
-
 /* Box shadows */
 .box-shadow-custom {
     box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
@@ -135,28 +136,72 @@ main {
     color: var(--custom-color-white);
 }
 
-
-/* ---------------------------------------------------- SPECIFIC PAGE STYLES */
-
-/* Home page and restaurant page */
-.card-custom {
-    background-color: var(--custom-color-lighter-dark);
-    color: var(--custom-color-light);
-}
-
-.page-title hr {
-    border: none;
-    height: 1px;
-    background-color: var(--custom-color-white);
+/* Horizontal Rules */
+.hr-custom {
     opacity: 1;
 }
 
-.card-image {
-    width: 100%;
-    max-height: 25vh;
-    object-fit: cover;
+/* Crispy forms  */
+.login .form-group,
+.signup .form-group,
+.add-restaurant-form .form-group,
+.contact-us-form .form-group,
+.password_reset .form-group,
+.add_email .form-group,
+.email_list .ctrlHolder,
+.password_change .form-group,
+.password_set .form-group {
+    padding-bottom: 1rem;
 }
 
+#div_id_image {
+    margin: 1rem auto 0;
+}
+
+#id_image {
+    max-width: 200px;
+}
+
+/* Animations */
+.msg-animation {
+    animation-name: msg-fade;
+    animation-duration: 2.7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes msg-fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* /// ---------------------------------------------------- SPECIFIC PAGE STYLES */
+
+/* Restaurants page */
+.modal-backdrop {
+    opacity: .9 !important;
+}
+
+.close-model-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#search-input {
+    border: 1px solid var(--custom-color-light);
+}
+
+/* Filters page */
 .list-group {
     max-height: 40vh;
     overflow-y: auto;
@@ -179,16 +224,7 @@ main {
     font-weight: bold;
 }
 
-.modal-backdrop {
-    opacity: .9 !important;
-}
-
-.close-model-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
+/* Restaurant Detail page */
 .favourite-dishes ul {
     list-style-type: none;
 }
@@ -197,63 +233,9 @@ main {
     border-top: 1px solid rgba(255, 255, 255, .25);
 }
 
-.login .form-group,
-.signup .form-group,
-.add-restaurant-form .form-group,
-.contact-us-form .form-group,
-.password_reset .form-group,
-.add_email .form-group,
-.email_list .ctrlHolder,
-.password_change .form-group,
-.password_set .form-group {
-    padding-bottom: 1rem;
-}
-
-#id_image {
-    max-width: 200px;
-}
-
-.msg-animation {
-    animation-name: msg-fade;
-    animation-duration: 2.7s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes msg-fade {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.hr-custom {
-    opacity: 1;
-}
-
 #dishes-string {
     position: absolute;
     opacity: 0;
-}
-
-.edit-link-add,
-.edit-link-profile {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.delete-link {
-    font-size: 1rem;
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
 .btn-favourite-custom {
@@ -263,26 +245,60 @@ main {
     padding: 0;
 }
 
+/* Update Restaurant page - add_restaurant.html template */
+.delete-link {
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Profile page */
 .profile-image {
     max-width: 60%;
     object-fit: cover;
     min-width: 160px;
 }
 
-#div_id_image {
-    margin: 1rem auto 0;
+
+/* /// ---------------------------------------------------- MULTI PAGE STYLES */
+
+/* Home page, restaurant page and Profile page */
+.card-custom {
+    background-color: var(--custom-color-lighter-dark);
+    color: var(--custom-color-light);
 }
 
-#search-input {
-    border: 1px solid var(--custom-color-light);
+.card-image {
+    width: 100%;
+    max-height: 25vh;
+    object-fit: cover;
 }
 
+/* Restaurant page and Filters page */
+.page-title hr {
+    border: none;
+    height: 1px;
+    background-color: var(--custom-color-white);
+    opacity: 1;
+}
+
+/* Restaurants page and Profile page - Pagination buttons */
 .page-item.active .page-link {
     background-color: var(--custom-color-lighter-dark);
     border-color: var(--custom-color-lighter-dark);
 }
 
-/* ---------------------------------------------------- BASE.HTML styles */
+/* Restaurant detail page and Profile page - 'Edit' links */
+.edit-link-add,
+.edit-link-profile {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+/* /// ---------------------------------------------------- BASE.HTML styles */
 
 /* Navbar */
 .navbar-custom .navbar-brand {
@@ -341,7 +357,9 @@ footer .vr {
 }
 
 
-/* ---------------------------------------------------- MEDIA QUERIES */
+/* /// ---------------------------------------------------- MEDIA QUERIES */
+
+/* For very small screen sizes with maximum height of 368px */
 @media screen and (max-width: 368px) {
 
     .fs-small-custom button,
@@ -350,12 +368,14 @@ footer .vr {
     }
 }
 
+/* For very small screen sizes with minimum height of 368px */
 @media screen and (min-width: 368px) {
     .navbar-custom .navbar-brand {
         font-size: 1.8rem !important;
     }
 }
 
+/* For very small screen sizes with maximum height of 376px */
 @media screen and (max-width: 376px) {
     .favourites-rating {
         max-width: 132px !important;
@@ -366,6 +386,7 @@ footer .vr {
     }
 }
 
+/* For very small screen sizes with maximum height of 425px */
 @media screen and (max-width: 425px) {
     .restaurant-description {
         padding-bottom: 0 !important;
@@ -382,6 +403,7 @@ footer .vr {
     }
 }
 
+/* For very small screen sizes with maximum height of 470px */
 @media screen and (max-width: 470px) {
     .profile-info-left {
         width: 100%;
@@ -403,12 +425,14 @@ footer .vr {
     }
 }
 
+/* For very small screen sizes with minimum height of 470px */
 @media screen and (min-width: 470px) {
     .navbar-custom .navbar-brand {
         font-size: 2.5rem !important;
     }    
 }
 
+/* For very small screen sizes with maximum height of 576px - Bootstrap xs */
 @media screen and (max-width: 576px) {
     .edit-link-add {
         top: -10px;
@@ -422,12 +446,14 @@ footer .vr {
     }
 }
 
+/* For small screen sizes with minimum height of 576px and a maximum height of 991px - between Bootstrap sm and lg */
 @media screen and (min-width: 576px) and (max-width: 991px) {
     .navbar-custom {
         line-height: 1;
     }
 }
 
+/* For small screen sizes with minimum height of 576px - Bootstrap sm */
 @media screen and (min-width: 576px) {
     #main-nav li {
         border-right: 1px solid var(--custom-color-light);
@@ -442,6 +468,7 @@ footer .vr {
     }
 }
 
+/* For screen sizes with maximum height of 767px - below Bootstrap md */
 @media screen and (max-width: 767px) {
     .base-heading-container {
         text-align: center;
@@ -465,6 +492,7 @@ footer .vr {
     }
 }
 
+/* For medium screen sizes with minimum height of 768px - Bootstrap md */
 @media screen and (min-width: 768px) {
     .card-image {
         max-height: 100%;
@@ -489,6 +517,7 @@ footer .vr {
     }
 }
 
+/* For screen sizes with maximum height of 992x - below Bootstrap lg */
 @media screen and (max-width: 992px) {
 
     .favourites-rating,
@@ -508,6 +537,7 @@ footer .vr {
     }
 }
 
+/* For screen sizes with minimum height of 992px - Bootstrap lg */
 @media screen and (min-width: 992px) {
     .bg-lg-dark-custom {
         background-color: var(--bs-dark);
@@ -543,6 +573,7 @@ footer .vr {
     }
 }
 
+/* For screen sizes with minimum height of 1200px - Bootstrap xl */
 @media screen and (min-width: 1200px) {
     .w-xl-25 {
         width: 25% !important;
