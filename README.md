@@ -330,7 +330,7 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 ### Deploying with Heroku
 
-This project has been deployed using Heroku from the GitHub repository using the following steps:
+This project has been deployed on Heroku using the following steps:
  
 - Log into Heroku or create an account.
 - Create a new Heroku App with an approriate name and region.
@@ -345,13 +345,13 @@ This project has been deployed using Heroku from the GitHub repository using the
 
 ### Forking or Cloning the GitHub Repository
 
-To deploy this application fork or clone the [repository](https://github.com/AshFoster/foodie-favourites), then follow the steps outlined in the '[Deploying with Heroku](#deploying-with-heroku)' section above.
+To deploy this application, fork or clone the [repository](https://github.com/AshFoster/foodie-favourites), then follow the steps outlined in the '[Deploying with Heroku](#deploying-with-heroku)' section above.
 
 Steps to do so are shown below.
 
 When deploying using a fork or clone, all of the apps in the 'requirements.txt' file will need to be installed.
 
-Also, an env.py file will need to be added to the top level directory, with SECRET_KEY and CLOUDINARY_URL environment variables added to it.
+Also, an env.py file will need to be added to the top level directory, with SECRET_KEY, CLOUDINARY_URL and SENDGRID_API_KEY environment variables added to it.
 
 #### Forking the Repository
 
