@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="bg-img bg-img-home"></div>
@@ -51,7 +53,7 @@
                             <div class="col-md-4">
                                 <a href="{% url 'restaurant_detail' restaurant.slug  %}">
                                     {% if "default" in restaurant.image.url %}
-                                    <img src="../static/images/default-restaurant.jpg" class="img-fluid rounded card-image"
+                                    <img src="{% static 'images/default-restaurant.jpg' %}" class="img-fluid rounded card-image"
                                         alt="Default image for restaurants posts">
                                     {% else %}
                                     <img class="img-fluid rounded card-image" src="{{ restaurant.image.url }}"

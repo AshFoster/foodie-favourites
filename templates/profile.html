@@ -1,5 +1,7 @@
 {% extends "base_heading_split.html" %}
 
+{% load static %}
+
 {% block bg_image %}
 <div class="bg-img bg-img-profile"></div>
 {% endblock %}
@@ -18,7 +20,7 @@
 
 {% if "default" in profile.image.url %}
 <div class="d-flex justify-content-center w-100 py-3">
-    <img src="/static/images/default-profile.png" class="rounded profile-image" alt="Default image for user profiles">
+    <img src="{% static 'images/default-profile.png' %}" class="rounded profile-image" alt="Default image for user profiles">
     {% else %}
     <img class="rounded profile-image" src="{{ profile.image.url }}" alt="Uploaded image for user's profile">
     {% endif %}
@@ -100,7 +102,7 @@
         <div class="col-12 mh-md-220px">
             <a href="{% url 'restaurant_detail' restaurant.slug %}">
                 {% if "default" in restaurant.image.url %}
-                <img src="/static/images/default-restaurant.jpg" class="img-fluid rounded card-image"
+                <img src="{% static 'images/default-restaurant.jpg' %}" class="img-fluid rounded card-image"
                     alt="Default image for restaurants posts">
                 {% else %}
                 <img class="img-fluid rounded card-image" src="{{ restaurant.image.url }}"
