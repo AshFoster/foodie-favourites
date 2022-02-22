@@ -336,9 +336,12 @@ This project has been deployed on Heroku using the following steps:
 - Create a new Heroku App with an approriate name and region.
 - Once created go to Resources tab, then under Add-ons search and add 'Heroku Postgres’.
 - Then go to the Settings tab and click Reveal Config Vars.
-- Add SECRET_KEY and CLOUDINARY_URL variables as config vars from the env.py file in GitPod.
-- Then copy the DATABASE_URL value from 'Config Vars' into the env.py file in GitPod.
-- Back in Heroku go to the Deploy tab.
+- Add the following variables as config vars:
+  - SECRET_KEY - can be any key you like
+  - CLOUDINARY_URL - must be a Cloudinary API key
+  - SENDGRID_API_KEY - must be a SendGrid API key
+  - EMAIL_HOST_USER - must be the email address associated with SendGrid account
+- Now go to the Deploy tab.
 - Connect to Github using the relevant repository name.
 - Then click 'Deploy a GitHub branch' under the Manual deploy section.
 - Once confirmation of deployment is shown, the project is now deployed and can be opened.
@@ -350,8 +353,6 @@ To deploy this application, fork or clone the [repository](https://github.com/As
 Steps to do so are shown below.
 
 When deploying using a fork or clone, all of the apps in the 'requirements.txt' file will need to be installed.
-
-Also, an env.py file will need to be added to the top level directory, with SECRET_KEY, CLOUDINARY_URL and SENDGRID_API_KEY environment variables added to it.
 
 #### Forking the Repository
 
