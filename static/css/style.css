@@ -31,62 +31,62 @@ main {
 }
 
 .bg-img-home {
-    background: url("/static/images/bg-img-home.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540232/images/bg-img-home_sfmhjg.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-restaurant {
-    background: url("/static/images/bg-img-restaurant.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540233/images/bg-img-restaurant_xqb6it.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-restaurant-detail {
-    background: url("/static/images/bg-img-restaurant-detail.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540234/images/bg-img-restaurant-detail_y8vstn.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-login-register {
-    background: url("/static/images/bg-img-login-register.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540233/images/bg-img-login-register_oa7sth.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-logout {
-    background: url("/static/images/bg-img-logout.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540233/images/bg-img-logout_gphhto.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-add-restaurant {
-    background: url("/static/images/bg-add-restaurant.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540232/images/bg-add-restaurant_fsebfi.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-delete {
-    background: url("/static/images/bg-img-delete.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540232/images/bg-img-delete_fcbiad.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-profile {
-    background: url("/static/images/bg-img-profile.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540233/images/bg-img-profile_arlnsm.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-edit-profile {
-    background: url("/static/images/bg-img-edit-profile.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540232/images/bg-img-edit-profile_ypuqvd.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-contact {
-    background: url("/static/images/bg-img-contact.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540232/images/bg-img-contact_cgjtvu.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-password-reset {
-    background: url("/static/images/bg-img-password-reset.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540233/images/bg-img-password-reset_aecycj.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .bg-img-error {
-    background: url("/static/images/bg-img-error.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/ash-cloud/image/upload/v1645540231/images/bg-img-error_ukzwae.jpg") no-repeat center center;
     background-size: cover;
 }
 
