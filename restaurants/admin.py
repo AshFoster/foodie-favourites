@@ -5,6 +5,7 @@ from . models import Cuisine, Restaurant, Comment, Dish
 @admin.register(Cuisine)
 class CuisineAdmin(admin.ModelAdmin):
     """Define actions for Cuisine Admin objects."""
+    list_display = ('name', 'approved')
     actions = ['approve_cuisine']
 
     def approve_cuisine(self, request, queryset):
@@ -26,6 +27,7 @@ class RestaurantAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """Define actions for Comment Admin objects."""
+    list_display = ('name', 'approved')
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):

@@ -64,7 +64,7 @@ class Comment(models.Model):
     restaurant = models.ForeignKey(
         Restaurant, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=100)
-    name_slug = models.SlugField(max_length=100, null=True)
+    name_slug = models.SlugField(max_length=100)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
