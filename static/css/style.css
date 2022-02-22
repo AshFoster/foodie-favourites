@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Oswald:wght@300;500&family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Oswald:wght@300;500&family=Lato:wght@300;400&family=Roboto:ital,wght@1,300&display=swap');
 
 /* Variables for colours used throughout site*/
 :root {
@@ -286,8 +286,9 @@ main {
 
 /* Navbar */
 .navbar-custom .navbar-brand {
-    font-family: 'Open Sans Condensed', sans-serif !important;
+    font-family: 'Roboto', sans-serif;
     color: var(--custom-color-white) !important;
+    font-size: 1.1rem !important;
 }
 
 .navbar-custom .nav-link {
@@ -351,7 +352,7 @@ footer .vr {
 
 @media screen and (min-width: 368px) {
     .navbar-custom .navbar-brand {
-        font-size: 3em !important;
+        font-size: 1.8rem !important;
     }
 }
 
@@ -400,6 +401,12 @@ footer .vr {
         right: 0;
         left: 0;
     }
+}
+
+@media screen and (min-width: 470px) {
+    .navbar-custom .navbar-brand {
+        font-size: 2.5rem !important;
+    }    
 }
 
 @media screen and (max-width: 576px) {
@@ -507,7 +514,7 @@ footer .vr {
     }
 
     .navbar-custom .navbar-brand {
-        font-size: 4em !important;
+        font-size: 3.5rem !important;
     }
 
     #msg-alert {
