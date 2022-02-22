@@ -64,13 +64,17 @@ class Comment(models.Model):
     restaurant = models.ForeignKey(
         Restaurant, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=100)
-    email = models.EmailField()
+    name_slug = models.SlugField(max_length=100, null=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created_on']
+    
+    def save(self, *args, **kwargs):
+        self.name_slug = slugify(self.name)
+        super(Comment, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"Comment {self.content} by {self.name}"
