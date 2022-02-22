@@ -6,7 +6,7 @@ setTimeout(function () {
     let messagesAlert = document.getElementById('msg-alert');
 
     if (messagesAlert != null) {
-        messagesAlert.classList.remove('mt-2');
+        messagesAlert.classList.remove('mt-3');
     }
     alert.close();
 }, 2500);
@@ -16,13 +16,13 @@ setTimeout(function () {
 Once the DOM has finshed loading add event listeners to some elements
 */
 document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search)
+    const params = new URLSearchParams(window.location.search);
     let cuisineFilterURL = params.get('cuisine-filter');
     let locationFilterURL = params.get('location-filter');
     let searchRestaurantsURL = params.get('search-restaurants');
-    let cuisineHiddenInput = document.querySelector('#cuisine-filter')
-    let locationHiddenInput = document.querySelector('#location-filter')
-    let searchHiddenInput = document.querySelector('#search-restaurants')
+    let cuisineHiddenInput = document.querySelector('#cuisine-filter');
+    let locationHiddenInput = document.querySelector('#location-filter');
+    let searchHiddenInput = document.querySelector('#search-restaurants');
     let cuisineListItems = document.querySelectorAll('.cuisine-item');
     let locationListItems = document.querySelectorAll('.location-item');
     let dishesInput = document.querySelector('#dishes-input');
@@ -32,16 +32,16 @@ document.addEventListener("DOMContentLoaded", function () {
     let searchBtn = document.querySelector('#search-button');
 
     if (cuisineFilterURL != null) {
-        cuisineHiddenInput.value = cuisineFilterURL
+        cuisineHiddenInput.value = cuisineFilterURL;
     }
 
     if (locationFilterURL != null) {
-        locationHiddenInput.value = locationFilterURL
+        locationHiddenInput.value = locationFilterURL;
     }
 
     if (searchRestaurantsURL != null) {
-        searchHiddenInput.value = searchRestaurantsURL
-        searchInput.value = searchRestaurantsURL
+        searchHiddenInput.value = searchRestaurantsURL;
+        searchInput.value = searchRestaurantsURL;
     }
 
     for (let item of cuisineListItems) {
@@ -54,16 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
-            document.querySelector('#cuisine-filter').value = item.querySelector('.cuisine-name').textContent
+            document.querySelector('#cuisine-filter').value = item.querySelector('.cuisine-name').textContent;
             for (let other of cuisineListItems) {
                 if (other != item && other.classList.contains('active')) {
                     other.classList.remove('active');
                 }
-            };
+            }
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
-        })
-    };
+        });
+    }
 
     for (let item of locationListItems) {
         if (item.querySelector('.location-name').textContent == locationFilterURL) {
@@ -75,16 +75,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
-            document.querySelector('#location-filter').value = item.querySelector('.location-name').textContent
+            document.querySelector('#location-filter').value = item.querySelector('.location-name').textContent;
             for (let other of locationListItems) {
                 if (other != item && other.classList.contains('active')) {
                     other.classList.remove('active');
                 }
-            };
+            }
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
-        })
-    };
+        });
+    }
 
     if (searchInput != null) {
         searchInput.addEventListener('keypress', function (e) {
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         searchBtn.addEventListener('click', function () {
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
-        })
+        });
     }
 
 
@@ -126,10 +126,11 @@ document.addEventListener("DOMContentLoaded", function () {
             this.value = '';
             addNewDish(dishName);
             updateDishesString();
-        })
+        });
     }
     // END CREDIT
 
+    // 
     if (profileToggleBtn != null) {
         profileToggleBtn.addEventListener('click', function () {
             let profileToggleURL = params.get('posts-favourites-toggle');
@@ -153,7 +154,7 @@ function addNewDish(name) {
         `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
             <span class="name text-start">${name}</span>
             <span onclick="removeDish(this)" class="btn-remove text-end" role="button">X</span>
-        </li>`)
+        </li>`);
 }
 
 function updateDishesString() {
@@ -176,7 +177,7 @@ function fetchDishArray() {
         }
 
         dishes.push(name);
-    })
+    });
     
     return dishes;
 }
