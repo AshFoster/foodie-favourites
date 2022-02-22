@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Oswald:wght@300;500&family=Lato:wght@300;400&family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&family=Lato:wght@300;400&family=Roboto:ital,wght@1,300&display=swap');
 
 /* Variables for colours used throughout site*/
 :root {
@@ -502,6 +502,10 @@ footer .vr {
     .welcome-message {
         box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
     }
+
+    .recently-added {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -531,6 +535,10 @@ footer .vr {
     }
 
     .welcome-container {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
+    }
+
+    .recently-added-container {
         box-shadow: 0 6px 10px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .5);
     }
 }
