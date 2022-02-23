@@ -386,13 +386,32 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
   - __As a Site User I can view a list of restaurant posts so that I can select one to view__
 
+    - When viewing the wesbite any user can navigate to the list of restaurants via the navbar or via other links on the home page.
+    - The home page and profile pages of users who have posted or favourtied restaurant posts also display some restaurants for users to view.
+
   - __As a Site User I can view a paginated list of restaurant posts so that I can easily select a post to view__
+
+    - On the restaurant page and profile pages of users who have posted or favourtied restaurant posts, when there are more than 3 posts to be displayed they are split onto multiple pages to prevent there being too many on any one page.
+    - There are buttons below the posts which take the user to the next or prevous pages. If a next or previous page does not exist then the associated button is not displayed.
 
   - __As a Site User I can filter the available restaurant posts so that I can see posts which are more specified to my needs__
 
+    - On the restaurant page there is a filter section - to the left of the restaurants list on larger screens and via a button and modal on smaller screens.
+    - The filter section is divided into two further sections: Cuisine and Location, which list all of the cuisines and locations associated with all of the current restaurant posts. 
+    - The user can see how many restaurants have a particular cuisine and / or location. When the user clicks on any of the items in the filter lists, the restaurant list reloads showing only restaurants that match the selected item.
+    - The user can then filter further by clicking on one of the remaining items in the other list.
+    - To see all restaurant posts again the user will need to click 'All' on one or both of the filter lists they have already filtered by.
+    - When the restaurant list has been filtered, the pagination buttons still work as expected, taking the user to the next or previous page of the filtered posts.
+
   - __As a Site User I can type keywords into a search bar so that I can find restaurant posts with titles that contain the keywords that I typed__
 
+    - On the restaurants page, there is a search bar above the list of restaurants on the restaurants section.
+    - The user can type words into the search bar, then hit enter or click the 'Search' button, and the restaurant list will reload showing any restaurant posts with the typed words contained in their title.
+    - If no restaurants are found an approriate message is displayed.
+
   - __As a Site User I can click on a restaurant post so that I can view the post in its entirety__
+
+    - When viewing a list of restaurants on the home page, restaurants page or a profile page, when the user clicks on any of the titles or images of the listed restaurants they are taken to the detailed page of that restaurant.
 
   - __As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular__
 
@@ -544,8 +563,6 @@ This project has been deployed on Heroku using the following steps:
 ### Forking or Cloning the GitHub Repository
 
 To deploy this application, fork or clone the [repository](https://github.com/AshFoster/foodie-favourites), then follow the steps outlined in the '[Deploying with Heroku](#deploying-with-heroku)' section above.
-
-Steps to do so are shown below.
 
 When deploying using a fork or clone, all of the apps in the 'requirements.txt' file will need to be installed.
 
