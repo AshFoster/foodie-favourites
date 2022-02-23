@@ -1,6 +1,6 @@
 # Foodie Favourites
 
-[Click here to view the live site.]()
+[Click here to view the live site.](https://foodie-favourites.herokuapp.com/)
 
 ![Am I Responsive Image]()
 
@@ -202,58 +202,118 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
 - __Navbar__
 
-- Tha navbar has the website brand on the left-hand side which is also a link to the homepage. It also has links to all the major sections of the website.
-- When on each of the major sections of the site the relevant link is bold and brighter to show the user which part of the site they're currnently viewing.
-- When signed in, the section on the right-hand side showing Sign In and Register changes to Profile and Sign Out respectively.
-- The menu items on the right are displayed as a hamburger item on smaller screens which when pressed opens up a menu with all the links below.
+  ![Navbar](assets/readme-images/navbar.JPG)
 
-![Navbar](assets/readme-images/navbar.JPG)
+  - Tha navbar has the website brand on the left-hand side which is also a link to the homepage. It also has links to all the major sections of the website.
+  - When on each of the major sections of the site the relevant link is bold and brighter to show the user which part of the site they're currnently viewing.
+  - When signed in, the section on the right-hand side showing Sign In and Register changes to Profile and Sign Out respectively.
+  - The menu items on the right are displayed as a hamburger item on smaller screens which when pressed opens up a menu with all the links below.
 
 - __Footer__
 
-- The footer is split up into 2 main sections. One that shows a small paragraph describing what Foodie Favourites is all about, and the other showing links to various social platforms.
-- There is a also smaller section which simply shows a copyright related information.
+  ![Footer](assets/readme-images/footer.JPG)
 
-![Footer](assets/readme-images/footer.JPG)
+  - The footer is split up into 2 main sections. One that shows a small paragraph describing what Foodie Favourites is all about, and the other showing links to various social platforms.
+  - There is a also smaller section which simply shows a copyright related information.
 
 - __Welcome Message__
 
-- Here, the user is welcomed to the site with a brief description of what the site is aimed to do.
-- If the user is signed in then the welcome message displays their username.
-- On the right-hand side the user is invited to sign in or register via some links.
-- If the user is already signed in the message on the right invites them to have a look at the current list of restaurants instead.
+  ![Welcome Message](assets/readme-images/welcome-message.JPG)
 
-![Welcome Message](assets/readme-images/welcome-message.JPG)
+  - Here, the user is welcomed to the site with a brief description of what the site is aimed to do.
+  - If the user is signed in then the welcome message displays their username.
+  - On the right-hand side the user is invited to sign in or register via some links.
+  - If the user is already signed in the message on the right invites them to have a look at the current list of restaurants instead.
 
 - __Recently Added Restaurants__
 
-- This section show the 2 most recently added restaurants which the user can click on the be taken to the relevant restaurant's detail page.
-- There is also a link below these items which takes the user to the full list of restaurants.
-- If the user is signed in then there is also an 'Add Restaurant' button which takes the user to the add restaurant page.
+  ![Recently Added Restaurants](assets/readme-images/recently-added-restaurants.JPG)
 
-![Recently Added Restaurants](assets/readme-images//recently-added-restaurants.JPG)
+  - This section show the 2 most recently added restaurants which the user can click on the be taken to the relevant restaurant's detail page.
+  - There is also a link below these items which takes the user to the full list of restaurants.
+  - If the user is signed in then there is also an 'Add Restaurant' button which takes the user to the add restaurant page.
 
 - __Sign In__
 
+  ![Sign In Page](assets/readme-images/sign-in.JPG)
+
+  - The Sign In page asks the user for their username and password in order for them to sign in.
+  - There is a 'Sign In' button below the form which submits the form.
+  - If the username or password is incorrect the user is told.
+  - All fields needs to be completed and if any are not the user will be asked to complete the empty fields.
+  - There is also a 'forgot password' link which takes the user to a the 'Reset Password' page.
+  - There is a 'Register' button which takes the user to the 'Register' page.
+
 - __Register__
+
+   ![Register Page](assets/readme-images/register.JPG)
+
+  - The Register page asks the user for an email address, a username, a password and to repeat the password.
+  - There is a 'Register' button below the form which submits the form.
+  - If the email address or username already exists the user is told, and must use another email address and/or password.
+  - If the repeated password does not match the first one the user is told, and will need to type them in again.
+  - All fields needs to be completed and if any are not the user will be asked to complete the empty fields.
+  - There is a 'Sign In' button which takes the user to the 'Sign In' page.
 
 - __Restaurants List__
 
+  ![Restaurants List](assets/readme-images/restaurant-list.JPG)
+
+  - The restaurants list displays all of the current restaurant posts.
+  - It is paginated to show 3 restaurants per page, with buttons at the bottom which take the user to the next or previous page where necessary.
+  - Each restaurant post shows the name, author, cuisine, location, number of times favourited, and the author's personal rating (from 1 to 5) of the restaurant. 
+  - There is a search bar above the restaurant posts which allows the user to search for restaurants with titles that contains their search criteria.
+  - If the user is logged in, there is an 'Add Restaurant' button above the Restaurants List section which takes the user to the add restaurant page.
+
 - __Filters__
+
+  ![Filters](assets/readme-images/filters.JPG)
+
+  - The filters section displays lists of all the different cuisines and locations of all the current restaurants.
+  - Next to each cuisine and location a number is displayed on the right-hand side showing how many restaurants match that particular cuisine or location.
+  - When the user clicks on one of the cuisines or locations the restaurant list is immedietely filtered and reloaded based on the what has been clicked.
+  - When filtered on a cuisine, the location list is updated to show only locations that match the selected cuisine and vice versa.
+  - Both cuisine and location lists are also updated appropriately when the user uses the search bar above the restaurants list described above.
+  - When viewing on smaller screens the filters section is hidden and a 'Filters' button is shown instead. When clicked, a modal containing the filters section is shown. 
 
 - __Contact Form__
 
+  ![Contact Form](assets/readme-images/contact-form.JPG)
+
+  - The contact form allows the user to contact the admin of the site.
+  - It has 3 required fields, name, email and message. If any of them have been missed on submission the user is told.
+  - If the user is signed in then the name and email fields will already be completed using information from their account.
+
 - __Profile__
+
+  ![Profile](assets/readme-images/profile.JPG)
+
+  - Each registered user is given a profile page which can be viewed by registered and non-registered users.
+  - Users can view other users' profiles by clicking on the user's name that is displayed on restaurant posts or comments that that user has made.
+  - Registered users can view their own profile by clicking on the profile link in the navbar.
+  - On all profiles there is a 'Profile Info' section which has 4 fields, name, location, favourties cuisine and bio. The name field is automatcally completed using the user's username, but can be updated by the user to their real name if they wish to. All other fields are blank until the user decides to fill them in.
+  - There is also a 'Restaurants Posted' section that displays all of the restaurants that user has posted. Within this section a 'Show Favourites' button is shown which changes the 'Restaurants Posted' section to 'Favourited Posts' which shows all the posts which the user has favourited. When viewing the 'Favourited Posts' section the button now shows 'Show Restaurants Posted' which reverts back to show the 'Restaurants Posted' section.
+  - When user's are viewing their own profile there are some extra features. There is an 'edit' button within the 'Profile Info' section which takes the user to a page where they can edit the information that is shown on their profile. There are also 'Update Email' and 'Update Password' buttons which take the user the different pages where thay can change the email address registered with their account, or change their current password.
 
 - __Add Restaurant__
 
+  ![Add Restaurant](assets/readme-images/add-restaurant.JPG)
+
 - __Update Email__
+
+  ![Update Email](assets/readme-images/update-email.JPG)
 
 - __Change Password__
 
+  ![Change Password](assets/readme-images/change-password.JPG)
+
 - __Reset Password__
 
+  ![Reset Password](assets/readme-images/reset-password.JPG)
+
 - __Sign Out__
+
+  ![Sign Out](assets/readme-images/sign-out.JPG)
 
 
 ## Testing
@@ -351,7 +411,7 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 ## Deployment
 
-[Here's a link to the live site.]()
+[Here's a link to the live site.](https://foodie-favourites.herokuapp.com/)
 
 ### Deploying with Heroku
 
