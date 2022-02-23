@@ -291,7 +291,7 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - Each registered user is given a profile page which can be viewed by registered and non-registered users.
   - Users can view other users' profiles by clicking on the user's name that is displayed on restaurant posts or comments that that user has made.
   - Registered users can view their own profile by clicking on the profile link in the navbar.
-  - On all profiles there is a 'Profile Info' section which has 4 fields, name, location, favourties cuisine and bio. The name field is automatcally completed using the user's username, but can be updated by the user to their real name if they wish to. All other fields are blank until the user decides to fill them in.
+  - On all profiles there is a 'Profile Info' section which has 5 fields, name, location, favourties cuisine, bio and image. The name field is automatcally completed using the user's username, but can be updated by the user to their real name if they wish to. All other fields except image are blank until the user decides to fill them in, the image field having a default image until one has been added.
   - There is also a 'Restaurants Posted' section that displays all of the restaurants that user has posted. Within this section a 'Show Favourites' button is shown which changes the 'Restaurants Posted' section to 'Favourited Posts' which shows all the posts which the user has favourited. When viewing the 'Favourited Posts' section the button now shows 'Show Restaurants Posted' which reverts back to show the 'Restaurants Posted' section.
   - When user's are viewing their own profile there are some extra features. There is an 'edit' button within the 'Profile Info' section which takes the user to a page where they can edit the information that is shown on their profile. There are also 'Update Email' and 'Update Password' buttons which take the user the different pages where thay can change the email address registered with their account, or change their current password.
 
@@ -401,6 +401,10 @@ Google Chrome was the browser used for the majority of testing during the develo
 - Custom box shadow is applied to the welcome message area which still appears on smaller screens even though the element's background is transparent on smaller screens. This was solved by adding custom class names to the relevant elements and then adding box shadows using media queries.
 
 - Any logged in user can access the edit and delete pages of any restaurant, and the edit page of any user's profile if they type in the correct url. This was fixed by overiding the get_queryset funcion of the relevant views and returning only objects which the current user is associated with.
+
+- When deplying to Heroku for the first time the background images applied to divs via the css file were not loading. This was fixed by uploading all of the images to Cloudinary and then referencing the urls given to them by Cloudinary in the css file.
+
+- When uploading an image to a profile the image was not displaying correctly. This was caused by an if statement being in the wrong place in profile.html. This was easily rectified by moving the if statement to the correct place.
 
 #### Unfixed Bugs
 
