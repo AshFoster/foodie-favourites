@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let cuisineListItems = document.querySelectorAll('.cuisine-item');
     let locationListItems = document.querySelectorAll('.location-item');
     let dishesInput = document.querySelector('#dishes-input');
+    let addDishBtn = document.querySelector('#add-dish-button');
     let profileToggleBtn = document.querySelector('#btn-posts-favourites-toggle');
     let filterForm = document.querySelector('#filter-form');
     let searchInput = document.querySelector('#search-input');
@@ -124,6 +125,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let dishName = this.value;
             this.value = '';
+            addNewDish(dishName);
+            updateDishesString();
+        });
+
+        addDishBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            let dishName = dishesInput.value;
+            dishesInput.value = '';
             addNewDish(dishName);
             updateDishesString();
         });
