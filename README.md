@@ -344,6 +344,7 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - The Reset Password page allows users to reset their password in the case that they have forgotten their current password.
   - The user must enter the email address associated with their account and click 'Reset My Password'. An email will then be sent to their email with a link which takes them to a page where they can reset their password.
   - If the user enters an email address that is not associated with an account then the user is made aware of this.
+  - There is also a 'contact us' link which takes the user to a the 'Contact Us' page which they can use if they are having trouble resetting their password.
 
 - __Sign Out__
 
@@ -356,6 +357,74 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 ## Testing
 
 ### User Stories Testing
+
+#### Epic 1: Admin Setup
+
+  - __As a Site Admin I can create, read, update and delete restaurant posts so that I can manage the site's content__
+
+    - When signed in as an admin user and viewing the admin panal, each of the models is shwown on the left-hand side. Each of them can be clicked to take the user to a list of all objects of that particular model. From here, more objects can be added by clicking the 'Add' button. The user is then taken to a page where they can fill in a form and then add the object to the database. Any of these objects can be updated by clicking on them and then editing the details on the next page. They can all be deleted too.
+    - The models available to add, update, or delete are: Restaurant, Cuisine, Comment, Dish and Profile. Along with Django's built in User model.
+    - Any Restaurant objects created via the admin panal can be seen on the front end of the website.
+
+  - __As a Site Admin I can approve or disapprove comments on restaurant posts so that I can filter out any questionable comments__
+    
+    - From the admin panal, admin users can choose to view a list of all comment objects by clicking on the 'Comments' link on the left-hand side of the page.
+    - When viewing the list the user can see which comments have been approved and which ones have not by looking in the 'APPROVED' column.
+    - Users can then select one or multiple comments to approve via checkboxes, and then selecting 'Approve Comments' from the drop down list above.
+    - All approved comments can be seen on the relevant restaurant's detail page.
+
+  - __As a Site Admin I can be notified when a comment needs to be approved so that I do not need to keep checking the admin site for anything to be approved__
+
+    - When a registered user leaves a comment on one of the restaurant posts an email is sent to the admin's email address notifying them that a comment has been posted and needs approving.
+    - The admin user can then go to the admin panal and approve any comments.
+
+  - __As a Site Admin I can be notified when a user has submitted the contact form so that I do not need to keep checking the admin site for any form submissions to read__
+
+    - When any user submits the contact form successfully, an email is sent to the admin's email address containing the name of who it is from, their email address and the message they have submitted.
+
+#### Epic 2: All User Functionality
+
+  - __As a Site User I can view a list of restaurant posts so that I can select one to view__
+
+  - __As a Site User I can view a paginated list of restaurant posts so that I can easily select a post to view__
+
+  - __As a Site User I can filter the available restaurant posts so that I can see posts which are more specified to my needs__
+
+  - __As a Site User I can type keywords into a search bar so that I can find restaurant posts with titles that contain the keywords that I typed__
+
+  - __As a Site User I can click on a restaurant post so that I can view the post in its entirety__
+
+  - __As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular__
+
+  - __As a Site User I can view comments on an individual restaurant post so that I can I can see what people have had to say about it__
+
+  - __As a Site User I can view the author's favourite dishes on each individual restaurant post so that I can see which dishes the author of each restaurant post recommends__
+
+  - __As a Site User I can view registered users' profiles so that I can learn more about them and see which restaurant posts they've favourited and/or which they've posted__
+
+  - __As a Site User I can fill in a contact form so that I can get in contact with the site owners to ask any questions I might have__
+
+  - __As a Site User I can register for an account so that I can contibute to the site__
+
+#### Epic 3: Registered User Functionality
+
+  - __As a Registered Site User I can add my own restaurant posts so that I can share my favourites restaurants and dishes with other users__
+
+  - __As a Registered Site User I can update restaurant posts that I've previosuly made so that I can amend anything that might be incorrect or add dishes__
+
+  - __As a Registered Site User I can delete restaurant posts that I've previosuly made so that I can remove any restaurant posts that I no longer wish to share__
+
+  - __As a Registered Site User I can leave comments on restaurant posts so that I can give my opinion on posts__
+
+  - __As a Registered Site User I can favourite or unfavourite restaurant posts so that I can keep track of restautant posts that I like__
+
+  - __As a Registered Site User I can reset my password so that I can still gain access to my account if I've forgotten the current one__
+
+  - __As a Registered Site User I can update my registered email address or update my password so that I can use a new email address with my account, strengthen my password or user a more memorable password__
+
+  - __As a Registered Site User I can view my own profile so that I can see what restaurant posts I've posted or favourited__
+
+  - __As a Registered Site User I can edit my own profile so that I can choose what to share about myself with other users__
 
 ### Validator Testing
 
