@@ -274,7 +274,7 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - When the user clicks on one of the cuisines or locations the restaurant list is immedietely filtered and reloaded based on the what has been clicked.
   - When filtered on a cuisine, the location list is updated to show only locations that match the selected cuisine and vice versa.
   - Both cuisine and location lists are also updated appropriately when the user uses the search bar above the restaurants list described above.
-  - When viewing on smaller screens the filters section is hidden and a 'Filters' button is shown instead. When clicked, a modal containing the filters section is shown. 
+  - When viewing on smaller screens the filters section is hidden and a 'Filters' button is shown instead. When clicked, a modal containing the filters section is shown.
 
 - __Contact Form__
 
@@ -295,9 +295,31 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - There is also a 'Restaurants Posted' section that displays all of the restaurants that user has posted. Within this section a 'Show Favourites' button is shown which changes the 'Restaurants Posted' section to 'Favourited Posts' which shows all the posts which the user has favourited. When viewing the 'Favourited Posts' section the button now shows 'Show Restaurants Posted' which reverts back to show the 'Restaurants Posted' section.
   - When user's are viewing their own profile there are some extra features. There is an 'edit' button within the 'Profile Info' section which takes the user to a page where they can edit the information that is shown on their profile. There are also 'Update Email' and 'Update Password' buttons which take the user the different pages where thay can change the email address registered with their account, or change their current password.
 
+- __Restaurant Detail__
+
+  ![Restaurant Detail](assets/readme-images/restaurant-detail.JPG)
+
+  - Each restaurant post has its own detail page which shows all of the uploaded information about it.
+  - The detail page is split up into various sections. An optional image which has a default fallback if no image is chosen. A general information area which shows the name, author and date added, the cuisine, and the location. Then the main description of the restaurant given by the author. Below that is a section displaying the author's favourtie dishes from the restaurant. Then, how many times the post has been favourited is shown, along with the rating (out of 5 stars) that the author has given it.
+  - There is also a 'Comments' section where signed in users can comment on the post. Comments will need admin approval before being posted so when a user posts a comment an email is sent to the admin. The user is shown a message making them aware of this.
+  - Signed in users can also click on the little heart icon next to times favourted to favourite it themselves. Before they have favourited it the icon is the outline of a heart, but once they have favourited it the heart is filled in. They can also unfavourite posts, reverting the heart icon back to only an outline.
+  - Users cannot favourite their own posts.
+  - When users are viewing their own posts, an 'edit' link is displyed near the top of the general information area. This takes them to the update restaurant page where they can make changes to the post. 
+
 - __Add Restaurant__
 
   ![Add Restaurant](assets/readme-images/add-restaurant.JPG)
+
+  - Registered users can access the add restaurant page where they can add their own restaurant posts.
+  - There are 8 fields to complete, 7 of which are required. The image field is not required as a default image is used if no image is uploaded.
+  - The 7 required fields are name, description, rating, location, county, cuisine, and favourite dishes.
+  - The name, description and location field simply require the user to type their values.
+  - The county field is chosen from a large list of all the counties in the UK. This is to aid with filtering by location on the restaurants page.
+  - The cuisine field allows the users to select one or multiple items from a list of cuisines. The user cannot add their own cuisine(s) as the cuisine filter on the restaurants page needs consistency in cuisine names to make sure it appears nicely and that the list does not get too long. Users have the option of selecting 'Other' if none of the listed cuisines match the cuisine required.
+  - The favourite dishes section allows the user to add multiple favourite dishes. They must type one dish at a time and then hit enter or click the 'Add Dish' button which will add each dish to a list below the button.
+  - Once everything has been completed the user can click 'Submit Restaurant', and if everything is ok, they will be taken to the detail page of the restaurant they just added.
+  - The user will be told if any of the fields are incomplete.
+  - When a user chooses to 'edit' one of their posts they will be taken to the add restaurant page, though then the heading will say 'Update Restaurant' instead of 'Add Restaurant', and there will also be a 'delete' link available which will take the user to another page where they can confirm if they would actually like to delete the post.
 
 - __Update Email__
 

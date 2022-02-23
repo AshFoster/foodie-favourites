@@ -15,7 +15,9 @@ class AddRestaurantForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['description'].widget.attrs['rows'] = 4
         self.fields['rating'].widget = forms.Select(choices=RATING_CHOICES)
+        self.fields['location'].label = 'Location (city / town / village)'
         self.fields['county'].widget = forms.Select(choices=GB_REGION_CHOICES)
+        self.fields['cuisine'].label = 'Cuisine (select "Other" if missing)'
 
 
 class CommentForm(forms.ModelForm):
