@@ -103,8 +103,8 @@ Other parts of the site not included in the navbar are as follows:
 
 - Restaurant detail (accessed from restaurants page and users' profile pages)
 - Add Restaurant (registered users only - accessed from home page and restaurant page)
-- Update Restaurant (registered users only - accessed from restaurant detail page - only post's author can access)
-- Delete Restaurant (registered users only - accessed from update restaurant page - only post's author can access)
+- Edit Restaurant (registered users only - accessed from restaurant detail page - only post's author can access)
+- Delete Restaurant (registered users only - accessed from edit restaurant page - only post's author can access)
 - Other users' profiles - accessed by clicking on the author's username on restaurant posts or comments
 - Edit profile (registered users only - accessed from profile page - users can only edit their own profiles)
 - Update Email (registered users only - accessed from profile page - users can only update their own email)
@@ -304,7 +304,7 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - There is also a 'Comments' section where signed in users can comment on the post. Comments will need admin approval before being posted so when a user posts a comment an email is sent to the admin. The user is shown a message making them aware of this.
   - Signed in users can also click on the little heart icon next to times favourted to favourite it themselves. Before they have favourited it the icon is the outline of a heart, but once they have favourited it the heart is filled in. They can also unfavourite posts, reverting the heart icon back to only an outline.
   - Users cannot favourite their own posts.
-  - When users are viewing their own posts, an 'edit' link is displyed near the top of the general information area. This takes them to the update restaurant page where they can make changes to the post. 
+  - When users are viewing their own posts, an 'edit' link is displyed near the top of the general information area. This takes them to the edit restaurant page where they can make changes to the post. 
 
 - __Add Restaurant__
 
@@ -319,23 +319,38 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - The favourite dishes section allows the user to add multiple favourite dishes. They must type one dish at a time and then hit enter or click the 'Add Dish' button which will add each dish to a list below the button.
   - Once everything has been completed the user can click 'Submit Restaurant', and if everything is ok, they will be taken to the detail page of the restaurant they just added.
   - The user will be told if any of the fields are incomplete.
-  - When a user chooses to 'edit' one of their posts they will be taken to the add restaurant page, though then the heading will say 'Update Restaurant' instead of 'Add Restaurant', and there will also be a 'delete' link available which will take the user to another page where they can confirm if they would actually like to delete the post.
+  - When a user chooses to 'edit' one of their posts they will be taken to the add restaurant page, though then the heading will say 'Edit Restaurant' instead of 'Add Restaurant', and there will also be a 'delete' link available which will take the user to another page where they can confirm if they would actually like to delete the post.
 
 - __Update Email__
 
   ![Update Email](assets/readme-images/update-email.JPG)
 
+  - This page allows the user to add email addresses to their account, change their primary email address, remove email addresses and to re-send a verification email regarding one of their email addresses.
+  - If there is only one email address associated with their account then this will be the primary address. The email used when registering will automatically be assigned as primary, though no confirmation is needed on registration. If the user decides they would like to change their primary email address they will need to add it to their account, then verify it via email, and then set it as the primary email address. They then have the option of leaving the old email address on the account or removing it.
+  - Only non-primary email addresses can be removed from an account.
+
 - __Change Password__
 
   ![Change Password](assets/readme-images/change-password.JPG)
+
+  - This page allows the user to change their password. All they need to do is type in their current password, and then their new password twice.
+  - The current password must match the current password, and the repeated new password must match the first new password. If any of these do not match then the user is told accordingly.
+  - There is also a 'forgot password' link which takes the user to a the 'Reset Password' page.
 
 - __Reset Password__
 
   ![Reset Password](assets/readme-images/reset-password.JPG)
 
+  - The Reset Password page allows users to reset their password in the case that they have forgotten their current password.
+  - The user must enter the email address associated with their account and click 'Reset My Password'. An email will then be sent to their email with a link which takes them to a page where they can reset their password.
+  - If the user enters an email address that is not associated with an account then the user is made aware of this.
+
 - __Sign Out__
 
   ![Sign Out](assets/readme-images/sign-out.JPG)
+
+  - When the user clicks on the 'Sign Out' link in the navbar they are taken to this page which simply asks them to confirm that they would actually like to sign out.
+  - When they do sign out they are directed back to the home page.
 
 
 ## Testing
