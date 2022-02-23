@@ -202,11 +202,36 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
 - __Navbar__
 
+- Tha navbar has the website brand on the left-hand side which is also a link to the homepage. It also has links to all the major sections of the website.
+- When on each of the major sections of the site the relevant link is bold and brighter to show the user which part of the site they're currnently viewing.
+- When signed in, the section on the right-hand side showing Sign In and Register changes to Profile and Sign Out respectively.
+- The menu items on the right are displayed as a hamburger item on smaller screens which when pressed opens up a menu with all the links below.
+
+![Navbar](assets/readme-images/navbar.JPG)
+
 - __Footer__
+
+- The footer is split up into 2 main sections. One that shows a small paragraph describing what Foodie Favourites is all about, and the other showing links to various social platforms.
+- There is a also smaller section which simply shows a copyright related information.
+
+![Footer](assets/readme-images/footer.JPG)
 
 - __Welcome Message__
 
+- Here, the user is welcomed to the site with a brief description of what the site is aimed to do.
+- If the user is signed in then the welcome message displays their username.
+- On the right-hand side the user is invited to sign in or register via some links.
+- If the user is already signed in the message on the right invites them to have a look at the current list of restaurants instead.
+
+![Welcome Message](assets/readme-images/welcome-message.JPG)
+
 - __Recently Added Restaurants__
+
+- This section show the 2 most recently added restaurants which the user can click on the be taken to the relevant restaurant's detail page.
+- There is also a link below these items which takes the user to the full list of restaurants.
+- If the user is signed in then there is also an 'Add Restaurant' button which takes the user to the add restaurant page.
+
+![Recently Added Restaurants](assets/readme-images//recently-added-restaurants.JPG)
 
 - __Sign In__
 

@@ -104,7 +104,7 @@
                     </li>
                     {% endif %}
                     <!-- CREDIT https://nemecek.be/blog/105/how-to-use-elided-pagination-in-django-and-solve-too-many-pages-problem -->
-                    {% for i in page_range|default_if_none:page_obj.paginator.get_elided_page_range %}
+                    <!-- {% for i in page_range|default_if_none:page_obj.paginator.get_elided_page_range %}
                     {% if page_obj.number == i %}
                     <li class="active page-item"><span class="page-link">{{ i }} <span
                                 class="sr-only">(current)</span></span>
@@ -113,10 +113,11 @@
                     {% if i == page_obj.paginator.ELLIPSIS %}
                     <li class="page-item"><span class="page-link">{{ i }}</span></li>
                     {% else %}
-                    <li class="page-item"><a class="page-link bg-light text-dark fw-bold" href="?page={{ i }}&{{ get_copy.urlencode }}">{{ i }}</a></li>
+                    <li class="page-item"><a class="page-link bg-light text-dark fw-bold"
+                            href="?page={{ i }}&{{ get_copy.urlencode }}">{{ i }}</a></li>
                     {% endif %}
                     {% endif %}
-                    {% endfor %}
+                    {% endfor %} -->
                     <!-- END CREDIT -->
                     {% if page_obj.has_next %}
                     <li><a href="?page={{ page_obj.next_page_number }}&{{ get_copy.urlencode }}"
