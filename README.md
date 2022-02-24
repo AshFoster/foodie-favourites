@@ -73,9 +73,9 @@ More detail about the user stories including acceptance criteria and tasks assoc
       - As a Registered Site User I can leave comments on restaurant posts so that I can give my opinion on posts
       - As a Registered Site User I can favourite or unfavourite restaurant posts so that I can keep track of restautant posts that I like
       - As a Registered Site User I can reset my password so that I can still gain access to my account if I've forgotten the current one
-      - As a Registered Site User I can update my registered email address or update my password so that I can use a new email address with my account, strengthen my password or user a more memorable password
       - As a Registered Site User I can view my own profile so that I can see what restaurant posts I've posted or favourited
       - As a Registered Site User I can edit my own profile so that I can choose what to share about myself with other users
+      - As a Registered Site User I can update my registered email address or update my password so that I can use a new email address with my account, strengthen my password or user a more memorable password
 
 ### Scope
 
@@ -462,21 +462,51 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
   - __As a Registered Site User I can delete restaurant posts that I've previosuly made so that I can remove any restaurant posts that I no longer wish to share__
 
-    - When a registered and signed in user is viewing the 'Update Restaurant' page of one their restaurant posts there is an 'Delete' link shown near page title. To its right on large screens and above it on small screens.
-    - When this link is clicked the user is taken to the 'Delete Restaurant' page, when the user asked if they are sure they would like to delete the post.
-    - If the user decides they would like to go ahead with deleting the post they can click the 'Confirm' button which will delete the post, redirect the user to the restaurants page and display a message letting know that it has been deleted.
+    - When a registered and signed in user is viewing the 'Update Restaurant' page of one their restaurant posts there is a 'Delete' link shown near the page title; to its right on large screens and above it on small screens.
+    - When this link is clicked the user is taken to the 'Delete Restaurant' page, where the user asked if they are sure they would like to delete the post.
+    - If the user decides they would like to go ahead with deleting the post they can click the 'Confirm' button which will delete the post, redirect the user to the restaurants page and display a message letting them know that it has been deleted.
 
   - __As a Registered Site User I can leave comments on restaurant posts so that I can give my opinion on posts__
 
+    - When a registered and signed in user is viewing the detail page of any restaurant post, within the 'Comments' section there is a text box with the placeholder 'Leave a comment...' which the user can use to type comments that they would like to make on that particular post. Once the user has typed a comment that they are happy to submit they can click on the 'Submit' button which will submit the comment for approval. All comments need to be approved by an admin user before they are displayed on the restaurant's detail page.
+    - Upon successful submission of the comment form a message is displayed to the user letting them know that their comment has been sent for approval.
+    - The success message replaces the text box and button, but the text box and button will reappear the next time they visit the page, or if they reload the page.
+    - Once a comment has been approved it will be shown beneath all other previous comments in the 'Comments' section of the restaurant's detail page.
+
   - __As a Registered Site User I can favourite or unfavourite restaurant posts so that I can keep track of restautant posts that I like__
+
+    - When a registered and signed in user is viewing the detail page of any restaurant post, a little heart icon is displayed next to a number and the words 'Times Favourited'. This shows the user how many times the post has been favorited by other users. 
+    - The heart icon is originally the outline of a heart, but if the user clicks on the heart then the page will reload, the number will go up by one and the heart icon will now be all one colour (filled in). This shows the user that they have favourited the post. The user can unfavourite the post by clicking on the heart again. This will again reload the page, reduce the number by one and revert the heart icon back to the outline of a heart.
+    - Only registerd users are able to favourite or unfavourite posts, but any user can see how many times a post has been favourited.
+    - Users cannot favourite or unfavourite their own posts.
+    - Any post favourited by a user will be displayed on their profile page. This allows them to keep track of their favourite posts, and allows other users to see which posts they have favourited.
 
   - __As a Registered Site User I can reset my password so that I can still gain access to my account if I've forgotten the current one__
 
-  - __As a Registered Site User I can update my registered email address or update my password so that I can use a new email address with my account, strengthen my password or user a more memorable password__
+    - When a registered user is attempting to sign in but have forgotten their password, from the 'Sign In' page they can click a link labelled 'Forgot Password?' which will take the user to the 'Reset Password' page.
+    - On this page the user is prompted to type in the email address linked to their account. Once they have done this they can click the 'Reset My Password' button which will submit the form and reload the page. A message is now displayed letting them know that an email has been sent to them. They email they receive will have a link which takes them to the 'Password Reset' page where they can choose a new password for their account by typing it in twice and clicking the 'Change Password' button.
+    - Both the 'Reset Password' page and the 'Password Reset' page will let the user know if anything they have typed in does not match the forms' requirements.
 
   - __As a Registered Site User I can view my own profile so that I can see what restaurant posts I've posted or favourited__
 
+    - Registered users who are signed in can access their own profile by clicking the 'Profile' link on the navbar, or by clicking the 'Added by' link on any of the restaurant posts they have made that are shown on various pages across the site.
+    - When users are viewing their own profile page much of the information displayed is the same as when viewing other users' profiles - they can see the profile info they have decided to share, and can toggle between seeing any restaurant posts they have made and any restaurants they have favourited. In addition to this though, there is an 'Edit' button displayed at the top of the profile info section, and just below the profile info section two buttons are displayed: 'Update Email' and 'Update Password'.
+
   - __As a Registered Site User I can edit my own profile so that I can choose what to share about myself with other users__
+
+    - When a registered and signed in user is viewing their own profile and clicks on the 'Edit' link at the top of the profile info section, they are taken to the 'Edit Profile' page.
+    - A form is displayed with 5 optional fields that the user can fill in. The user can add their name, location, favourite cuisine, a bio and an image. Once the user is happy with how they have filled in the form they can click the 'Update Profile' button which submits the form and takes them back to their profile page which will now be updated with any of the information they submitted on the form. A message is also displayed letting them know that their profile has been updated.
+
+  - __As a Registered Site User I can update my registered email address or update my password so that I can use a new email address with my account, strengthen my password or user a more memorable password__
+
+    - When a registered and signed in user is viewing their own profile and clicks on the 'Update Email' button just below the profile info section, they are taken to the 'Email Addresses' page.
+    - A list of email addresses currently associated with the account are shown with the primary email labelled as such.
+    - If there are multiple emails in the list then the user can change the primary email to any other email that has been verified. They can also remove any email addresses from their account as long as they are not the primary email.
+    - The user can add another email address to their account by typing in a valid new email address and clicking the 'Add Email' button. Email addresses already linked to another user account cannot be used. If the email address typed in does not match the forms requirements the user is made aware.
+    - Upon successfull submission of the form the email address typed in is added to the list of addresses above and is marked as unverified. A message is also displayed letting the user know that a confirmation email has been sent to their account. When the link in the email is followed the user is taken to a page where that can confirm verification of the email address.
+    - When a registered and signed in user is viewing their own profile and clicks on the 'Update Password' button just below the profile info section, they are taken to the 'Change Password' page.
+    - Here, the user can change their password by correctly typing in their current password, typing a new password twice and then clicking the 'Change Password' button. If the current password does not match, or the new passwords do not match, the user is made aware.
+    - Upon successful submission of the form, the page reloads and displays a message letting the user know that they have changed their password successfully.
 
 ### Validator Testing
 
