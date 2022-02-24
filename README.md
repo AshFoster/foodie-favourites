@@ -531,6 +531,8 @@ Google Chrome was the browser used for the majority of testing during the develo
 
 - When uploading an image to a profile the image was not displaying correctly. This was caused by an if statement being in the wrong place in profile.html. This was easily rectified by moving the if statement to the correct place.
 
+- If a user registers an account with an email address as their username, or chooses any other username with special characters, although the username might be unique, when it is slugified the slug value will not necessarily be unique and would lead to an error. To fix this, when a new profile is being saved, if the slug value being created already exists then a unique number - the id of the most recently added profile object before this one plus 1 - is concatinated with the slug value to make a unique slug value.
+
 #### Unfixed Bugs
 
 - When adding a restaurant, if a restaurant with the same name already exists an error is thrown as expected. But when the form is reloaded the list of dishes added before submission disappear.

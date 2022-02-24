@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, IntegrityError
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils.text import slugify
@@ -19,8 +19,14 @@ class Profile(models.Model):
     image = CloudinaryField('image', default='default')
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(str(self.user))
-        super(Profile, self).save(*args, **kwargs)
+        try:
+            self.slug = slugify(str(self.user))
+            super(Profile, self).save(*args, **kwargs)
+        except IntegrityError:
+            latest = Profile.objects.latest('id')
+            next_id = latest.id + 1
+            self.slug = slugify(str(self.user) + str(next_id))
+            super(Profile, self).save(*args, **kwargs)
 
     def __str__(self):
         return str(self.user)

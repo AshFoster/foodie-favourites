@@ -40,7 +40,7 @@ class Restaurant(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        self.author_slug = slugify(self.author)
+        self.author_slug = self.author.profile.slug
         super(Restaurant, self).save(*args, **kwargs)
 
     def __str__(self):

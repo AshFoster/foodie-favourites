@@ -15,7 +15,7 @@ class ProfileView(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Profile.objects.all()
         profile = get_object_or_404(queryset, slug=slug)
-        author = User.objects.get(username__iexact=slug)
+        author = User.objects.get(profile__slug__iexact=slug)
         restaurant_posts = Restaurant.objects.filter(author=author, approved=True).order_by('-created_on')
         profile_toggle = request.GET.get('posts-favourites-toggle')
         current_list = 'posts'
