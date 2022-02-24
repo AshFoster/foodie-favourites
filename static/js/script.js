@@ -1,3 +1,9 @@
+// Global Variables
+const params = new URLSearchParams(window.location.search);
+let searchHiddenInput = document.querySelector('#search-restaurants');
+let searchInput = document.querySelector('#search-input');
+let filterForm = document.querySelector('#filter-form');
+
 // CREDIT
 // Function idea came from Code Institue's Blog walkthrough project
 setTimeout(function () {
@@ -13,36 +19,19 @@ setTimeout(function () {
 // END CREDIT
 
 /* 
-Once the DOM has finshed loading add event listeners to some elements
+Set Cuisine Filter sets the value of the cuisine related hidden input on restaurants.html
+based on the cuisine value in the url. It then loops through all cuisine list items and 
+adds an 'active' class to the item that matches the url value, and adds event listeners 
+to each item so when one is clicked the 'active' class is added to it and the filter
+form is submitted. 
 */
-document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
+function setCuisineFilter() {
     let cuisineFilterURL = params.get('cuisine-filter');
-    let locationFilterURL = params.get('location-filter');
-    let searchRestaurantsURL = params.get('search-restaurants');
     let cuisineHiddenInput = document.querySelector('#cuisine-filter');
-    let locationHiddenInput = document.querySelector('#location-filter');
-    let searchHiddenInput = document.querySelector('#search-restaurants');
     let cuisineListItems = document.querySelectorAll('.cuisine-item');
-    let locationListItems = document.querySelectorAll('.location-item');
-    let dishesInput = document.querySelector('#dishes-input');
-    let addDishBtn = document.querySelector('#add-dish-button');
-    let profileToggleBtn = document.querySelector('#btn-posts-favourites-toggle');
-    let filterForm = document.querySelector('#filter-form');
-    let searchInput = document.querySelector('#search-input');
-    let searchBtn = document.querySelector('#search-button');
 
     if (cuisineFilterURL != null) {
         cuisineHiddenInput.value = cuisineFilterURL;
-    }
-
-    if (locationFilterURL != null) {
-        locationHiddenInput.value = locationFilterURL;
-    }
-
-    if (searchRestaurantsURL != null) {
-        searchHiddenInput.value = searchRestaurantsURL;
-        searchInput.value = searchRestaurantsURL;
     }
 
     for (let item of cuisineListItems) {
@@ -65,6 +54,23 @@ document.addEventListener("DOMContentLoaded", function () {
             filterForm.submit();
         });
     }
+}
+
+/* 
+Set Location Filter sets the value of the location related hidden input on restaurants.html
+based on the location value in the url. It then loops through all location list items and 
+adds an 'active' class to the item that matches the url value, and adds event listeners 
+to each item so when one is clicked the 'active' class is added to it and the filter
+form is submitted. 
+*/
+function setLocationFilter() {
+    let locationFilterURL = params.get('location-filter');
+    let locationHiddenInput = document.querySelector('#location-filter');
+    let locationListItems = document.querySelectorAll('.location-item');
+
+    if (locationFilterURL != null) {
+        locationHiddenInput.value = locationFilterURL;
+    }
 
     for (let item of locationListItems) {
         if (item.querySelector('.location-name').textContent == locationFilterURL) {
@@ -86,6 +92,23 @@ document.addEventListener("DOMContentLoaded", function () {
             filterForm.submit();
         });
     }
+}
+
+/* 
+Set Search Bar sets the value of the search related hidden input on restaurants.html
+based on the search value in the url. It then adds event listeners to the search bar
+and search button so the search related hidden input is given the value contained 
+in the search bar and the filter form is submitted.
+*/
+function setSearchBar() {
+    let searchRestaurantsURL = params.get('search-restaurants');
+    let searchHiddenInput = document.querySelector('#search-restaurants');
+    let searchBtn = document.querySelector('#search-button');
+
+    if (searchRestaurantsURL != null) {
+        searchHiddenInput.value = searchRestaurantsURL;
+        searchInput.value = searchRestaurantsURL;
+    }
 
     if (searchInput != null) {
         searchInput.addEventListener('keypress', function (e) {
@@ -100,20 +123,27 @@ document.addEventListener("DOMContentLoaded", function () {
             filterForm.submit();
         });
     }
-    
+
     if (searchBtn != null) {
         searchBtn.addEventListener('click', function () {
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
         });
     }
+}
 
-
-
-    // CREDIT
-    // Idea for these functions came from 'The Dumbfounds' YouTube video:
-    // https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
-    updateDishesString();
+/* 
+CREDIT
+Idea for these functions came from 'The Dumbfounds' YouTube video:
+https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
+*/
+/* 
+Adds event listeners to 'dishes input' and 'add dishes button' on add_restaurant.html so the
+value of the input element is added to a list element when the events occur.
+*/
+function setAddDish() {
+    let dishesInput = document.querySelector('#dishes-input');
+    let addDishBtn = document.querySelector('#add-dish-button');
 
     if (dishesInput != null) {
         dishesInput.addEventListener('keydown', function (e) {
@@ -131,16 +161,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
         addDishBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             let dishName = dishesInput.value;
             dishesInput.value = '';
             addNewDish(dishName);
             updateDishesString();
         });
     }
-    // END CREDIT
+}
 
-    // 
+// Adds new list element with specified name
+function addNewDish(name) {
+    document.querySelector('#dishes-container').insertAdjacentHTML('beforeend',
+        `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
+            <span class="name text-start">${name}</span>
+            <span onclick="removeDish(this)" class="btn-remove text-end" role="button">X</span>
+        </li>`);
+}
+
+// Updates 'dishes string' with all list element values
+function updateDishesString() {
+    let dishes = fetchDishArray();
+    let dishesString = document.querySelector('#dishes-string');
+
+    if (dishesString != null) {
+        document.querySelector('#dishes-string').value = dishes.join(',');
+    }
+}
+
+// Creates and returns an array of all list element values
+function fetchDishArray() {
+    let dishes = [];
+
+    document.querySelectorAll('.dish').forEach(function (e) {
+        let name = e.querySelector('.name').textContent;
+
+        if (name == '') {
+            return;
+        }
+
+        dishes.push(name);
+    });
+
+    return dishes;
+}
+
+// Removes a specified list element
+function removeDish(e) {
+    e.parentElement.remove();
+    updateDishesString();
+}
+// END CREDIT
+
+/* 
+Set Profile Toggle adds an event listener to the 'profile toggle button' on profile.html
+which updates the value of the profile related hidden input element and submits the profile 
+toggle form.
+*/
+function SetProfileToggle() {
+    let profileToggleBtn = document.querySelector('#btn-posts-favourites-toggle');
+
     if (profileToggleBtn != null) {
         profileToggleBtn.addEventListener('click', function () {
             let profileToggleURL = params.get('posts-favourites-toggle');
@@ -154,46 +234,23 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector('#profile-toggle-form').submit();
         });
     }
-});
-
-// CREDIT
-// Idea for these functions came from 'The Dumbfounds' YouTube video:
-// https://www.youtube.com/watch?v=sE_dccbr1I4&list=PLbpAWbHbi5rNUuLTzreCl1g212G7qgzpR&index=6
-function addNewDish(name) {
-    document.querySelector('#dishes-container').insertAdjacentHTML('beforeend',
-        `<li class="dish d-flex justify-content-between my-3 py-2 px-3 bg-lighter-dark-custom text-light-custom rounded-3 box-shadow-custom">
-            <span class="name text-start">${name}</span>
-            <span onclick="removeDish(this)" class="btn-remove text-end" role="button">X</span>
-        </li>`);
 }
 
-function updateDishesString() {
-    let dishes = fetchDishArray();
-    let dishesString = document.querySelector('#dishes-string');
 
-    if (dishesString != null) {
-        document.querySelector('#dishes-string').value = dishes.join(',');
-    }
-}
+/* 
+Once the DOM has finshed loading call necessary functions
+*/
+document.addEventListener("DOMContentLoaded", function () {
 
-function fetchDishArray() {
-    let dishes = [];
+    setCuisineFilter();
 
-    document.querySelectorAll('.dish').forEach(function (e) {
-        let name = e.querySelector('.name').textContent;
+    setLocationFilter();
 
-        if (name == '') {
-            return;
-        }
+    setSearchBar();
 
-        dishes.push(name);
-    });
-    
-    return dishes;
-}
-
-function removeDish(e) {
-    e.parentElement.remove();
     updateDishesString();
-}
-// END CREDIT
+
+    setAddDish();
+
+    SetProfileToggle();
+});
