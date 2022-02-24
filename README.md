@@ -448,9 +448,23 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
   - __As a Registered Site User I can add my own restaurant posts so that I can share my favourites restaurants and dishes with other users__
 
+    - When viewing the wesbite any registered user has the ability to add new restaurant posts. When signed in there is an 'Add Restaurant' button on the home page within the 'Recently added restaurants' section, and another button above the list of restaurants on the restaurants page. When either button is clicked the user is taken to the 'Add Restaurant' page where they can complete aand submit a form with all the necessary details of the new restaurant they would like to add.
+    - The add restaurant page has various fields that must be completed in order for the form to be submitted. The image field is optional. A default image is used if the user does not add one.
+    - All other fields are required, and if the user trys to submit the form when a field has not been completed a message is displayed showing them which field(s) must to be completed.
+    - Upon successful submission of the form the user is redirected to the detail page of the restaurant post they have just added, and a message is displayed letting them know that the restaurant post has been added.
+
   - __As a Registered Site User I can update restaurant posts that I've previosuly made so that I can amend anything that might be incorrect or add dishes__
 
+    - When a registered and signed in user is viewing the detail page of one their restaurant posts there is an 'Edit' link shown near the restaurants title. To its right on large screens and above it on small screens.
+    - When this link is clicked the user is taken to the 'Add Restaurant' page, only now it is titled 'Edit Restaurant' and the form is already completed with all of the current information about the restaurant post.
+    - The user can update any of these details and then submit the form again. All the same rules apply from when adding a restaurant, and the user is told if they have missed any required fields.
+    - Upon successful submission of the form the user is redirected to the detail page of the restaurant post they have just updated, and a message is displayed letting them know that the restaurant post has been updated.
+
   - __As a Registered Site User I can delete restaurant posts that I've previosuly made so that I can remove any restaurant posts that I no longer wish to share__
+
+    - When a registered and signed in user is viewing the 'Update Restaurant' page of one their restaurant posts there is an 'Delete' link shown near page title. To its right on large screens and above it on small screens.
+    - When this link is clicked the user is taken to the 'Delete Restaurant' page, when the user asked if they are sure they would like to delete the post.
+    - If the user decides they would like to go ahead with deleting the post they can click the 'Confirm' button which will delete the post, redirect the user to the restaurants page and display a message letting know that it has been deleted.
 
   - __As a Registered Site User I can leave comments on restaurant posts so that I can give my opinion on posts__
 
