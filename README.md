@@ -59,8 +59,8 @@ More detail about the user stories including acceptance criteria and tasks assoc
       - As a Site User I can filter the available restaurant posts so that I can see posts which are more specified to my needs
       - As a Site User I can type keywords into a search bar so that I can find restaurant posts with titles that contain the keywords that I typed
       - As a Site User I can click on a restaurant post so that I can view the post in its entirety
-      - As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular
-      - As a Site User I can view comments on an individual restaurant post so that I can I can see what people have had to say about it
+      - As a Site User I can view the number of times a restaurant post has been favourited so that I can see which are the most popular
+      - As a Site User I can view comments on an individual restaurant post so that I can see what people have had to say about it
       - As a Site User I can view the author's favourite dishes on each individual restaurant post so that I can see which dishes the author of each restaurant post recommends
       - As a Site User I can view registered users' profiles so that I can learn more about them and see which restaurant posts they've favourited and/or which they've posted.
       - As a Site User I can fill in a contact form so that I can get in contact with the site owners to ask any questions I might have
@@ -413,17 +413,36 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
     - When viewing a list of restaurants on the home page, restaurants page or a profile page, when the user clicks on any of the titles or images of the listed restaurants they are taken to the detailed page of that restaurant.
 
-  - __As a Site User I can view the number of times a restaurant post has been favourited so that I can I can see which are the most popular__
+  - __As a Site User I can view the number of times a restaurant post has been favourited so that I can see which are the most popular__
 
-  - __As a Site User I can view comments on an individual restaurant post so that I can I can see what people have had to say about it__
+    - When viewing the list of restaurants on the restaurants page, the user can see a little heart icon with a number next to it at the bottom left of each restaurant post. This is number is how many times that particular restaurant post has been favourited. On the restaurant detail page this can also be seen with the addition of the words 'Times Favourited'. These words are omitted from summary posts on the restaurants page so they do not look overcrowded.
+
+  - __As a Site User I can view comments on an individual restaurant post so that I can see what people have had to say about it__
+
+    - When viewing a restaurant's detail page a list of all the comments made on that particular post can be seen at the bottom of the page. If no comments have been made then a message is displayed explaining this.
 
   - __As a Site User I can view the author's favourite dishes on each individual restaurant post so that I can see which dishes the author of each restaurant post recommends__
 
+    - When viewing a restaurant's detail page there is a section titled 'Favourite Dishes' which displays all the dishes that the author has decided to add to this post.
+
   - __As a Site User I can view registered users' profiles so that I can learn more about them and see which restaurant posts they've favourited and/or which they've posted__
+
+    - When viewing the restaurant lists on the home page or restaurant page, or when viewing a restaurant's detail page there is some text just below the restaurant's title which shows the user who added the post. This text contains a link which takes the current user to that user's profile.
+    - When viewing another user's profile page there is a 'Profile Info' section which contains some basic information about the user if they have decided to add any. Each field is blank unless the user has decided to update them except for the 'Name' field which is preopulated with thier username, and the 'Image' field which is prepolulated with a default image.
+    - There is also another section which initially shows a list of any restaurant posts that user has made, but can be toggled to show all the restaurant posts they have favourited by clicking on the 'Show Favourites' button. By doing so the page reloads with the list of favourites. This can be reverted by clicking on the renamed 'Show Restaurants Posted' button.
 
   - __As a Site User I can fill in a contact form so that I can get in contact with the site owners to ask any questions I might have__
 
+    - When viewing the wesbite any user can navigate to the 'Contact Us' page by clicking on the 'Contact' link in the navbar.
+    - This page contains a simple form which requires the user to enter their name, email and a message that they would like to send. All fields are required, and if any are left blank or do not match the necessary criteria the user is made aware.
+    - Upon successful submission of the form, the user is shown a message stating that their message has been sent successfully. All the information provided by the user is then sent via email to the main admin's email account.
+
   - __As a Site User I can register for an account so that I can contibute to the site__
+
+    - When viewing the wesbite any user that is not already signed in can navigate to the 'Register' page by clicking on the 'Register' link in the navbar. There are also links to the register and sign in pages within the 'Welcome Message' section of the home page, and in the 'Comments' section of any restaurant's detail page.
+    - There is also a link to the register page on the sign in page and vice versa.
+    - When viewing the 'Register' page the user can register for an account by filling in their email address, username and password into the relevant fields. The email and username fields must be unique, and the password needs to be entered twice with both entries matching. If any of these requirements are not met, the user is made aware.
+    - Upon successful submission of the form, the user is redirected the home page where a message is displayed stating that have now been signed in.
 
 #### Epic 3: Registered User Functionality
 
