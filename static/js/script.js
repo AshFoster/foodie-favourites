@@ -1,7 +1,5 @@
 // Global Variables
 const params = new URLSearchParams(window.location.search);
-let cuisineListItems = document.querySelectorAll('.cuisine-item');
-let locationListItems = document.querySelectorAll('.location-item');
 let searchHiddenInput = document.querySelector('#search-restaurants');
 let searchInput = document.querySelector('#search-input');
 let filterForm = document.querySelector('#filter-form');
@@ -21,26 +19,42 @@ setTimeout(function () {
 // END CREDIT
 
 /* 
-Set Cuisine Filter sets the value of the cuisine related hidden input on restaurants.html
-based on the cuisine value in the url. It then loops through all cuisine list items and 
-adds an 'active' class to the item that matches the url value, and adds event listeners 
-to each item so when one is clicked the 'active' class is added to it and the filter
-form is submitted. 
+Sets the value of the cuisine related hidden input on restaurants.html based on url value,
+adds 'active' class to the related cuisine list item, and adds 'click' event listeners to all
+of the cuisine list items.
 */
 function setCuisineFilter() {
     let cuisineFilterURL = params.get('cuisine-filter');
     let cuisineHiddenInput = document.querySelector('#cuisine-filter');
+    let cuisineListItems = document.querySelectorAll('.cuisine-item');
 
     if (cuisineFilterURL != null) {
         cuisineHiddenInput.value = cuisineFilterURL;
     }
 
     for (let item of cuisineListItems) {
+
+        // Add 'active' class to cuisine item which matches cuisine in url when page is loaded
+        if (item.querySelector('.cuisine-name').textContent == cuisineFilterURL) {
+            item.classList.add('active');
+        } else if (item.querySelector('.cuisine-name').textContent == 'All' && cuisineHiddenInput.value == 'All') {
+            item.classList.add('active');
+        }
         item.addEventListener('click', function () {
+
+            // Add 'active' class to selected item
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
+
             document.querySelector('#cuisine-filter').value = item.querySelector('.cuisine-name').textContent;
+
+            // Remove 'active' class from other items
+            for (let other of cuisineListItems) {
+                if (other != item && other.classList.contains('active')) {
+                    other.classList.remove('active');
+                }
+            }
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
         });
@@ -48,26 +62,42 @@ function setCuisineFilter() {
 }
 
 /* 
-Set Location Filter sets the value of the location related hidden input on restaurants.html
-based on the location value in the url. It then loops through all location list items and 
-adds an 'active' class to the item that matches the url value, and adds event listeners 
-to each item so when one is clicked the 'active' class is added to it and the filter
-form is submitted. 
+Sets the value of the location related hidden input on restaurants.html based on url value,
+adds 'active' class to the related location list item, and adds 'click' event listeners to all
+of the location list items.
 */
 function setLocationFilter() {
     let locationFilterURL = params.get('location-filter');
     let locationHiddenInput = document.querySelector('#location-filter');
+    let locationListItems = document.querySelectorAll('.location-item');
 
     if (locationFilterURL != null) {
         locationHiddenInput.value = locationFilterURL;
     }
 
     for (let item of locationListItems) {
+
+        // Add 'active' class to location item which matches location in url when page is loaded
+        if (item.querySelector('.location-name').textContent == locationFilterURL) {
+            item.classList.add('active');
+        } else if (item.querySelector('.location-name').textContent == 'All' && locationHiddenInput.value == 'All') {
+            item.classList.add('active');
+        }
+
         item.addEventListener('click', function () {
+
+            // Add 'active' class to selected item
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
             document.querySelector('#location-filter').value = item.querySelector('.location-name').textContent;
+
+            // Remove 'active' class from non-selected items
+            for (let other of locationListItems) {
+                if (other != item && other.classList.contains('active')) {
+                    other.classList.remove('active');
+                }
+            }
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
         });
@@ -75,10 +105,10 @@ function setLocationFilter() {
 }
 
 /* 
-Set Search Bar sets the value of the search related hidden input on restaurants.html
-based on the search value in the url. It then adds event listeners to the search bar
+Sets the value of the search related hidden input on restaurants.html based
+on the search value in the url, then adds event listeners to the search bar
 and search button so the search related hidden input is given the value contained 
-in the search bar and the filter form is submitted.
+in the search bar, then submits the filter form.
 */
 function setSearchBar() {
     let searchRestaurantsURL = params.get('search-restaurants');
