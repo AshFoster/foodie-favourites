@@ -11,6 +11,6 @@ urlpatterns = [
           name='delete_restaurant'),
      path('<slug:slug>/', views.RestaurantDetail.as_view(),
           name='restaurant_detail'),
-     path('favourited/<slug:slug>/', views.RestaurantLike.as_view(),
+     path('favourited/<slug:slug>/', views.RestaurantFavourite.as_view(),
           name='restaurant_favourited'),
 ]

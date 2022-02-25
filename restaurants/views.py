@@ -20,40 +20,41 @@ class RestaurantList(generic.ListView):
     queryset = Restaurant.objects.filter(approved=True).order_by('-created_on')
     template_name = 'restaurants.html'
     paginate_by = 3
+    restaurant_cuisines = {}
+    restaurant_cuisines_count = 0
+    restaurant_locations = {}
+    restaurant_locations_count = 0
 
     def get_queryset(self):
         cuisine_filter = self.request.GET.get('cuisine-filter')
         location_filter = self.request.GET.get('location-filter')
         search_restaurants = self.request.GET.get('search-restaurants')
 
-        if cuisine_filter != '' and cuisine_filter is not None and cuisine_filter != 'All':
+        if (cuisine_filter != '' and cuisine_filter is not None and
+                cuisine_filter != 'All'):
             self.queryset = self.queryset.filter(cuisine__name=cuisine_filter)
 
-        if location_filter != '' and location_filter is not None and location_filter != 'All':
-            self.queryset = self.queryset.filter(county__icontains=location_filter)
-        
+        if (location_filter != '' and location_filter is not None and
+                location_filter != 'All'):
+            self.queryset = self.queryset.filter(
+                county__icontains=location_filter)
+
         if search_restaurants != '' and search_restaurants is not None:
-            self.queryset = self.queryset.filter(name__icontains=search_restaurants)
+            self.queryset = self.queryset.filter(
+                name__icontains=search_restaurants)
 
         return self.queryset
 
-    def get_context_data(self, **kwargs):
+    def set_cuisine_and_location_context(self, restaurants):
         """
-        The get_context_data function sets the relevant context data
-        to be used in restaurants.html
+        Sets cuisine and location related variables to be used as context
+        for the filters section of restaurants.html
         """
-        context = super(RestaurantList, self).get_context_data(**kwargs)
-
-        restaurants = Restaurant.objects.filter(approved=True)
-        search_restaurants = self.request.GET.get('search-restaurants')
-
-        if search_restaurants != '' and search_restaurants is not None:
-            restaurants = restaurants.filter(name__icontains=search_restaurants)
-        
         location_filter = self.request.GET.get('location-filter')
         cuisine_string = ''
 
-        if location_filter == 'All' or location_filter == '' or location_filter is None:
+        if (location_filter == 'All' or location_filter == '' or
+                location_filter is None):
             for restaurant in restaurants:
                 cuisine_string += restaurant.list_cuisines() + ', '
         else:
@@ -81,44 +82,77 @@ class RestaurantList(generic.ListView):
         restaurant_locations = {}
         restaurant_locations_count = 0
 
-        if cuisine_filter == 'All' or cuisine_filter == '' or cuisine_filter is None:
+        if (cuisine_filter == 'All' or cuisine_filter == '' or
+                cuisine_filter is None):
             for restaurant in restaurants:
                 restaurant_locations_count += 1
                 if restaurant.county not in restaurant_locations:
                     restaurant_locations[restaurant.county] = 1
                 else:
-                    restaurant_locations[restaurant.county] = restaurant_locations[restaurant.county] + 1
+                    restaurant_locations[
+                        restaurant.county] = restaurant_locations[
+                            restaurant.county] + 1
         else:
             for restaurant in restaurants:
-                print(restaurant.list_cuisines())
                 if cuisine_filter in restaurant.list_cuisines():
-                    print(restaurant.list_cuisines())
                     restaurant_locations_count += 1
                     if restaurant.county not in restaurant_locations:
                         restaurant_locations[restaurant.county] = 1
                     else:
-                        restaurant_locations[restaurant.county] = restaurant_locations[restaurant.county] + 1
+                        restaurant_locations[
+                            restaurant.county] = restaurant_locations[
+                                restaurant.county] + 1
 
+        self.restaurant_cuisines = restaurant_cuisines
+        self.restaurant_cuisines_count = restaurant_cuisines_count
+        self.restaurant_locations = restaurant_locations
+        self.restaurant_locations_count = restaurant_locations_count
+
+    def get_context_data(self, **kwargs):
+        """
+        Sets context data to be used in restaurants.html
+        """
+        context = super(RestaurantList, self).get_context_data(**kwargs)
+
+        restaurants = Restaurant.objects.filter(approved=True)
+        search_restaurants = self.request.GET.get('search-restaurants')
+
+        if search_restaurants != '' and search_restaurants is not None:
+            restaurants = restaurants.filter(
+                name__icontains=search_restaurants)
+
+        self.set_cuisine_and_location_context(restaurants)
+
+        # Creates copy of GET and removes superfluous additonal 'page' that is
+        # added to the url when when using pagination and filters
+        # CREDIT = idea came from: (https://stackoverflow.com/questions/
+        # 59972694/django-pagination-maintaining-filter-and-order-by)
         get_copy = self.request.GET.copy()
         if get_copy.get('page'):
             get_copy.pop('page')
 
-        context['cuisine_count'] = restaurant_cuisines_count
-        context['cuisine_list'] = restaurant_cuisines
-        context['location_count'] = restaurant_locations_count
-        context['location_list'] = restaurant_locations
+        context['cuisine_count'] = self.restaurant_cuisines_count
+        context['cuisine_list'] = self.restaurant_cuisines
+        context['location_count'] = self.restaurant_locations_count
+        context['location_list'] = self.restaurant_locations
         context['range'] = range(5)
         context['get_copy'] = get_copy
         return context
 
 
 class RestaurantDetail(View):
-
+    """
+    Restaurant Detail class based view to show individual Restaurant model
+    objects on restaurant_detail.html
+    """
     def get(self, request, slug, *args, **kwargs):
+        # CREDIT - idea for get method structure came from
+        # Code Institute's blog walkthrough project
         queryset = Restaurant.objects.filter(approved=True)
         restaurant = get_object_or_404(queryset, slug=slug)
         dishes = restaurant.dishes.order_by('name')
-        comments = restaurant.comments.filter(approved=True).order_by('created_on')
+        comments = restaurant.comments.filter(
+            approved=True).order_by('created_on')
         comment_count = restaurant.comments.filter(approved=True).count()
         liked = False
         if restaurant.favourited.filter(id=self.request.user.id).exists():
@@ -140,10 +174,13 @@ class RestaurantDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        # CREDIT - idea for post method structure came from
+        # Code Institute's blog walkthrough project
         queryset = Restaurant.objects.filter(approved=True)
         restaurant = get_object_or_404(queryset, slug=slug)
         dishes = restaurant.dishes.order_by('name')
-        comments = restaurant.comments.filter(approved=True).order_by('created_on')
+        comments = restaurant.comments.filter(
+            approved=True).order_by('created_on')
         comment_count = restaurant.comments.filter(approved=True).count()
         liked = False
         if restaurant.favourited.filter(id=self.request.user.id).exists():
@@ -157,10 +194,14 @@ class RestaurantDetail(View):
             comment = comment_form.save(commit=False)
             comment.restaurant = restaurant
             comment.save()
+            email_subject = ('Comment from: ' + comment_form.instance.name +
+                             ' - Foodie Favourites')
+            email_message = ('A comment on "' + str(restaurant) +
+                             ' "has been submitted and needs approval.')
 
             send_mail(
-                'Comment from: ' + comment_form.instance.name + ' - Foodie Favourites',
-                'A comment on "' + str(restaurant) + ' "has been submitted and needs approval.',
+                email_subject,
+                email_message,
                 EMAIL_HOST_USER,
                 [EMAIL_HOST_USER],
                 fail_silently=False,
@@ -185,6 +226,10 @@ class RestaurantDetail(View):
 
 
 class AddRestaurant(LoginRequiredMixin, CreateView):
+    """
+    Class based view used for adding restaurant objects via the
+    add restaurant form on add_restaurant.html
+    """
     model = Restaurant
     template_name = 'add_restaurant.html'
     form_class = AddRestaurantForm
@@ -202,17 +247,26 @@ class AddRestaurant(LoginRequiredMixin, CreateView):
                 name=dish
             ).save()
 
-        messages.add_message(self.request, messages.SUCCESS, f'"{self.object.name}" has been added.')
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            f'"{self.object.name}" has been added.')
 
         return super().form_valid(form)
 
 
 class EditRestaurant(LoginRequiredMixin, UpdateView):
+    """
+    Class based view used for editing restaurant objects via the
+    add restaurant form on add_restaurant.html
+    """
     model = Restaurant
     template_name = 'add_restaurant.html'
     form_class = AddRestaurantForm
 
-    # https://www.django-antipatterns.com/antipattern/checking-ownership-through-the-userpassestestmixin.html
+    # Idea for returning only current user related objects came from
+    # (https://www.django-antipatterns.com/antipattern/
+    # checking-ownership-through-the-userpassestestmixin.html)
     def get_queryset(self, *args, **kwargs):
         return super().get_queryset(*args, **kwargs).filter(
             author=self.request.user
@@ -242,29 +296,43 @@ class EditRestaurant(LoginRequiredMixin, UpdateView):
                 name=dish
             ).save()
 
-        messages.add_message(self.request, messages.SUCCESS, f'"{self.object.name}" has been updated.')
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            f'"{self.object.name}" has been updated.')
 
         return super().form_valid(form)
 
 
 class DeleteRestaurant(LoginRequiredMixin, DeleteView):
+    """
+    Class based view used for deleting restaurant objects
+    """
     model = Restaurant
     template_name = 'restaurant_confirm_delete.html'
     success_url = reverse_lazy('restaurants')
 
-    # https://www.django-antipatterns.com/antipattern/checking-ownership-through-the-userpassestestmixin.html
+    # Idea for returning only current user related objects came from
+    # (https://www.django-antipatterns.com/antipattern/
+    # checking-ownership-through-the-userpassestestmixin.html)
     def get_queryset(self, *args, **kwargs):
         return super().get_queryset(*args, **kwargs).filter(
-            author=self.request.user
-        )
+            author=self.request.user)
 
     def delete(self, request, *args, **kwargs):
-        messages.add_message(self.request, messages.SUCCESS, 'Restaurant has been deleted.')
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            'Restaurant has been deleted.')
         return super(DeleteRestaurant, self).delete(request, *args, **kwargs)
 
 
-class RestaurantLike(View):
-
+class RestaurantFavourite(View):
+    """
+    Class based view used for favouriting restaurant objects
+    """
+    # CREDIT - idea for restaurant favourite post method structure came from
+    # Code Institute's blog walkthrough project
     def post(self, request, slug, *args, **kwargs):
         restaurant = get_object_or_404(Restaurant, slug=slug)
         if restaurant.favourited.filter(id=request.user.id).exists():
