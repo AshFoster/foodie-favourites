@@ -8,7 +8,7 @@ from cloudinary.models import CloudinaryField
 class Profile(models.Model):
     """
     The Profile model is linked to the Django User model and is used to
-    allow the registered user's to have a profile which they can edit.
+    allow registered users to have a profile which they can edit.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, blank=True)
