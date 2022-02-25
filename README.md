@@ -2,7 +2,7 @@
 
 [Click here to view the live site.](https://foodie-favourites.herokuapp.com/)
 
-![Am I Responsive Image]()
+![Am I Responsive Image](assets/readme-images/am-i-responsive.JPG)
 
 ## Contents
 
@@ -37,7 +37,7 @@ Foodie Favourites is a free to use website where UK based food lovers - especial
 
 ### Strategy
 
-This website is aimed at people who would like to share their favourite restaurants with others, and/ or people who would like to discover some new restaurants. Therefore the age range aimed for is quite wide, essentially anyone who is able to enjoy a nice meal out.
+This website is aimed at people who would like to share their favourite restaurants with others, and/or people who would like to discover some new restaurants. Therefore the age range aimed for is quite wide, essentially anyone who is able to enjoy a nice meal out.
 
 In a very broad sense, there are 3 types of users the website will have: site admins, registered users and non-registered users. For this reason, the epics and user stories have been categorised in this way.
 
@@ -81,7 +81,7 @@ More detail about the user stories including acceptance criteria and tasks assoc
 
 All of the user stories outlined above are feasible for the first release of the website. Some further features that could be implemented later on include:
 
-- Allowing users to suggest their favourites dishes on other user's restaurant posts
+- Allowing users to suggest their favourite dishes on other user's restaurant posts
 - Adding an autocomplete feature to the location selection when adding a new restaurant
 - Giving the user the ability to explicitly request new cuisines (this can currently be done using the contact us page)
 
@@ -188,7 +188,7 @@ For the typography choices, [Google Fonts](https://fonts.google.com/?sort=popula
 
 The ones that stood out and seemed most suited to the project were chosen. They are as follows:
 
-Open Sans Condensed (italic) - This is used for the Foodie Favourites logo shown on the navbar.
+Roboto (italic) - This is used for the Foodie Favourites logo shown on the navbar.
 
 Oswald - This is used for all navbar links. 
 
