@@ -260,7 +260,8 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   ![Restaurants List](assets/readme-images/restaurant-list.JPG)
 
   - The restaurants list displays all of the current restaurant posts.
-  - It is paginated to show 3 restaurants per page, with buttons at the bottom which take the user to the next or previous page where necessary.
+  - It is paginated to show 3 restaurants per page, with pagination buttons for each page at the bottom which take the user to the relevant page when clicked.
+  - The pagination buttons are currently displayed nicely on all devices. Though, when the number of restaurant pages increase to more than 7 or 8 they will not display as nicely on smaller screens. This will need to be rectified when that happens. The number of restaurants per page could be increased, or the way in which the pagination is displayed could be changed. For now though, it's fine.
   - Each restaurant post shows the name, author, cuisine, location, number of times favourited, and the author's personal rating (from 1 to 5) of the restaurant. 
   - There is a search bar above the restaurant posts which allows the user to search for restaurants with titles that contains their search criteria.
   - If the user is logged in, there is an 'Add Restaurant' button above the Restaurants List section which takes the user to the add restaurant page.
@@ -392,7 +393,8 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - __As a Site User I can view a paginated list of restaurant posts so that I can easily select a post to view__
 
     - On the restaurant page and profile pages of users who have posted or favourtied restaurant posts, when there are more than 3 posts to be displayed they are split onto multiple pages to prevent there being too many on any one page.
-    - There are buttons below the posts which take the user to the next or prevous pages. If a next or previous page does not exist then the associated button is not displayed.
+    - There are buttons below the posts for each page of restaurants that take the user to the particular page that each one represents when clicked.
+    - If there are a lot of pages (above 7 or 8), on smaller screens the buttons will not display correctly and will extend over their parent element. This currenlty not a problem but will need to be rectifed when the number of pages increase significantly. The number of restaurants per page could be increased, or the way in which the pagination is displayed could be changed.
 
   - __As a Site User I can filter the available restaurant posts so that I can see posts which are more specified to my needs__
 
@@ -561,7 +563,6 @@ A desktop monitor was also used for testing with a couple of different resolutio
 Google Chrome was the browser used for the majority of testing during the development process, but once development had neared an end some other browsers were used for testing to make sure the site had cross-browser compatibility. The full list of browsers used for testing are as follows:
 
   - Chrome
-  - Internet Explorer 11
   - Edge
   - Firefox
 
