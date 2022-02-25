@@ -36,13 +36,18 @@ class ContactUs(FormView):
         name = self.request.POST.get('name')
         email = self.request.POST.get('email')
         message = self.request.POST.get('message')
+        email_subject = ('From ' + name +
+                         ': via Contact Us form - Foodie Favourites')
+        email_message = 'Reply to: ' + email + '\n\n' + message
 
         send_mail(
-            'From ' + name + ': via Contact Us form - Foodie Favourites',
-            message + email,
+            email_subject,
+            email_message,
             EMAIL_HOST_USER,
             [EMAIL_HOST_USER],
             fail_silently=False,
         )
-        messages.add_message(self.request, messages.SUCCESS, 'Your message has been sent successfully.')
+        messages.add_message(self.request,
+                             messages.SUCCESS,
+                             'Your message has been sent successfully.')
         return super().form_valid(form)
