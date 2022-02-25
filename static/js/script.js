@@ -1,5 +1,7 @@
 // Global Variables
 const params = new URLSearchParams(window.location.search);
+let cuisineListItems = document.querySelectorAll('.cuisine-item');
+let locationListItems = document.querySelectorAll('.location-item');
 let searchHiddenInput = document.querySelector('#search-restaurants');
 let searchInput = document.querySelector('#search-input');
 let filterForm = document.querySelector('#filter-form');
@@ -28,28 +30,17 @@ form is submitted.
 function setCuisineFilter() {
     let cuisineFilterURL = params.get('cuisine-filter');
     let cuisineHiddenInput = document.querySelector('#cuisine-filter');
-    let cuisineListItems = document.querySelectorAll('.cuisine-item');
 
     if (cuisineFilterURL != null) {
         cuisineHiddenInput.value = cuisineFilterURL;
     }
 
     for (let item of cuisineListItems) {
-        if (item.querySelector('.cuisine-name').textContent == cuisineFilterURL) {
-            item.classList.add('active');
-        } else if (item.querySelector('.cuisine-name').textContent == 'All' && cuisineHiddenInput.value == 'All') {
-            item.classList.add('active');
-        }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
             document.querySelector('#cuisine-filter').value = item.querySelector('.cuisine-name').textContent;
-            for (let other of cuisineListItems) {
-                if (other != item && other.classList.contains('active')) {
-                    other.classList.remove('active');
-                }
-            }
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
         });
@@ -66,28 +57,17 @@ form is submitted.
 function setLocationFilter() {
     let locationFilterURL = params.get('location-filter');
     let locationHiddenInput = document.querySelector('#location-filter');
-    let locationListItems = document.querySelectorAll('.location-item');
 
     if (locationFilterURL != null) {
         locationHiddenInput.value = locationFilterURL;
     }
 
     for (let item of locationListItems) {
-        if (item.querySelector('.location-name').textContent == locationFilterURL) {
-            item.classList.add('active');
-        } else if (item.querySelector('.location-name').textContent == 'All' && locationHiddenInput.value == 'All') {
-            item.classList.add('active');
-        }
         item.addEventListener('click', function () {
             if (!item.classList.contains('active')) {
                 item.classList.add('active');
             }
             document.querySelector('#location-filter').value = item.querySelector('.location-name').textContent;
-            for (let other of locationListItems) {
-                if (other != item && other.classList.contains('active')) {
-                    other.classList.remove('active');
-                }
-            }
             searchHiddenInput.value = searchInput.value;
             filterForm.submit();
         });
