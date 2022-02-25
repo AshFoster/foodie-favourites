@@ -124,7 +124,7 @@ class RestaurantList(generic.ListView):
         self.set_cuisine_and_location_context(restaurants)
 
         # Creates copy of GET and removes superfluous additonal 'page' that is
-        # added to the url when when using pagination and filters
+        # added to the url when using pagination and filters.
         # CREDIT = idea came from: (https://stackoverflow.com/questions/
         # 59972694/django-pagination-maintaining-filter-and-order-by)
         get_copy = self.request.GET.copy()
