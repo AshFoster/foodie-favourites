@@ -303,6 +303,7 @@ main {
 /* Navbar */
 .navbar-custom .navbar-brand {
     font-family: 'Roboto', sans-serif;
+    font-style: italic;
     color: var(--custom-color-white) !important;
     font-size: 1.1rem !important;
 }
