@@ -30,10 +30,12 @@
                                     class="link-custom me-sm-3">(Edit)</a>
                             </div>
                             {% endif %}
-                            <h4 class="card-title text-decoration-underline mt-3 mt-sm-0 mb-3 mx-sm-5">{{ restaurant.name }}</h4>
+                            <h4 class="card-title text-decoration-underline mt-3 mt-sm-0 mb-3 mx-sm-5">
+                                {{ restaurant.name }}</h4>
                             <p class="card-text">
                                 Added by
-                                <a href="{% url 'profile' restaurant.author_slug %}" class="link-custom">{{ restaurant.author }}</a>
+                                <a href="{% url 'profile' restaurant.author_slug %}"
+                                    class="link-custom">{{ restaurant.author }}</a>
                                 on {{ restaurant.created_on }}
                             </p>
                             <p class="card-text">Cuisine: {{ restaurant.list_cuisines }}</p>
@@ -60,16 +62,17 @@
                                 <span class="favourites-span my-2 ms-3 ms-sm-5">
                                     Times Favourited:
                                     {% if user.is_authenticated and user != restaurant.author %}
-                                    <form class="d-inline" action="{% url 'restaurant_favourited' restaurant.slug %}" method="POST">
+                                    <form class="d-inline" action="{% url 'restaurant_favourited' restaurant.slug %}"
+                                        method="POST">
                                         {% csrf_token %}
                                         {% if liked %}
 
-                                        <button type="submit" name="restaurantpost_id" value="{{restaurant.slug}}"
+                                        <button type="submit" aria-label="Button to unfavourite a post" name="restaurantpost_id" value="{{restaurant.slug}}"
                                             class="btn-favourite-custom"><i class="fas fa-heart"></i></button>
 
                                         {% else %}
 
-                                        <button type="submit" name="restaurantpost_id" value="{{restaurant.slug}}"
+                                        <button type="submit" aria-label="Button to favourite a post" name="restaurantpost_id" value="{{restaurant.slug}}"
                                             class="btn-favourite-custom"><i class="far fa-heart"></i></button>
 
                                         {% endif %}
@@ -103,7 +106,8 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="row g-0">
-                                    <div class="col-10 mx-auto py-2 px-4 bg-lighter-dark rounded-3 box-shadow-custom msg-animation">
+                                    <div
+                                        class="col-10 mx-auto py-2 px-4 bg-lighter-dark rounded-3 box-shadow-custom msg-animation">
                                         {% if commented %}
                                         <p class="my-auto">
                                             Your comment has been sent for approval.
@@ -114,7 +118,7 @@
                                             {% csrf_token %}
                                             {{ comment_form | crispy }}
                                             <button type="submit" id="comment-submit"
-                                                class="col-4 col-lg-3 col-xl-2 my-1 btn btn-light mt-2">Submit</button>
+                                                class="col-4 col-lg-3 col-xl-2 my-1 btn btn-light mt-2" aria-label="Submit comment form">Submit</button>
                                         </form>
                                         {% else %}
                                         <p class="my-auto">If you'd like to leave a comment, please
@@ -141,7 +145,8 @@
                         <div class="row g-0 my-3 my-md-2 mx-2 align-items-center bg-dark rounded-3">
                             <div class="col-md-4 p-2">
                                 <p class="m-0">
-                                    <a href="{% url 'profile' comment.name_slug %}" class="link-custom">{{ comment.name }}</a>
+                                    <a href="{% url 'profile' comment.name_slug %}"
+                                        class="link-custom">{{ comment.name }}</a>
                                     <br>
                                     on {{ comment.created_on }}
                                 </p>

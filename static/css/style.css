@@ -24,6 +24,10 @@ main {
     font-family: 'Lato', sans-serif;
 }
 
+a {
+    color: var(--custom-color-light);
+}
+
 /* Background images for all pages*/
 .bg-img {
     position: absolute;
@@ -239,7 +243,7 @@ main {
 }
 
 .btn-favourite-custom {
-    color: var(--custom-color-light);
+    color: var(--custom-color-white);
     border: none;
     background: transparent;
     padding: 0;
@@ -430,7 +434,7 @@ footer .vr {
 @media screen and (min-width: 470px) {
     .navbar-custom .navbar-brand {
         font-size: 2.5rem !important;
-    }    
+    }
 }
 
 /* For very small screen sizes with maximum height of 576px - Bootstrap xs */

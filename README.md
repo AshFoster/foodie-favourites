@@ -512,33 +512,26 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
 - __HTML__
 
-  - [W3C Markup Validation Service.](https://validator.w3.org/)
+  - No errors or warnings were shown when put through the [W3C Markup Validation Service.](https://validator.w3.org/)
 
 - __CSS__
 
-  - [W3C CSS Validation Service - Jigsaw.](https://jigsaw.w3.org/css-validator/)
+  - No errors were found when put through the [W3C CSS Validation Service - Jigsaw.](https://jigsaw.w3.org/css-validator/)
 
 - __JavaScript__
 
-  -  [JSHint.](https://jshint.com/)
+  - No errors were found when put through the [JSHint.](https://jshint.com/), though there was a warning.
+  - Warning:
+       "Functions declared within loops referencing an outer scoped variable may lead to confusing semantics."
+    This is referring to the for loop that adds event listeners to the cuisine and location list items on restaurants.html. This should not cause any issues because it is only run once - when the DOM has finished loading - and it simply adds functions to the list items 'click' events. Everything is working as expected.
 
 - __Python__
 
-  - [PEP8 linter](http://pep8online.com/)
+  - All python files have been put though the [PEP8 linter](http://pep8online.com/). Any issues that were found due to long lines, trailing whitespace etc. have been rectified and no errors are now showing.
 
 ### Performance Testing
 
-I audited the website for mobile and desktop using Google Chrome's lighthouse feature. All scores were high. It might only be examing the landing page and not the in-game page.
-
-The final lighthouse scores are as follows:
-
-  - Mobile
-
-  ![Mobile Lighthouse]()
-
-  - Desktop
-
-  ![Desktop Lighthouse]()
+The website was audited for mobile and desktop using Google Chrome's lighthouse feature. Most scores were high, above 90% for all categories. There were a few exceptions though. On the mobile device audit the restaurants page, profile page, sign in page and register page all scored below 90% on the performace test, with the restaurants page scoring only 75%. They did, however, all score higher than 90% on the other 3 test areas.
 
 [WAVE Evaluation Tool](https://wave.webaim.org/)
 

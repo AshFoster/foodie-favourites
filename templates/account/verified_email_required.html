@@ -4,8 +4,11 @@
 <div class="bg-img bg-img-password-reset"></div>
 {% endblock %}
 
+{% block heading %}
+Verify Your E-mail Address
+{% endblock %}
+
 {% block section_content %}
-<h1>Verify Your E-mail Address</h1>
 
 {% url 'account_email' as email_url %}
 
