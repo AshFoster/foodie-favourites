@@ -533,11 +533,11 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
 The website was audited for mobile and desktop using Google Chrome's lighthouse feature. Most scores were high, above 90% for all categories. There were a few exceptions though. On the mobile device audit the restaurants page, profile page, sign in page and register page all scored below 90% on the performace test, with the restaurants page scoring only 75%. They did, however, all score higher than 90% on the other 3 test areas.
 
-[WAVE Evaluation Tool](https://wave.webaim.org/)
+[WAVE Evaluation Tool](https://wave.webaim.org/) was used to test the accessability accross all the pages of the site. There were a few aria labels mising and some contrast issues, but all of those have now been rectified and it all looks good. 
 
 ### Device and Browser Compatibility Testing
 
-To test the site's compatibility across a range of devices I used [Responsinator](https://www.responsinator.com/) and went through all of the user and owner goals on each device it includes in both portrait and landscape modes. The devices included are as follows:
+To test the site's compatibility across a range of devices [Responsinator](https://www.responsinator.com/) was used, going through all of the user stories on each device it includes in both portrait and landscape modes. The devices included are as follows:
 
   - iPhone X
   - Pixel 2
