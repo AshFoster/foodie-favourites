@@ -22,6 +22,7 @@
     <div class="row justify-content-evenly mx-auto">
         <div class="d-none d-xl-block col-xl-3 mb-5 py-4 bg-dark rounded-3 box-shadow-custom h-100">
             {% include "filters.html" %}
+            <!-- Form used for Cuisine and Location filters -->
             <form id="filter-form" action="{% url 'restaurants' %}" method="get">
                 <input type="hidden" name="cuisine-filter" id="cuisine-filter" value="All">
                 <input type="hidden" name="location-filter" id="location-filter" value="All">
@@ -137,11 +138,11 @@
     </div>
 </div>
 
-<div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filter-modal-label" aria-hidden="true">
+<div class="modal fade" id="filtersModal" tabindex="-1" aria-label="Filters modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content mb-5 py-4 bg-dark rounded-3">
             <button type="button" class="bg-lighter-dark-custom text-white fw-bold close-model-button"
-                data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                data-bs-dismiss="modal" aria-label="Close modal">&times;</button>
             {% include "filters.html" %}
         </div>
     </div>
