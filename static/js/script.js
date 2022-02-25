@@ -185,7 +185,7 @@ function updateDishesString() {
     let dishesString = document.querySelector('#dishes-string');
 
     if (dishesString != null) {
-        document.querySelector('#dishes-string').value = dishes.join(',');
+        dishesString.value = dishes.join(',');
     }
 }
 
@@ -218,7 +218,7 @@ Set Profile Toggle adds an event listener to the 'profile toggle button' on prof
 which updates the value of the profile related hidden input element and submits the profile 
 toggle form.
 */
-function SetProfileToggle() {
+function setProfileToggle() {
     let profileToggleBtn = document.querySelector('#btn-posts-favourites-toggle');
 
     if (profileToggleBtn != null) {
@@ -252,5 +252,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setAddDish();
 
-    SetProfileToggle();
+    setProfileToggle();
 });
