@@ -265,6 +265,8 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - Each restaurant post shows the name, author, cuisine, location, number of times favourited, and the author's rating (from 1 to 5) of the restaurant. 
   - There is a search bar above the restaurant posts which allows the user to search for restaurants with titles that contain their search criteria.
   - If the user is logged in, there is an 'Add Restaurant' button above the Restaurants List section which takes the user to the add restaurant page.
+  - If the user is signed in and has favourited a restaurant then the little heart icon will be filled in rather than outlined.
+  - The user can click on the image or the title to be taken to the detail page of that restaurant.
 
 - __Filters__
 
@@ -305,7 +307,7 @@ Each of them is of the font category Sans Serif which is the font used as a fall
   - There is also a 'Comments' section that allows signed-in users to comment on the post. Comments will need admin approval before being posted so when a user posts a comment an email is sent to the admin. The user is shown a message making them aware of this.
   - Signed in users can also click on the little heart icon next to times favourited to favourite it themselves. Before they have favourited it the icon is the outline of a heart, but once they have favourited it the heart is filled in. They can also unfavourite posts, reverting the heart icon to only an outline.
   - Users cannot favourite their own posts.
-  - When users are viewing their own posts, an 'edit' link is displayed near the top of the general information area. This takes them to the edit restaurant page where they can make changes to the post. 
+  - When users are viewing their own posts, an 'edit' link is displayed near the top of the general information area. This takes them to the edit restaurant page where they can make changes to the post.
 
 - __Add Restaurant__
 
