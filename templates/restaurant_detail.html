@@ -24,7 +24,7 @@
                         {% endif %}
                     </div>
                     <div class="col-md-8 d-flex align-items-center">
-                        <div class="card-body h-100 position-relative">
+                        <div class="card-body h-100 position-relative text-break">
                             {% if user == restaurant.author %}
                             <div class="mt-3 mb-0 edit-link-add">
                                 <a href="{% url 'edit_restaurant' restaurant.slug %}"
