@@ -84,7 +84,11 @@
                                     <p class="card-text">Location: {{ restaurant.county }}</p>
                                     <div class="d-flex justify-content-between mt-3 mb-0 favourties-rating">
                                         <span class="favourites-span ms-3 ms-sm-5">
+                                            {% if user in restaurant.favourited.all %}
+                                            <i class="fas fa-heart"></i>
+                                            {% else %}
                                             <i class="far fa-heart"></i>
+                                            {% endif %}
                                             {{ restaurant.number_of_favourites }}
                                         </span>
                                         <span class="rating-span me-3 me-sm-5">
