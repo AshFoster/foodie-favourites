@@ -16,7 +16,7 @@ Edit Restaurant
 {% endblock %}
 
 {% block left %}
-
+<!-- Add restaurant main form -->
 {% if request.get_full_path == '/restaurants/add/' %}
 <form class="add-restaurant-form" action="{% url 'add_restaurant' %}" method="post" enctype="multipart/form-data">
     {% else %}
@@ -28,6 +28,7 @@ Edit Restaurant
         {% endblock %}
 
         {% block right %}
+        <!-- Dishes section -->
         <h4 class="text-center">Favourite Dishes</h4>
 
         <label for="dishes-input">Add dishes*</label>

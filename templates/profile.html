@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block left %}
+<!-- Profile info -->
 <h4 class="text-center">Profile Info</h4>
 {% if user.username == profile.slug %}
 <div class="edit-link-profile">
@@ -64,6 +65,7 @@
     </div>
 </div>
 
+<!-- Update email and password buttons -->
 <div class="row">
     <div class="col-12 px-0 px-md-2">
         <hr class="d-none d-md-block hr-custom m-0">
@@ -81,6 +83,7 @@
 {% endblock %}
 
 {% block right %}
+<!-- Restaurant posted and favourited section -->
 {% if current_list == 'posts' %}
 <h4 class="text-center">Restaurants Posted</h4>
 {% else %}
@@ -130,6 +133,8 @@
 {% empty %}
 <h5 class="my-4 text-center text-light-custom">No restaurants to show.</h5>
 {% endfor %}
+
+<!-- Pagination -->
 {% if page_obj.has_other_pages %}
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center my-2">
