@@ -516,7 +516,7 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 
 - __HTML__
 
-  - No errors or warnings were shown when put through the [W3C Markup Validation Service.](https://validator.w3.org/)
+  - Originally, a few errors were showing up when the site was put through the [W3C Markup Validation Service.](https://validator.w3.org/), but they have all since been rectified and now no errors are showing on any of the pages.
 
 - __CSS__
 
@@ -525,8 +525,7 @@ Each of them is of the font category Sans Serif which is the font used as a fall
 - __JavaScript__
 
   - No errors were found when put through the [JSHint.](https://jshint.com/), though there was a warning.
-  - Warning:
-       "Functions declared within loops referencing an outer scoped variable may lead to confusing semantics."
+  - __Warning__: "Functions declared within loops referencing an outer scoped variable may lead to confusing semantics."
     This is referring to the for loop that adds event listeners to the cuisine and location list items on restaurants.html. This should not cause any issues because it is only run once - when the DOM has finished loading - and it simply adds functions to the list items 'click' events. Everything is working as expected.
 
 - __Python__
@@ -670,7 +669,7 @@ To clone the GitHub repository follow these steps:
 - [Font Awesome](https://fontawesome.com/) - for the icons used throughout the site.
 - [Colormind](http://colormind.io/) - used to obtain colour palette images.
 - [SendGrid](https://sendgrid.com/) - used to send emails when required.
-- [Lucid](https://lucid.co/) - used to create site map and entity relationship diagrams. 
+- [Lucidchart](https://www.lucidchart.com/) - used to create site map and entity relationship diagrams. 
 
 ## Credits
 
